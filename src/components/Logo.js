@@ -9,7 +9,7 @@ export default function Logo() {
     <RouterLink to="/">
       <Box 
         component="img" 
-        src="/static/images/the-university-of-melbourne-logo-png-transparent.png" 
+        src="/static/icons/avatar.jpeg" 
         sx={{
           height: 150,
           width: 150

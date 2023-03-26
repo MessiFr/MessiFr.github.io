@@ -17,13 +17,13 @@ export default function Router() {
   return useRoutes([
 
     {
-      path: '/COMP90024_Group21',
+      path: '/',
       element: <DashboardLayout />,
       children: [
         { path: 'dashboard', element: <DashboardApp /> },
         { path: 'collaborator', element: <Collaborator /> },
         { path: 'map', element: <Map /> },
-        { path: 'projectLinks', element: <ProjectLink /> }
+        { path: 'contacts', element: <ProjectLink /> }
       ]
     },
     {
@@ -38,7 +38,7 @@ export default function Router() {
       path: '/',
       element: <DashboardLayout />,
       children: [
-        { path: '/', element: <Navigate to="/COMP90024_Group21/dashboard" /> },
+        { path: '/', element: <Navigate to="/contacts" /> },
         { path: '404', element: <NotFound /> },
       ]
     },

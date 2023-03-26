@@ -6,6 +6,7 @@ import { Box, Grid, Card, Paper, Typography, CardContent, Button } from '@mui/ma
 // component
 import Iconify from '../../../components/Iconify';
 import { Icon } from '@iconify/react';
+// import { SocialIcon } from 'react-social-icons';
 
 
 // ----------------------------------------------------------------------
@@ -22,7 +23,7 @@ const SOCIALS = [
     icon: <Icon icon="skill-icons:instagram" width={50} height={50}/>
   },
   {
-    name: 'LinkIn',
+    name: 'LinkedIn',
     value: faker.datatype.number(),
     icon: <Icon icon="icon-park:instagram-one" width={50} height={50} />
   },
@@ -30,16 +31,6 @@ const SOCIALS = [
     name: 'WeChat',
     value: faker.datatype.number(),
     icon: <Icon icon="ph:wechat-logo-fill" color="#09b83e" width={50} height={50}/>
-  },
-  {
-    name: 'Ansible',
-    value: faker.datatype.number(),
-    icon: <Iconify icon="cib:ansible" color="#DF3E30" width={40} height={40} />
-  },
-  {
-    name: 'Python',
-    value: faker.datatype.number(),
-    icon: <Iconify icon="logos:python" width={40} height={40} />
   },
 ];
 
@@ -61,14 +52,10 @@ function SiteItem({ site }) {
       w.location.href="https://github.com/MessiFr";
     } else if (name === 'Instagram'){
       w.location.href="https://www.instagram.com/yuhengfan/";
-    } else if (name === 'LinkIn'){
+    } else if (name === 'LinkedIn'){
       w.location.href="https://www.linkedin.com/in/yuheng-fan-b915917b/";
     } else if (name === 'WeChat'){
       w.location.href="https://couchdb.apache.org/";
-    } else if (name === 'Ansible'){
-      w.location.href="https://www.ansible.com/";
-    } else if (name === 'Python'){
-      w.location.href="https://github.com/MessiFr/COMP90024_Assignment2_team21/tree/backend";
     } 
   }
 

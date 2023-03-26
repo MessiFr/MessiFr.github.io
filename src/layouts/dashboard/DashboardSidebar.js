@@ -7,7 +7,8 @@ import { Box, Drawer, Stack } from '@mui/material';
 // hooks
 import useResponsive from '../../hooks/useResponsive';
 // components
-import Logo from '../../components/Logo';
+// import Logo from '../../components/Logo';
+import Profile from 'src/components/Profile';
 import Scrollbar from '../../components/Scrollbar';
 import NavSection from '../../components/NavSection';
 //
@@ -15,7 +16,7 @@ import sidebarConfig from './SidebarConfig';
 
 // ----------------------------------------------------------------------
 
-const DRAWER_WIDTH = 220;
+const DRAWER_WIDTH = 400;
 
 const RootStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('lg')]: {
@@ -51,7 +52,8 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       }}
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
-        <Logo />
+        {/* <Logo /> */}
+        <Profile />
       </Box>
 
       <NavSection navConfig={sidebarConfig} />

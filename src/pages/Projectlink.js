@@ -4,11 +4,11 @@ import { AppTrafficBySite } from "src/sections/@dashboard/app";
 
 export default function ProjectLink() {
     return (
-      <Page title="ProjectLink | COMP90024-Group 21">
+      <Page title="Contacts">
         
         <Container maxWidth='xl'>
           <Box sx={{ pb: 5 }}>
-            <Typography variant="h4"> Project Links </Typography>
+            <Typography variant="h4"> Contacts </Typography>
           </Box>
           <Grid item xs={12} md={6} lg={12}>
               <AppTrafficBySite />
