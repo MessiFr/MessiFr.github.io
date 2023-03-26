@@ -1,0 +1,20 @@
+{
+  "short_name": "Group21",
+  "name": "COMP90024-Group21",
+  "icons": [
+    {
+      "src": "static/images/the-university-of-melbourne-logo-png-transparent.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "static/the-university-of-melbourne-logo-png-transparent.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
