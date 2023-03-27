@@ -47,14 +47,7 @@ function DefaultFooter() {
             >
               Invision
             </a>
-            . Code by Yuheng Fan. Template from{" "}
-            <a
-              href="https://www.creative-tim.com?ref=nukr-default-footer"
-              target="_blank"
-            >
-              Creative Tim
-            </a>
-            .
+            , Yuheng Fan.
           </div>
         </Container>
       </footer>

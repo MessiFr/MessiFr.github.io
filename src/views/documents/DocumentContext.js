@@ -1,24 +1,28 @@
-import { Viewer } from '@react-pdf-viewer/core';
-import { Box } from '@mui/system';
-import { Worker } from '@react-pdf-viewer/core';
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import fileInfo from "./doc";
+import { Container } from "reactstrap";
 
+export default function DocumentContext(props)  {
+  const [content, setContent] = useState("");
 
-export default function DocumentContext() {
-    return (
-        <>
-        <Box sx={{ height: 600, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}>
-            <div
-                style={{
-                    border: '1px solid rgba(0, 0, 0, 0.3)',
-                    height: '750px',
-                }}
-            >
-            <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-                <Viewer fileUrl="../ccc.pdf" options={{workerSrc: "pdf.worker.js"}}/>
-            </Worker>                
-            </div>
-        </Box>
-            
-        </>
-    )
-}
+  useEffect(() => {
+    
+    const path = `/docs/${fileInfo[props.id][0]}`; // "./docs/notes/nlp/assignment_1"
+    console.log(path)
+
+    fetch(path)
+      .then((res) => res.text())
+      .then((text) => setContent(text));
+  }, [props.id]);
+
+  return (
+    <Container>
+    <h3 className="title" style={{ textAlign: 'center' }}>{fileInfo[props.id][1]}</h3>
+    <div className="post">
+      <ReactMarkdown children={content} />
+    </div>
+    </Container>
+    
+  );
+};

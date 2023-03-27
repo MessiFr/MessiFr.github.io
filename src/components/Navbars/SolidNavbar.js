@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Typography from '@mui/material/Typography';
-import { withStyles } from "@material-ui/core/styles";
+// import Typography from '@mui/material/Typography';
+// import { withStyles } from "@material-ui/core/styles";
 // import qrcode from 'qrcode';
 // reactstrap components
 import {
@@ -23,11 +23,11 @@ import {
 function SolidNavbar(props) {
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   
-  const WhiteTextTypography = withStyles({
-    root: {
-      color: "#FFFFFF"
-    }
-  })(Typography);
+  // const WhiteTextTypography = withStyles({
+  //   root: {
+  //     color: "#FFFFFF"
+  //   }
+  // })(Typography);
 
   const history = useHistory();
 
@@ -49,6 +49,9 @@ function SolidNavbar(props) {
 
   return (
     <>
+      <style>
+        {`@import url('https://fonts.cdnfonts.com/css/midpoint-pro');`}
+      </style>
       {collapseOpen ? (
         <div
           id="bodyClick"
@@ -96,24 +99,8 @@ function SolidNavbar(props) {
                 Contacts
               </DropdownItem>
             </DropdownMenu>
-          </UncontrolledDropdown>
-            <button
-              className="navbar-toggler navbar-toggler"
-              onClick={() => {
-                document.documentElement.classList.toggle("nav-open");
-                setCollapseOpen(!collapseOpen);
-              }}
-              aria-expanded={collapseOpen}
-              type="button"
-            >
-              <span className="navbar-toggler-bar top-bar"></span>
-              <span className="navbar-toggler-bar middle-bar"></span>
-              <span className="navbar-toggler-bar bottom-bar"></span>
-            </button>
+          </UncontrolledDropdown>   
           </div>
-          <WhiteTextTypography variant="h6">
-            {props.label}
-          </WhiteTextTypography>
           
           <Collapse
             className="justify-content-end"

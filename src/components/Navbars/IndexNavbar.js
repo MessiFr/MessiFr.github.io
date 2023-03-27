@@ -18,7 +18,7 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
-function IndexNavbar() {
+function IndexNavbar(props) {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
@@ -70,9 +70,10 @@ function IndexNavbar() {
           }}
         />
       ) : null}
-      <Navbar className={"fixed-top " + navbarColor} expand="lg" color="black">
+      <Navbar className={"fixed-top " + navbarColor} expand="lg" >
         <Container>
           <div className="navbar-translate">
+          
           <UncontrolledDropdown className="button-dropdown">
             <DropdownToggle
               caret

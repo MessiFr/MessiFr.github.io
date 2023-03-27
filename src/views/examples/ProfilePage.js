@@ -35,7 +35,7 @@ function ProfilePage() {
   }, []);
   return (
     <>
-      <IndexNavbar />
+      <IndexNavbar label="Profile"/>
       <div className="wrapper">
         <ProfilePageHeader />
         <div className="section">

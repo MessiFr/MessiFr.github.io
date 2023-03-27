@@ -1,22 +1,11 @@
-import { Link } from 'react-router-dom';
+const fileInfo = {
+  0: ['homepage.md', 'Welcome'],
+  104: ['notes/nlp/assignment_1.md', 'Assignment 1 (NLP)'],
+  105: ['notes/ccc/slides_1.md', 'Slide 1'],
+  106: ['notes/ccc/test.md', 'Test']
 
-const documents = [
-  { id: 1, title: 'Document 1', content: 'This is the content of Document 1.' },
-  { id: 2, title: 'Document 2', content: 'This is the content of Document 2.' },
-  { id: 3, title: 'Document 3', content: 'This is the content of Document 3.' },
-];
+};
 
-function DocumentList() {
-  return (
-    <div>
-      <h2>Documents</h2>
-      <ul>
-        {documents.map((document) => (
-          <li key={document.id}>
-            <Link to={`/documents/${document.id}`}>{document.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+
+export default fileInfo;
+
