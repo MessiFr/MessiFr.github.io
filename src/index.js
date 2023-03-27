@@ -16,7 +16,7 @@
 
 */
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom/";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 // styles for this kit
@@ -26,21 +26,21 @@ import "assets/demo/demo.css?v=1.5.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 // pages for this kit
 import Index from "views/Index.js";
-import NucleoIcons from "views/NucleoIcons.js";
+import DocumentPage from "views/examples/DocumentPage";
 import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(
+ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Switch>
         <Route path="/index" render={(props) => <Index {...props} />} />
         <Route
-          path="/nucleo-icons"
-          render={(props) => <NucleoIcons {...props} />}
+          path="/documents"
+          render={(props) => <DocumentPage {...props} />}
         />
         <Route
           path="/landing-page"
@@ -58,5 +58,6 @@ root.render(
         <Redirect from="/" to="/index" />
       </Switch>
     </Switch>
-  </BrowserRouter>
+  </BrowserRouter>,
+  document.getElementById('root')
 );
