@@ -53,6 +53,12 @@ function IndexNavbar() {
     history.push('/index');
   };
 
+
+  const handleDocumentPageClick = (e) => {
+    e.preventDefault();
+    history.push('/documents');
+  };
+
   return (
     <>
       {collapseOpen ? (
@@ -84,10 +90,10 @@ function IndexNavbar() {
               {/* <DropdownItem header tag="a">
                 Dropdown header
               </DropdownItem> */}
-              <DropdownItem href="#pablo" onClick={handleHomePageClick}>
+              <DropdownItem href="/" onClick={handleHomePageClick}>
                 HomePage
               </DropdownItem>
-              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
+              <DropdownItem href="/documents" onClick={handleDocumentPageClick}>
                 Documents
               </DropdownItem>
               <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
@@ -98,7 +104,7 @@ function IndexNavbar() {
                 About me
               </DropdownItem>
               <DropdownItem divider></DropdownItem>
-              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
+              <DropdownItem href="/profile-page" onClick={handleProfileClick}>
                 Contacts
               </DropdownItem>
             </DropdownMenu>
@@ -218,12 +224,12 @@ function IndexNavbar() {
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="https://www.linkedin.com/in/yuheng-fan-b915917b/"
+                  // href="https://www.linkedin.com/in/yuheng-fan-b915917b/"
                   target="_blank"
                   id="Wechat-tooltip"
                 >
                   <i className="fab fa-weixin"></i>
-                  <p className="d-lg-none d-xl-none">LinkedIn</p>
+                  <p className="d-lg-none d-xl-none">WeChat</p>
                 </NavLink>
                 <UncontrolledTooltip target="#Wechat-tooltip">
                   <img src={require("assets/img/qrcode.jpeg")} alt="QR code" style={{ width: '200px', height: '200px' }} />
