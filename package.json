@@ -1,6 +1,6 @@
 {
-  "name": "now-ui-kit-react",
-  "homepage": "https://MessiFr.github.io/MessiFr.github.io",
+  "name": "MessiFr.github.io",
+  "homepage": ".",
   "version": "1.5.1",
   "private": true,
   "dependencies": {

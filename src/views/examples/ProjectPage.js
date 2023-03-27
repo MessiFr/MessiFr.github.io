@@ -95,15 +95,9 @@ function ProfilePage() {
               </UncontrolledTooltip>
             </div>
             <h3 className="title">About me</h3>
-            <h6 className="description">
+            <h5 className="description">
               A student in The University of Melbourne, majoring Data Science.
-            </h6>
-            <h3 className='title'>Contacts</h3>
-            <h5 className="category">Uni Email: yuhengf@student.unimelb.edu.au</h5>
-            <h5 className="category">Personal Email: 15757470420@163.com</h5>
-            <h5 className="category">Phone Number(+86): 15757470420</h5>
-            <h5 className="category">Phone Number(+61): 0478598250</h5>
-            {/* <h5 className="category">Email: yuhengf@student.unimelb.edu.au</h5> */}
+            </h5>
             {/* <Row>
               <Col className="ml-auto mr-auto" md="6">
                 <h4 className="title text-center">My Portfolio</h4>

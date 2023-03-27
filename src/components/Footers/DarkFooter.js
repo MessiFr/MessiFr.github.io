@@ -8,7 +8,7 @@ function DarkFooter() {
   return (
     <footer className="footer" data-background-color="black">
       <Container>
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <a
@@ -35,7 +35,7 @@ function DarkFooter() {
               </a>
             </li>
           </ul>
-        </nav>
+        </nav> */}
         <div className="copyright" id="copyright">
           © {new Date().getFullYear()}, Designed by{" "}
           <a
@@ -44,7 +44,7 @@ function DarkFooter() {
           >
             Invision
           </a>
-          . Coded by{" "}
+          . Code by Yuheng Fan. Template from{" "}
           <a
             href="https://www.creative-tim.com?ref=nukr-dark-footer"
             target="_blank"
