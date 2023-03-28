@@ -90,7 +90,7 @@ function DocumentPage() {
 
   const handleExpandClick = () => {
     setExpanded((oldExpanded) =>
-      oldExpanded.length === 0 ? ['100', '200', '1', '101', '102'] : [],
+      oldExpanded.length === 0 ? ['100', '200', '1', '106', '102', '900'] : [],
     );
   };
 
@@ -111,8 +111,8 @@ function DocumentPage() {
                   <Button onClick={handleExpandClick} size='small'>
                     {expanded.length === 0 ? 'Expand all' : 'Collapse all'}
                   </Button>
-                  
                 </Box>
+
                 <TreeView
                   aria-label="controlled"
                   defaultCollapseIcon={<ExpandMoreIcon />}
@@ -125,13 +125,19 @@ function DocumentPage() {
                 >
                   <TreeItem nodeId="100" label={<IndexFont label="1. Notes" />}>
                     <TreeItem nodeId="101" label={<IndexFont label="1.1 NLP" />} > 
-                      <TreeItem nodeId="104" label={<IndexFont label="1.1.1 Assignment 1" />} onClick={(event) => handleClick(event, 104)} />
+                      {/* <TreeItem nodeId="104" label={<IndexFont label="1.1.1 Assignment 1" />} onClick={(event) => handleClick(event, 104)} /> */}
                     </TreeItem>
-                    <TreeItem nodeId="102" label={<IndexFont label="1.2 Cluster Cloud Computing" />} >
-                      <TreeItem nodeId="105" label={<IndexFont label="1.2.1 Slides 1" />} onClick={(event) => handleClick(event, 105)} />
-                      <TreeItem nodeId="106" label={<IndexFont label="1.2.2 test" />} onClick={(event) => handleClick(event, 106)} />
+                    <TreeItem nodeId="106" label={<IndexFont label="1.2 Machine Learning" />} > 
+                      <TreeItem nodeId="107" label={<IndexFont label="1.2.1 Linear Regression" />} onClick={(event) => handleClick(event, 107)} />
+                      <TreeItem nodeId="108" label={<IndexFont label="1.2.2 Bayes Inference" />} onClick={(event) => handleClick(event, 108)} />
+                      <TreeItem nodeId="109" label={<IndexFont label="1.2.3 Gradient Based Training" />} onClick={(event) => handleClick(event, 109)} />
+                      <TreeItem nodeId="110" label={<IndexFont label="1.2.4 SVM" />} onClick={(event) => handleClick(event, 110)} />
+                      <TreeItem nodeId="111" label={<IndexFont label="1.2.5 Pytorch" />} onClick={(event) => handleClick(event, 111)} />
+
                     </TreeItem>
-                    <TreeItem nodeId="103" label={<IndexFont label="1.3 Machine Learning" />} />
+                    <TreeItem nodeId="102" label={<IndexFont label="1.3 Cluster Cloud Computing" />} >
+                      <TreeItem nodeId="105" label={<IndexFont label="1.3.1 Slides 1" />} onClick={(event) => handleClick(event, 105)} />
+                    </TreeItem>
                   </TreeItem>
                   <TreeItem nodeId="200" label={<IndexFont label="2. Programs" />}>
                     <TreeItem nodeId="201" label={<IndexFont label="2.1 Cluster Cloud Computing" />} />
@@ -141,7 +147,11 @@ function DocumentPage() {
                   <TreeItem nodeId="1" label={<IndexFont label="3. Resume" />}>
                     <TreeItem nodeId='2' label={<IndexFont label="3.1 Resume(zh)" />}/>
                     <TreeItem nodeId='3' label={<IndexFont label="3.2 Resume(en)" />}/>
+                  </TreeItem>   
+                  <TreeItem nodeId="900" label={<IndexFont label="4. Development"/>}>
+                    <TreeItem nodeId="901" label={<IndexFont label=" -test-" />} onClick={(event) => handleClick(event, 901)} />
                   </TreeItem>
+                   
                 </TreeView>
               </Box>
               

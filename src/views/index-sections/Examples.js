@@ -8,34 +8,34 @@ import { Button, Container, Row } from "reactstrap";
 function Examples() {
   return (
     <>
-      <div className="section section-examples" data-background-color="black">
-        <div className="space-50"></div>
+      <div className="section section-images" data-background-color="black" >
+        {/* <div className="space-50"></div> */}
         <Container className="text-center">
           <Row>
             <div className="col">
-              <a href="examples/landing-page.html" target="_blank">
+              <a href="/documents" target="_blank">
                 <img
                   alt="..."
                   className="img-raised"
-                  src={require("assets/img/landing.jpg")}
+                  src={require("assets/img/doc-page.png")}
                 ></img>
               </a>
               <Button
                 className="btn-round"
                 color="default"
-                to="/landing-page"
+                to="/documents"
                 outline
                 tag={Link}
               >
-                View Landing Page
+                View Documents
               </Button>
             </div>
             <div className="col">
-              <a href="examples/profile-page.html" target="_blank">
+              <a href="/profile-page" target="_blank">
                 <img
                   alt="..."
                   className="img-raised"
-                  src={require("assets/img/profile.jpg")}
+                  src={require("assets/img/prof-page.png")}
                 ></img>
               </a>
               <Button
@@ -45,7 +45,7 @@ function Examples() {
                 outline
                 tag={Link}
               >
-                View Profile Page
+                View Profile
               </Button>
             </div>
           </Row>

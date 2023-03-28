@@ -30,6 +30,7 @@ import DocumentPage from "views/examples/DocumentPage";
 import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
+import Demo from "views/test";
 
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -53,6 +54,10 @@ ReactDOM.render(
         <Route
           path="/login-page"
           render={(props) => <LoginPage {...props} />}
+        />
+        <Route
+          path="/test"
+          render={(props) => <Demo {...props} />}
         />
         <Redirect to="/index" />
         <Redirect from="/" to="/index" />
