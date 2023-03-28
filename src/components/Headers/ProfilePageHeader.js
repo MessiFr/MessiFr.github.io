@@ -30,7 +30,7 @@ function ProfilePageHeader() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/profile_background.png") + ")"
+            backgroundImage: "url(" + require("assets/img/profile_background.jpeg") + ")"
           }}
           ref={pageHeader}
         ></div>

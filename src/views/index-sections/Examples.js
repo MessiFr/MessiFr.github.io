@@ -17,7 +17,7 @@ function Examples() {
                 <img
                   alt="..."
                   className="img-raised"
-                  src={require("assets/img/doc-page.png")}
+                  src={require("assets/img/doc-page.jpeg")}
                   to='/documents'
                 ></img>
               
@@ -36,7 +36,7 @@ function Examples() {
                 <img
                   alt="..."
                   className="img-raised"
-                  src={require("assets/img/prof-page.png")}
+                  src={require("assets/img/prof-page.jpeg")}
                   to='/profile-page'
                 ></img>
                 

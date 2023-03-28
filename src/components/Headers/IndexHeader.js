@@ -31,7 +31,7 @@ function IndexHeader() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/background1.png") + ")"
+            backgroundImage: "url(" + require("assets/img/background1.jpeg") + ")"
           }}
           ref={pageHeader}
         ></div>
@@ -43,11 +43,7 @@ function IndexHeader() {
               className="n-logo"
               src={require("assets/img/avatarnew.png")}
             ></img>
-            {/* <Avatar
-              alt="Yuheng Fan"
-              src={require("assets/img/avatar.png")}
-              className={classes.avatar}
-            /> */}
+            
             <h1 className="h1-seo">Welcome to YUHENG FAN blog</h1>
             <h3>This is my personal blog to share my study notes, interests, music, movies, games, etc </h3>
           </div>
