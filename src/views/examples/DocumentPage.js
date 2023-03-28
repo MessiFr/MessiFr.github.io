@@ -87,6 +87,13 @@ function DocumentPage() {
     }
   };
 
+
+  const handleClickHomePage = (event) => {
+    
+    history.push(`/documents/`);
+    setCurr({id: '0', path: 'docs/homepage.md'});
+  };
+
   // function renderTree(data) {
     
   //   return data.map((item) => (
@@ -145,7 +152,7 @@ function DocumentPage() {
 
               {/* 目录 */}
               <Box sx={{ height: 600, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}>
-                <h3 className="title" style={{ textAlign: 'left' }} onClick={(event) => handleClickId(event, 0)}>Documents</h3>
+                <h3 className="title" style={{ textAlign: 'left' }} onClick={(event) => handleClickHomePage(event)}>Documents</h3>
                 <Box sx={{ mb: 1 }}>
                   <Button onClick={handleExpandClick} size='small'>
                     {expanded.length === 0 ? 'Expand all' : 'Collapse all'}

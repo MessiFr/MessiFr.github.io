@@ -267,7 +267,7 @@ where vector $\mathbf{x}$ and matrix $\mathbf{A}$ are constants (/docs/notes/sml
 Under a decision theoretic framework, the empirical risk can be expressed as 
 $$
 \hat{R}(/docs/notes/sml/\mathbf{w}) = \frac{1}{n} \sum_{i = 1}^{n} (\mathbf{x}_i^\top /docs/notes/sml/\mathbf{w} - y_i)^2  = \|\mathbf{X} /docs/notes/sml/\mathbf{w} - \mathbf{y}\|_2^2 = /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} /docs/notes/sml/\mathbf{w} - /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}  - \mathbf{y}^\top \mathbf{X} /docs/notes/sml/\mathbf{w} + \mathbf{y}^\top \mathbf{y}
-\hat{R}(\mathbf{w}) = \frac{1}{n} \sum_{i = 1}^{n} (/docs/notes/sml/\mathbf{x}_i^\top \mathbf{w} - y_i)^2  = \|\mathbf{X} \mathbf{w} - \mathbf{y}\|_2^2 = \mathbf{w}^\top \mathbf{X}^\top \mathbf{X} \mathbf{w} - \mathbf{w}^\top \mathbf{X}^\top \mathbf{y}  - \mathbf{y}^\top \mathbf{X} \mathbf{w} + \mathbf{y}^\top \mathbf{y}
+\hat{R}(/docs/notes/sml/\mathbf{w}) = \frac{1}{n} \sum_{i = 1}^{n} (/docs/notes/sml/\mathbf{x}_i^\top /docs/notes/sml/\mathbf{w} - y_i)^2  = \|\mathbf{X} /docs/notes/sml/\mathbf{w} - \mathbf{y}\|_2^2 = /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} /docs/notes/sml/\mathbf{w} - /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}  - \mathbf{y}^\top \mathbf{X} /docs/notes/sml/\mathbf{w} + \mathbf{y}^\top \mathbf{y}
 $$
 where 
 $\mathbf{X} = \begin{pmatrix} \mathbf{x}_1^\top \\ \mathbf{x}_2^\top \\ \vdots \\ \mathbf{x}_n^\top \end{pmatrix}$ is the _design matrix_, 
@@ -281,22 +281,28 @@ We have
 
 $$
 \nabla_{/docs/notes/sml/\mathbf{w}} \hat{R}(/docs/notes/sml/\mathbf{w}) = \nabla_{/docs/notes/sml/\mathbf{w}} (/docs/notes/sml/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} /docs/notes/sml/\mathbf{w}) - \nabla_{/docs/notes/sml/\mathbf{w}} ( /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{/docs/notes/sml/\mathbf{w}} (\mathbf{y}^\top \mathbf{X} /docs/notes/sml/\mathbf{w}) = 2 /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
-\nabla_{\mathbf{w}} \hat{R}(\mathbf{w}) = \nabla_{\mathbf{w}} (/docs/notes/sml/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} \mathbf{w}) - \nabla_{\mathbf{w}} ( \mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{\mathbf{w}} (\mathbf{y}^\top \mathbf{X} \mathbf{w}) = 2 \mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
-\nabla_{\mathbf{w}} \hat{R}(\mathbf{w}) = \nabla_{\mathbf{w}} (\mathbf{w}^T \mathbf{X}^\top \mathbf{X} \mathbf{w}) - \nabla_{\mathbf{w}} (/docs/notes/sml/ \mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{\mathbf{w}} (\mathbf{y}^\top \mathbf{X} \mathbf{w}) = 2 \mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
-\nabla_{\mathbf{w}} \hat{R}(\mathbf{w}) = \nabla_{\mathbf{w}} (\mathbf{w}^T \mathbf{X}^\top \mathbf{X} \mathbf{w}) - \nabla_{\mathbf{w}} ( \mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{\mathbf{w}} (/docs/notes/sml/\mathbf{y}^\top \mathbf{X} \mathbf{w}) = 2 \mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
+\nabla_{/docs/notes/sml/\mathbf{w}} \hat{R}(/docs/notes/sml/\mathbf{w}) = \nabla_{/docs/notes/sml/\mathbf{w}} (/docs/notes/sml//docs/notes/sml/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} /docs/notes/sml/\mathbf{w}) - \nabla_{/docs/notes/sml/\mathbf{w}} ( /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{/docs/notes/sml/\mathbf{w}} (\mathbf{y}^\top \mathbf{X} /docs/notes/sml/\mathbf{w}) = 2 /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
+\nabla_{\mathbf{w}} \hat{R}(\mathbf{w}) = \nabla_{\mathbf{w}} (/docs/notes/sml/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} \mathbf{w}) - \nabla_{\mathbf{w}} (/docs/notes/sml/ \mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{\mathbf{w}} (\mathbf{y}^\top \mathbf{X} \mathbf{w}) = 2 \mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
+\nabla_{\mathbf{w}} \hat{R}(\mathbf{w}) = \nabla_{\mathbf{w}} (/docs/notes/sml/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} \mathbf{w}) - \nabla_{\mathbf{w}} ( \mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{\mathbf{w}} (/docs/notes/sml/\mathbf{y}^\top \mathbf{X} \mathbf{w}) = 2 \mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
+\nabla_{/docs/notes/sml/\mathbf{w}} \hat{R}(/docs/notes/sml/\mathbf{w}) = \nabla_{/docs/notes/sml/\mathbf{w}} (/docs/notes/sml/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} /docs/notes/sml/\mathbf{w}) - \nabla_{/docs/notes/sml/\mathbf{w}} (/docs/notes/sml/ /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{/docs/notes/sml/\mathbf{w}} (\mathbf{y}^\top \mathbf{X} /docs/notes/sml/\mathbf{w}) = 2 /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
+\nabla_{\mathbf{w}} \hat{R}(\mathbf{w}) = \nabla_{\mathbf{w}} (/docs/notes/sml/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} \mathbf{w}) - \nabla_{\mathbf{w}} (/docs/notes/sml/ \mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{\mathbf{w}} (\mathbf{y}^\top \mathbf{X} \mathbf{w}) = 2 \mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
+\nabla_{\mathbf{w}} \hat{R}(\mathbf{w}) = \nabla_{\mathbf{w}} (\mathbf{w}^T \mathbf{X}^\top \mathbf{X} \mathbf{w}) - \nabla_{\mathbf{w}} (/docs/notes/sml/ \mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{\mathbf{w}} (/docs/notes/sml/\mathbf{y}^\top \mathbf{X} \mathbf{w}) = 2 \mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
+\nabla_{/docs/notes/sml/\mathbf{w}} \hat{R}(/docs/notes/sml/\mathbf{w}) = \nabla_{/docs/notes/sml/\mathbf{w}} (/docs/notes/sml/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} /docs/notes/sml/\mathbf{w}) - \nabla_{/docs/notes/sml/\mathbf{w}} ( /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{/docs/notes/sml/\mathbf{w}} (/docs/notes/sml/\mathbf{y}^\top \mathbf{X} /docs/notes/sml/\mathbf{w}) = 2 /docs/notes/sml/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
+\nabla_{\mathbf{w}} \hat{R}(\mathbf{w}) = \nabla_{\mathbf{w}} (/docs/notes/sml/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} \mathbf{w}) - \nabla_{\mathbf{w}} ( \mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{\mathbf{w}} (/docs/notes/sml/\mathbf{y}^\top \mathbf{X} \mathbf{w}) = 2 \mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
+\nabla_{\mathbf{w}} \hat{R}(\mathbf{w}) = \nabla_{\mathbf{w}} (\mathbf{w}^T \mathbf{X}^\top \mathbf{X} \mathbf{w}) - \nabla_{\mathbf{w}} (/docs/notes/sml/ \mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{\mathbf{w}} (/docs/notes/sml/\mathbf{y}^\top \mathbf{X} \mathbf{w}) = 2 \mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
 $$
 
 which implies $\mathbf{w}^* = \left[\mathbf{X}^\top \mathbf{X}\right]^{-1} \mathbf{X}^\top \mathbf{y}$
 ***
 
 Although we can express $\mathbf{w}^\star$ explicitly in terms of the matrix inverse $(/docs/notes/sml/\mathbf{X}^\top \mathbf{X})^{-1}$, this isn't an efficient way to compute $\mathbf{w}$ numerically (we typically never compute the inverse of a matrix exactly when solving the system $A\mathbf{x} = b$ for numerical stability). It is better instead to solve the following system of linear equations:
-Although we can express $\mathbf{w}^\star$ explicitly in terms of the matrix inverse $(\mathbf{X}^\top \mathbf{X})^{-1}$, this isn't an efficient way to compute $\mathbf{w}$ numerically (/docs/notes/sml/we typically never compute the inverse of a matrix exactly when solving the system $A\mathbf{x} = b$ for numerical stability). It is better instead to solve the following system of linear equations:
+Although we can express $\mathbf{w}^\star$ explicitly in terms of the matrix inverse $(/docs/notes/sml/\mathbf{X}^\top \mathbf{X})^{-1}$, this isn't an efficient way to compute $\mathbf{w}$ numerically (/docs/notes/sml/we typically never compute the inverse of a matrix exactly when solving the system $A\mathbf{x} = b$ for numerical stability). It is better instead to solve the following system of linear equations:
 $$\mathbf{X}^\top\mathbf{X} \mathbf{w}^\star = \mathbf{X}^\top\mathbf{y}$$
 
 ***
 **Exercise:** Use `np.linalg.solve` to solve for $\mathbf{w}^\star$ using the single-featured training data.
 _Hint: You can enter `/docs/notes/sml/np.linalg.solve?` or `help(/docs/notes/sml/np.linalg.solve)` to see the docstring (help file)._
-_Hint: You can enter `np.linalg.solve?` or `help(np.linalg.solve)` to see the docstring (/docs/notes/sml/help file)._
+_Hint: You can enter `/docs/notes/sml/np.linalg.solve?` or `help(/docs/notes/sml/np.linalg.solve)` to see the docstring (/docs/notes/sml/help file)._
 ***
 
 
@@ -307,7 +313,7 @@ X_test_b = np.column_stack(/docs/notes/sml/(np.ones_like(X_test_s), X_test_s))
 print(/docs/notes/sml/'Design matrix shape:', X_train_s.shape)
 
 w = np.linalg.solve(/docs/notes/sml/np.dot(X_train_b.T, X_train_b), np.dot(X_train_b.T, y_train)) # fill in
-w = np.linalg.solve(np.dot(X_train_b.T, X_train_b), np.dot(/docs/notes/sml/X_train_b.T, y_train)) # fill in
+w = np.linalg.solve(/docs/notes/sml/np.dot(X_train_b.T, X_train_b), np.dot(/docs/notes/sml/X_train_b.T, y_train)) # fill in
 print(/docs/notes/sml/'Weights:', w)
 ```
 
@@ -368,8 +374,8 @@ Now that you have a good understanding of what's going on under the hood, you ca
 ```python
 from sklearn.linear_model import LinearRegression
 /docs/notes/sml/l/docs/notes/sml/r/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/L/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/R/docs/notes/sml/e/docs/notes/sml/g/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/s/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/(/docs/notes/sml/X/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/y/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/lr = LinearRegression().fit(/docs/notes/sml/X_train_s, y_train)
-```
+/docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/l/docs/notes/sml/r/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/L/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/R/docs/notes/sml/e/docs/notes/sml/g/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/s/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/(/docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/X/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/y/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/)/docs/notes/sml/
+/docs/notes/sml/```
 
 The `LinearRegression` module provides access to the bias weight $w_0$ under the `intercept_` property
 
@@ -406,8 +412,8 @@ Finally, what happens if we use the other 12 features available in the dataset?
 
 ```python
 /docs/notes/sml/l/docs/notes/sml/r/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/l/docs/notes/sml/l/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/L/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/R/docs/notes/sml/e/docs/notes/sml/g/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/s/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/(/docs/notes/sml/X/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/y/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/lr_full = LinearRegression().fit(/docs/notes/sml/X_train, y_train)
-y_pred_train = lr_full.predict(/docs/notes/sml/X_train)
+/docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/l/docs/notes/sml/r/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/l/docs/notes/sml/l/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/L/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/R/docs/notes/sml/e/docs/notes/sml/g/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/s/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/(/docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/X/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/y/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/)/docs/notes/sml/
+/docs/notes/sml/y_pred_train = lr_full.predict(/docs/notes/sml/X_train)
 y_pred_test = lr_full.predict(/docs/notes/sml/X_test)
 
 print(/docs/notes/sml/'Train MSE:', mean_squared_error(y_pred_train, y_train))
@@ -437,12 +443,14 @@ $$
 $$
 
 where $\mathbf{\Phi} = \begin{pmatrix} \varphi(/docs/notes/sml/\mathbf{x}_1)^\top \\ \vdots \\ \varphi(\mathbf{x}_n)^\top \end{pmatrix}$ denotes the transformed design matrix.
-where $\mathbf{\Phi} = \begin{pmatrix} \varphi(\mathbf{x}_1)^\top \\ \vdots \\ \varphi(/docs/notes/sml/\mathbf{x}_n)^\top \end{pmatrix}$ denotes the transformed design matrix.
+where $\mathbf{\Phi} = \begin{pmatrix} \varphi(/docs/notes/sml/\mathbf{x}_1)^\top \\ \vdots \\ \varphi(/docs/notes/sml/\mathbf{x}_n)^\top \end{pmatrix}$ denotes the transformed design matrix.
 
 
 There are many possible choices for the mapping $\varphi(/docs/notes/sml/\mathbf{x})$, but we'll focus on using polynomial basis functions in the single-feature case, e.g. $\varphi(x) = [1, x, x^2, \ldots, x^{k - 1}]^\top$ (note the first element corresponds to a bias term). 
-There are many possible choices for the mapping $\varphi(\mathbf{/docs/notes/sml/x})$, but we'll focus on using polynomial basis functions in the single-feature case, e.g. $\varphi(/docs/notes/sml/x) = [1, /docs/notes/sml/x, /docs/notes/sml/x^2, \ldots, /docs/notes/sml/x^{k - 1}]^\top$ (note the first element corresponds to a bias term). 
-There are many possible choices for the mapping $\varphi(\mathbf{x})$, but we'll focus on using polynomial basis functions in the single-feature case, e.g. $\varphi(x) = [1, x, x^2, \ldots, x^{k - 1}]^\top$ (/docs/notes/sml/note the first element corresponds to a bias term). 
+There are many possible choices for the mapping $\varphi(/docs/notes/sml/\mathbf{/docs/notes/sml/x})$, but we'll focus on using polynomial basis functions in the single-feature case, e.g. $\varphi(/docs/notes/sml/x) = [1, /docs/notes/sml/x, /docs/notes/sml/x^2, \ldots, /docs/notes/sml/x^{k - 1}]^\top$ (note the first element corresponds to a bias term). 
+There are many possible choices for the mapping $\varphi(\mathbf{/docs/notes/sml/x})$, but we'll focus on using polynomial basis functions in the single-feature case, e.g. $\varphi(/docs/notes/sml/x) = [1, /docs/notes/sml/x, /docs/notes/sml/x^2, \ldots, /docs/notes/sml/x^{k - 1}]^\top$ (/docs/notes/sml/note the first element corresponds to a bias term). 
+There are many possible choices for the mapping $\varphi(/docs/notes/sml/\mathbf{x})$, but we'll focus on using polynomial basis functions in the single-feature case, e.g. $\varphi(x) = [1, x, x^2, \ldots, x^{k - 1}]^\top$ (/docs/notes/sml/note the first element corresponds to a bias term). 
+There are many possible choices for the mapping $\varphi(\mathbf{/docs/notes/sml/x})$, but we'll focus on using polynomial basis functions in the single-feature case, e.g. $\varphi(/docs/notes/sml/x) = [1, /docs/notes/sml/x, /docs/notes/sml/x^2, \ldots, /docs/notes/sml/x^{k - 1}]^\top$ (/docs/notes/sml/note the first element corresponds to a bias term). 
 
 We can compute the transformed design matrix using a built-in class from scikit-learn called `PolynomialFeatures`.
 We'll start by considering polynomial features of degree 2.
@@ -478,7 +486,7 @@ Now let's perform linear regression on the transformed training data and plot th
 
 ```python
 lr_poly = LinearRegression(/docs/notes/sml/fit_intercept=False).fit(Phi_train, y_train)
-lr_poly = LinearRegression(fit_intercept=False).fit(/docs/notes/sml/Phi_train, y_train)
+lr_poly = LinearRegression(/docs/notes/sml/fit_intercept=False).fit(/docs/notes/sml/Phi_train, y_train)
 
 X_grid = np.linspace(/docs/notes/sml/X_train_s.min(), X_train_s.max(), num=1001)
 /docs/notes/sml/X/docs/notes/sml/_/docs/notes/sml/g/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/d/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/n/docs/notes/sml/p/docs/notes/sml/./docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/s/docs/notes/sml/p/docs/notes/sml/a/docs/notes/sml/c/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/X/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/m/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/X/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/x/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/n/docs/notes/sml/u/docs/notes/sml/m/docs/notes/sml/=/docs/notes/sml/1/docs/notes/sml/0/docs/notes/sml/0/docs/notes/sml/1/docs/notes/sml/)/docs/notes/sml/
@@ -542,15 +550,15 @@ for i, degree in enumerate(/docs/notes/sml/degrees):
     # Transform features
     poly = PolynomialFeatures(/docs/notes/sml/degree=degree)
     Phi_train, Phi_test = poly.fit_transform(/docs/notes/sml/X_train_s), poly.fit_transform(X_test_s)
-    Phi_train, Phi_test = poly.fit_transform(X_train_s), poly.fit_transform(/docs/notes/sml/X_test_s)
+    Phi_train, Phi_test = poly.fit_transform(/docs/notes/sml/X_train_s), poly.fit_transform(/docs/notes/sml/X_test_s)
     Phi_grid = poly.fit_transform(/docs/notes/sml/X_grid[:,np.newaxis])
     
     # Fit model
 /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/#/docs/notes/sml/l/docs/notes/sml/r/docs/notes/sml/_/docs/notes/sml/p/docs/notes/sml/o/docs/notes/sml/l/docs/notes/sml/y/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/L/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/R/docs/notes/sml/e/docs/notes/sml/g/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/s/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/(/docs/notes/sml/P/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/y/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/    #lr_poly = LinearRegression().fit(/docs/notes/sml/Phi_train, y_train)
-    #models.append(/docs/notes/sml/lr_poly)
+/docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/#/docs/notes/sml/l/docs/notes/sml/r/docs/notes/sml/_/docs/notes/sml/p/docs/notes/sml/o/docs/notes/sml/l/docs/notes/sml/y/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/L/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/R/docs/notes/sml/e/docs/notes/sml/g/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/s/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/(/docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/P/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/y/docs/notes/sml/_/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/)/docs/notes/sml/
+/docs/notes/sml/    #models.append(/docs/notes/sml/lr_poly)
     w = np.linalg.solve(/docs/notes/sml/np.dot(Phi_train.T, Phi_train), np.dot(Phi_train.T, y_train))
-    w = np.linalg.solve(np.dot(Phi_train.T, Phi_train), np.dot(/docs/notes/sml/Phi_train.T, y_train))
+    w = np.linalg.solve(/docs/notes/sml/np.dot(Phi_train.T, Phi_train), np.dot(/docs/notes/sml/Phi_train.T, y_train))
     models.append(/docs/notes/sml/w)
     
     # Evaluate
@@ -603,7 +611,7 @@ plt.xlabel(/docs/notes/sml/'Polynomial degree')
 
 _Answer:_ This can be explained by the _bias-variance trade-off_ associated with predictive models. 
 An overly simplistic model (/docs/notes/sml/e.g. simple linear regression) may suffer from _high bias_ or _underfitting_, while an overly complex model (e.g. high-degree polynomial regression) may suffer from _high variance_ or _overfitting_.
-An overly simplistic model (e.g. simple linear regression) may suffer from _high bias_ or _underfitting_, while an overly complex model (/docs/notes/sml/e.g. high-degree polynomial regression) may suffer from _high variance_ or _overfitting_.
+An overly simplistic model (/docs/notes/sml/e.g. simple linear regression) may suffer from _high bias_ or _underfitting_, while an overly complex model (/docs/notes/sml/e.g. high-degree polynomial regression) may suffer from _high variance_ or _overfitting_.
 We'll discuss this more in lecture 5, when we cover regularisation as a strategy to avoid overfitting.
 
 ***
@@ -633,8 +641,8 @@ X_test_s = X_test_s / 100.0
 ```
 
 /docs/notes/sml/W/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/c/docs/notes/sml/o/docs/notes/sml/p/docs/notes/sml/y/docs/notes/sml/ /docs/notes/sml/c/docs/notes/sml/o/docs/notes/sml/d/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/m/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/ /docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/k/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/g/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/c/docs/notes/sml/e/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/t/docs/notes/sml/ /docs/notes/sml/`/docs/notes/sml/L/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/R/docs/notes/sml/e/docs/notes/sml/g/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/s/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/`/docs/notes/sml/ /docs/notes/sml/-/docs/notes/sml/>/docs/notes/sml/ /docs/notes/sml/`/docs/notes/sml/R/docs/notes/sml/i/docs/notes/sml/d/docs/notes/sml/g/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/a/docs/notes/sml/l/docs/notes/sml/p/docs/notes/sml/h/docs/notes/sml/a/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/0/docs/notes/sml/./docs/notes/sml/0/docs/notes/sml/0/docs/notes/sml/2/docs/notes/sml/)/docs/notes/sml/`/docs/notes/sml/./docs/notes/sml/
-/docs/notes/sml/We then copy code from the previous section, making the replacement `LinearRegression()` -> `Ridge(/docs/notes/sml/alpha = 0.002)`.
-
+/docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/W/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/c/docs/notes/sml/o/docs/notes/sml/p/docs/notes/sml/y/docs/notes/sml/ /docs/notes/sml/c/docs/notes/sml/o/docs/notes/sml/d/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/m/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/ /docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/k/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/g/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/c/docs/notes/sml/e/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/t/docs/notes/sml/ /docs/notes/sml/`/docs/notes/sml/L/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/R/docs/notes/sml/e/docs/notes/sml/g/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/s/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/`/docs/notes/sml/ /docs/notes/sml/-/docs/notes/sml/>/docs/notes/sml/ /docs/notes/sml/`/docs/notes/sml/R/docs/notes/sml/i/docs/notes/sml/d/docs/notes/sml/g/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/a/docs/notes/sml/l/docs/notes/sml/p/docs/notes/sml/h/docs/notes/sml/a/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/0/docs/notes/sml/./docs/notes/sml/0/docs/notes/sml/0/docs/notes/sml/2/docs/notes/sml/)/docs/notes/sml/`/docs/notes/sml/./docs/notes/sml/
+/docs/notes/sml/
 
 ```python
 degrees = list(/docs/notes/sml/range(12))
@@ -654,12 +662,12 @@ for i, degree in enumerate(/docs/notes/sml/degrees):
     # Transform features
     poly = PolynomialFeatures(/docs/notes/sml/degree=degree)
     Phi_train, Phi_test = poly.fit_transform(/docs/notes/sml/X_train_s), poly.fit_transform(X_test_s)
-    Phi_train, Phi_test = poly.fit_transform(X_train_s), poly.fit_transform(/docs/notes/sml/X_test_s)
+    Phi_train, Phi_test = poly.fit_transform(/docs/notes/sml/X_train_s), poly.fit_transform(/docs/notes/sml/X_test_s)
     Phi_grid = poly.fit_transform(/docs/notes/sml/X_grid[:,np.newaxis])
     
     # Fit model
     lr_poly = Ridge(/docs/notes/sml/alpha = 0.002).fit(Phi_train, y_train)
-    lr_poly = Ridge(alpha = 0.002).fit(/docs/notes/sml/Phi_train, y_train)
+    lr_poly = Ridge(/docs/notes/sml/alpha = 0.002).fit(/docs/notes/sml/Phi_train, y_train)
     models.append(/docs/notes/sml/lr_poly)
     
     # Evaluate
