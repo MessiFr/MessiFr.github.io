@@ -5,6 +5,6 @@ This is my file management page, where I continuously save all of my previous le
 ### 2. Doc Type
 My documents include the following:
 
-1. Notes: My learning notes, including knowledge from major courses, elective courses, and self-improvement. The **PDF viewer** will be incessantly maintained and updated.
-2. Program: Projects I have completed, or frameworks for future projects are saved in **Markdown** format, with the code portion separately labeled.
-3. Resume: My personal resume, keep updating.
+1. **Notes:** My learning notes, including knowledge from major courses, elective courses, and self-improvement. The ***PDF viewer*** will be incessantly maintained and updated.
+2. **Programs:** Projects I have completed, or frameworks for future projects are saved in ***Markdown*** format, with the code portion separately labeled.
+3. **Resume:** My personal resume, keep updating.
