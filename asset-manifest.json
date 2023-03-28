@@ -1,31 +1,24 @@
 {
   "files": {
     "main.css": "./static/css/main.86b3ac10.css",
-    "main.js": "./static/js/main.d7a43cbb.js",
-    "static/media/background1.png": "./static/media/background1.643688db884af7877914.png",
-    "static/media/profile_background.png": "./static/media/profile_background.0161c6c5f2f14bed1a93.png",
-    "static/media/prof-page.png": "./static/media/prof-page.44d329eda2042c0409e4.png",
-    "static/media/bg6.jpg": "./static/media/bg6.dc603b7416966b84ac68.jpg",
+    "main.js": "./static/js/main.9c740541.js",
+    "static/media/background1.jpeg": "./static/media/background1.643688db884af7877914.jpeg",
+    "static/media/profile_background.jpeg": "./static/media/profile_background.0161c6c5f2f14bed1a93.jpeg",
+    "static/media/prof-page.jpeg": "./static/media/prof-page.44d329eda2042c0409e4.jpeg",
     "static/media/avatarnew.png": "./static/media/avatarnew.350eb18ece8b313985c1.png",
-    "static/media/bg1.jpg": "./static/media/bg1.71a28027225b8ae945bb.jpg",
-    "static/media/bg3.jpg": "./static/media/bg3.850b808854f295b2c596.jpg",
-    "static/media/login.jpg": "./static/media/login.ab931d77bfe905914456.jpg",
-    "static/media/doc-page.png": "./static/media/doc-page.a2531105728eff2bf160.png",
+    "static/media/doc-page.jpeg": "./static/media/doc-page.a2531105728eff2bf160.jpeg",
     "static/media/avatar.png": "./static/media/avatar.d9298456066a7aa2db86.png",
-    "static/media/eva.jpg": "./static/media/eva.258d5c64c8708a5ce23b.jpg",
     "static/media/qrcode.jpeg": "./static/media/qrcode.cef6b1279cf7a04ebc3a.jpeg",
-    "static/media/ryan.jpg": "./static/media/ryan.ca24473bc1e6d20bf0d1.jpg",
-    "static/media/avatar.jpg": "./static/media/avatar.21d108f80102dc685d9b.jpg",
     "static/media/nucleo-outline.eot": "./static/media/nucleo-outline.56814a6b7240045e1494.eot",
     "static/media/nucleo-outline.ttf": "./static/media/nucleo-outline.1102ed9b2d16dccdec05.ttf",
     "static/media/nucleo-outline.woff": "./static/media/nucleo-outline.1a1036e643f97457ec5f.woff",
     "static/media/nucleo-outline.woff2": "./static/media/nucleo-outline.802141dd0dcc63b21cbb.woff2",
     "index.html": "./index.html",
     "main.86b3ac10.css.map": "./static/css/main.86b3ac10.css.map",
-    "main.d7a43cbb.js.map": "./static/js/main.d7a43cbb.js.map"
+    "main.9c740541.js.map": "./static/js/main.9c740541.js.map"
   },
   "entrypoints": [
     "static/css/main.86b3ac10.css",
-    "static/js/main.d7a43cbb.js"
+    "static/js/main.9c740541.js"
   ]
 }
