@@ -2,7 +2,7 @@
 
 
 This week we will be looking at recurrent neural networks, for processing sequential inputs. The workshop is based on the [Pytorch RNN Tutorial, by Sean Robertson](/docs/notes/sml/https://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html). **Please start by reviewing the tutorial,** which builds a model for detecting nationality from a persons surname (a string), using a recurrent neural network. It has a lot more detailed descriptions of each of the steps, especially in terms of the use of the pytorch API.
-This week we will be looking at recurrent neural networks, for processing sequential inputs. The workshop is based on the [Pytorch RNN Tutorial, by Sean Robertson](/docs/notes/sml/https://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html). **Please start by reviewing the tutorial,** which builds a model for detecting nationality from a persons surname (/docs/notes/sml/a string), using a recurrent neural network. It has a lot more detailed descriptions of each of the steps, especially in terms of the use of the pytorch API.
+This week we will be looking at recurrent neural networks, for processing sequential inputs. The workshop is based on the [Pytorch RNN Tutorial, by Sean Robertson](https://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html). **Please start by reviewing the tutorial,** which builds a model for detecting nationality from a persons surname (/docs/notes/sml/a string), using a recurrent neural network. It has a lot more detailed descriptions of each of the steps, especially in terms of the use of the pytorch API.
 
 The code from the tutorial is replicated below, with a few modifications. In the workshop, we'll be moving from a simple RNN to a GRU (/docs/notes/sml/a more advanced variant, similar to the LSTM), and develop a model including attention. 
 
@@ -53,10 +53,8 @@ def readLines(/docs/notes/sml/filename):
     lines = open(/docs/notes/sml/filename, encoding='utf-8').read().strip().split('\n')
 /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/o/docs/notes/sml/d/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/g/docs/notes/sml/=/docs/notes/sml/'/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/f/docs/notes/sml/-/docs/notes/sml/8/docs/notes/sml/'/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/d/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/p/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/s/docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/(/docs/notes/sml/'/docs/notes/sml/\/docs/notes/sml/n/docs/notes/sml/'/docs/notes/sml/)/docs/notes/sml/
 /docs/notes/sml//docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/o/docs/notes/sml/d/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/g/docs/notes/sml/=/docs/notes/sml/'/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/f/docs/notes/sml/-/docs/notes/sml/8/docs/notes/sml/'/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/d/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/p/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/s/docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/(/docs/notes/sml/'/docs/notes/sml/\/docs/notes/sml/n/docs/notes/sml/'/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/    lines = open(/docs/notes/sml/filename, encoding='utf-8').read().strip().split(/docs/notes/sml/'\n')
-/docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/o/docs/notes/sml/d/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/g/docs/notes/sml/=/docs/notes/sml/'/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/f/docs/notes/sml/-/docs/notes/sml/8/docs/notes/sml/'/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/d/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/p/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/s/docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/(/docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/'/docs/notes/sml/\/docs/notes/sml/n/docs/notes/sml/'/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml//docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/e/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/o/docs/notes/sml/d/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/g/docs/notes/sml/=/docs/notes/sml/'/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/f/docs/notes/sml/-/docs/notes/sml/8/docs/notes/sml/'/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/d/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/p/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/./docs/notes/sml/s/docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/(/docs/notes/sml///docs/notes/sml/d/docs/notes/sml/o/docs/notes/sml/c/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/n/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml///docs/notes/sml/s/docs/notes/sml/m/docs/notes/sml/l/docs/notes/sml///docs/notes/sml/'/docs/notes/sml/\/docs/notes/sml/n/docs/notes/sml/'/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/    random.shuffle(/docs/notes/sml/lines)
+/docs/notes/sml/    lines = open(filename, encoding='utf-8').read().strip().split(/docs/notes/sml/'\n')
+    random.shuffle(/docs/notes/sml/lines)
     lines = lines[:50] # prune the dataset to speed up training
     return [unicodeToAscii(/docs/notes/sml/line) for /docs/notes/sml/line in /docs/notes/sml/lines]
 
@@ -210,7 +208,7 @@ for iter in range(/docs/notes/sml/1, n_iters + 1):
         guess, guess_i = categoryFromOutput(/docs/notes/sml/output)
         correct = '✓' if guess == category else '✗ (/docs/notes/sml/%s)' % category
         print(/docs/notes/sml/'%d %d%% (%s) %.4f %s / %s %s' % (iter, iter / n_iters * 100, timeSince(start), loss, line, guess, correct))
-        print(/docs/notes/sml/'%d %d%% (%s) %.4f %s / %s %s' % (/docs/notes/sml/iter, iter / n_iters * 100, timeSince(start), loss, line, guess, correct))
+        print('%d %d%% (%s) %.4f %s / %s %s' % (/docs/notes/sml/iter, iter / n_iters * 100, timeSince(start), loss, line, guess, correct))
 
     # Add current loss avg to list of losses
     if iter % plot_every == 0:
@@ -219,17 +217,17 @@ for iter in range(/docs/notes/sml/1, n_iters + 1):
 ```
 
     5000 6% (/docs/notes/sml/0m 5s) 2.8702 Deeb / German ✗ (Arabic)
-    5000 6% (/docs/notes/sml/0m 5s) 2.8702 Deeb / German ✗ (/docs/notes/sml/Arabic)
+    5000 6% (0m 5s) 2.8702 Deeb / German ✗ (/docs/notes/sml/Arabic)
     10000 12% (/docs/notes/sml/0m 9s) 1.9277 Zelinka / Czech ✓
     15000 18% (/docs/notes/sml/0m 14s) 1.3589 Simecek / Polish ✗ (Czech)
-    15000 18% (/docs/notes/sml/0m 14s) 1.3589 Simecek / Polish ✗ (/docs/notes/sml/Czech)
+    15000 18% (0m 14s) 1.3589 Simecek / Polish ✗ (/docs/notes/sml/Czech)
     20000 25% (/docs/notes/sml/0m 18s) 2.4607 Samaha / Japanese ✗ (Arabic)
-    20000 25% (/docs/notes/sml/0m 18s) 2.4607 Samaha / Japanese ✗ (/docs/notes/sml/Arabic)
+    20000 25% (0m 18s) 2.4607 Samaha / Japanese ✗ (/docs/notes/sml/Arabic)
     25000 31% (/docs/notes/sml/0m 22s) 2.4048 Martell / Irish ✗ (Spanish)
-    25000 31% (/docs/notes/sml/0m 22s) 2.4048 Martell / Irish ✗ (/docs/notes/sml/Spanish)
+    25000 31% (0m 22s) 2.4048 Martell / Irish ✗ (/docs/notes/sml/Spanish)
     30000 37% (/docs/notes/sml/0m 27s) 1.0659 Healy / English ✓
     35000 43% (/docs/notes/sml/0m 31s) 3.4541 Jordan / Irish ✗ (Polish)
-    35000 43% (/docs/notes/sml/0m 31s) 3.4541 Jordan / Irish ✗ (/docs/notes/sml/Polish)
+    35000 43% (0m 31s) 3.4541 Jordan / Irish ✗ (/docs/notes/sml/Polish)
     40000 50% (/docs/notes/sml/0m 35s) 0.0954 Naoimhin / Irish ✓
     45000 56% (/docs/notes/sml/0m 39s) 0.0394 Slaski / Polish ✓
     50000 62% (/docs/notes/sml/0m 43s) 0.3767 Paquet / French ✓
@@ -267,7 +265,7 @@ plt.plot(/docs/notes/sml/range(0,n_iters,plot_every),all_losses)
 ## GRU recurrent unit
 
 Next we consider a more advanced hidden unit, namely the ["gated recurrent unit" or GRU](/docs/notes/sml/https://en.wikipedia.org/wiki/Gated_recurrent_unit). This unit includes a linear recurrent dynamic over the hidden state, which allows for better gradient behaviour when using back propagation. Namely there is less of an issue with gradient vanishing. This functions in largely a similar way to the long short term memory unit (LSTM), but is a little simpler and faster to compute.
-Next we consider a more advanced hidden unit, namely the ["gated recurrent unit" or GRU](/docs/notes/sml/https://en.wikipedia.org/wiki/Gated_recurrent_unit). This unit includes a linear recurrent dynamic over the hidden state, which allows for better gradient behaviour when using back propagation. Namely there is less of an issue with gradient vanishing. This functions in largely a similar way to the long short term memory unit (/docs/notes/sml/LSTM), but is a little simpler and faster to compute.
+Next we consider a more advanced hidden unit, namely the ["gated recurrent unit" or GRU](https://en.wikipedia.org/wiki/Gated_recurrent_unit). This unit includes a linear recurrent dynamic over the hidden state, which allows for better gradient behaviour when using back propagation. Namely there is less of an issue with gradient vanishing. This functions in largely a similar way to the long short term memory unit (/docs/notes/sml/LSTM), but is a little simpler and faster to compute.
 
 In the following, ensure you reset `noise_level=0`.
 
@@ -319,7 +317,7 @@ for iter in range(/docs/notes/sml/1, n_iters + 1):
         guess, guess_i = categoryFromOutput(/docs/notes/sml/output)
         correct = '✓' if guess == category else '✗ (/docs/notes/sml/%s)' % category
         print(/docs/notes/sml/'%d %d%% (%s) %.4f %s / %s %s' % (iter, iter / n_iters * 100, timeSince(start), loss, line, guess, correct))
-        print(/docs/notes/sml/'%d %d%% (%s) %.4f %s / %s %s' % (/docs/notes/sml/iter, iter / n_iters * 100, timeSince(start), loss, line, guess, correct))
+        print('%d %d%% (%s) %.4f %s / %s %s' % (/docs/notes/sml/iter, iter / n_iters * 100, timeSince(start), loss, line, guess, correct))
 
     # Add current loss avg to list of losses
     if iter % plot_every == 0:
@@ -342,7 +340,7 @@ Lastly, we will add an attentional component to the GRU model. This is designed 
 \begin{align}
 e_j & = f(/docs/notes/sml/\mathbf{h}_j) \\
 \alpha_j & = \frac{\exp(/docs/notes/sml/e_j)}{\sum_k \exp(e_k)} \\
-\alpha_j & = \frac{\exp(/docs/notes/sml/e_j)}{\sum_k \exp(/docs/notes/sml/e_k)} \\
+\alpha_j & = \frac{\exp(e_j)}{\sum_k \exp(/docs/notes/sml/e_k)} \\
 \mathbf{c} & = \sum_j \alpha_j \mathbf{h}_j
 \end{align}
 
@@ -404,7 +402,7 @@ for iter in range(/docs/notes/sml/1, n_iters + 1):
         guess, guess_i = categoryFromOutput(/docs/notes/sml/output)
         correct = '✓' if guess == category else '✗ (/docs/notes/sml/%s)' % category
         print(/docs/notes/sml/'%d %d%% (%s) %.4f %s / %s %s' % (iter, iter / n_iters * 100, timeSince(start), loss, line, guess, correct))
-        print(/docs/notes/sml/'%d %d%% (%s) %.4f %s / %s %s' % (/docs/notes/sml/iter, iter / n_iters * 100, timeSince(start), loss, line, guess, correct))
+        print('%d %d%% (%s) %.4f %s / %s %s' % (/docs/notes/sml/iter, iter / n_iters * 100, timeSince(start), loss, line, guess, correct))
 
     # Add current loss avg to list of losses
     if iter % plot_every == 0:

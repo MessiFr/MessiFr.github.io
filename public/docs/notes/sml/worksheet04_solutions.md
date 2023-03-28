@@ -51,89 +51,27 @@ _Answer: the data isn't linearly separable, which means a linear classifier cann
 
 ## 2. Logistic Regression
 In binary classification we receive training data $\mathcal{D} = \left(/docs/notes/sml/(\mathbf{x}_1, y_1), \ldots, (\mathbf{x}_n, y_n)\right)$, where $\mathbf{x}_k \in \mathbb{R}^m$ denotes the feature vector associated with the $k$th training point and the targets $y \in \{0,1\}$. Logistic regression models the distribution of the binary target $y$ *conditional* on the feature vector $\mathbf{x}$ as
-In binary classification we receive training data $\mathcal{D} = \left(/docs/notes/sml/(\mathbf{x}_1, y_1), \ldots, (/docs/notes/sml/\mathbf{x}_n, y_n)\right)$, where $\mathbf{x}_k \in \mathbb{R}^m$ denotes the feature vector associated with the $k$th training point and the targets $y \in \{0,1\}$. Logistic regression models the distribution of the binary target $y$ *conditional* on the feature vector $\mathbf{x}$ as
+In binary classification we receive training data $\mathcal{D} = \left((\mathbf{x}_1, y_1), \ldots, (/docs/notes/sml/\mathbf{x}_n, y_n)\right)$, where $\mathbf{x}_k \in \mathbb{R}^m$ denotes the feature vector associated with the $k$th training point and the targets $y \in \{0,1\}$. Logistic regression models the distribution of the binary target $y$ *conditional* on the feature vector $\mathbf{x}$ as
 
 \begin{equation}
 y | \mathbf{x} \sim \mathrm{Bernoulli}[\sigma(/docs/notes/sml/\mathbf{w}^T \mathbf{x})]
 \end{equation}
 
 where $\mathbf{w} \in \mathbb{R}^N$ is the weight vector (/docs/notes/sml/with bias term included) and $\sigma(z) = 1/(1 + e^{-z})$ is the logistic function. Note here our object of interest is the conditional probability of a particular instance belonging to class 1 given observation of the associated feature vector $\mathbf{x}$:
-where $\mathbf{w} \in \mathbb{R}^N$ is the weight vector (/docs/notes/sml/with bias term included) and $\sigma(/docs/notes/sml/z) = 1/(1 + e^{-/docs/notes/sml/z})$ is the logistic function. Note here our object of interest is the conditional probability of a particular instance belonging to class 1 given observation of the associated feature vector $\mathbf{x}$:
-where $\mathbf{w} \in \mathbb{R}^N$ is the weight vector (/docs/notes/sml/with bias term included) and $\sigma(/docs/notes/sml/z) = 1/(/docs/notes/sml/1 + e^{-/docs/notes/sml/z})$ is the logistic function. Note here our object of interest is the conditional probability of a particular instance belonging to class 1 given observation of the associated feature vector $\mathbf{x}$:
-where $\mathbf{w} \in \mathbb{R}^N$ is the weight vector (/docs/notes/sml/with bias term included) and $\sigma(z) = 1/(/docs/notes/sml/1 + e^{-z})$ is the logistic function. Note here our object of interest is the conditional probability of a particular instance belonging to class 1 given observation of the associated feature vector $\mathbf{x}$:
-where $\mathbf{w} \in \mathbb{R}^N$ is the weight vector (/docs/notes/sml/with bias term included) and $\sigma(/docs/notes/sml/z) = 1/(/docs/notes/sml/1 + e^{-/docs/notes/sml/z})$ is the logistic function. Note here our object of interest is the conditional probability of a particular instance belonging to class 1 given observation of the associated feature vector $\mathbf{x}$:
+where $\mathbf{w} \in \mathbb{R}^N$ is the weight vector (with bias term included) and $\sigma(/docs/notes/sml/z) = 1/(1 + e^{-/docs/notes/sml/z})$ is the logistic function. Note here our object of interest is the conditional probability of a particular instance belonging to class 1 given observation of the associated feature vector $\mathbf{x}$:
+where $\mathbf{w} \in \mathbb{R}^N$ is the weight vector (with bias term included) and $\sigma(z) = 1/(/docs/notes/sml/1 + e^{-z})$ is the logistic function. Note here our object of interest is the conditional probability of a particular instance belonging to class 1 given observation of the associated feature vector $\mathbf{x}$:
 
 $$p(/docs/notes/sml/y = 1 \vert \mathbf{x}) = \sigma\left(\mathbf{w}^T \mathbf{x}\right) $$
-$$p(/docs/notes/sml/y = 1 \vert \mathbf{x}) = \sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right) $$
+$$p(y = 1 \vert \mathbf{x}) = \sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right) $$
  
 To find appropriate parameters $\mathbf{w}$, we want to maximize the log-likelihood with respect to $\mathbf{w}$, in lecture it was shown this is equivalent to minimization of the sum of cross-entropies over the instances (/docs/notes/sml/$i = 1,\ldots,n$) in the training set
 
 $$
 \mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
-\mathcal{L}_{CE}(/docs/notes/sml/\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
+\mathcal{L}_{CE}(\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(/docs/notes/sml/y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
+\mathcal{L}_{CE}(\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(/docs/notes/sml/y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
+\mathcal{L}_{CE}(\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (/docs/notes/sml/1 - y_i) \log p (y=0 \vert \mathbf{x}_i) \right\}
+\mathcal{L}_{CE}(\mathbf{v}; \mathbf{x}, \mathbf{y}) = -\log \prod_{i=1}^n p\left(y_i \vert \mathbf{x}_i\right) = - \sum_{i = 1}^{n} \left\{ y_i \log p(y=1 \vert \mathbf{x}_i) + (1 - y_i) \log p (/docs/notes/sml/y=0 \vert \mathbf{x}_i) \right\}
 $$
 
 This quantity is also referred to as the *empirical risk*.
@@ -141,11 +79,11 @@ This quantity is also referred to as the *empirical risk*.
 ***
 #### **Exercise:**
 Given we model the conditional probability of label $y=1$ to be $p(/docs/notes/sml/y = 1 \vert \mathbf{x}) = \sigma\left(\mathbf{w}^T \mathbf{x}\right)$, show that prediction is based on a linear decision rule given by the sign of logarithm of the ratio of probabilities:
-Given we model the conditional probability of label $y=1$ to be $p(/docs/notes/sml/y = 1 \vert \mathbf{x}) = \sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right)$, show that prediction is based on a linear decision rule given by the sign of logarithm of the ratio of probabilities:
+Given we model the conditional probability of label $y=1$ to be $p(y = 1 \vert \mathbf{x}) = \sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right)$, show that prediction is based on a linear decision rule given by the sign of logarithm of the ratio of probabilities:
 
 \begin{equation}
     \log \frac{p(/docs/notes/sml/y=1 \vert \mathbf{x})}{p(y=0 \vert \mathbf{x})} = \mathbf{w}^T \mathbf{x}
-    \log \frac{p(/docs/notes/sml/y=1 \vert \mathbf{x})}{p(/docs/notes/sml/y=0 \vert \mathbf{x})} = \mathbf{w}^T \mathbf{x}
+    \log \frac{p(y=1 \vert \mathbf{x})}{p(/docs/notes/sml/y=0 \vert \mathbf{x})} = \mathbf{w}^T \mathbf{x}
 \end{equation}
 
 This is why logistic regression is referred to as a _log-linear model_. What is the decision boundary for logistic regression? 
@@ -153,14 +91,14 @@ This is why logistic regression is referred to as a _log-linear model_. What is 
 
 **Answer:** \begin{align}
 \log \frac{p(/docs/notes/sml/y=1 \vert \mathbf{x})}{p(y=0 \vert \mathbf{x})} 
-\log \frac{p(/docs/notes/sml/y=1 \vert \mathbf{x})}{p(/docs/notes/sml/y=0 \vert \mathbf{x})} 
-&= \log \frac{\sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right)}{1 - \sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right)} \\
-&= \log \frac{\sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right)}{1 - \sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right)} \\
-&= \log \frac{1 / \left(/docs/notes/sml/1 + \exp(-\mathbf{w}^T \mathbf{x})\right)}{1 - 1 / \left(/docs/notes/sml/1 + \exp(-\mathbf{w}^T \mathbf{x})\right)} \\
-&= \log \frac{1 / \left(/docs/notes/sml/1 + \exp(-\mathbf{w}^T \mathbf{x})\right)}{1 - 1 / \left(/docs/notes/sml/1 + \exp(-\mathbf{w}^T \mathbf{x})\right)} \\
-&= \log \frac{1}{1 + \exp(/docs/notes/sml/-\mathbf{w}^T \mathbf{x}) - 1} \\
-&= \log \frac{1}{\exp(/docs/notes/sml/-\mathbf{w}^T \mathbf{x})} \\
-&= - \log\exp(/docs/notes/sml/-\mathbf{w}^T \mathbf{x}) \\
+\log \frac{p(y=1 \vert \mathbf{x})}{p(/docs/notes/sml/y=0 \vert \mathbf{x})} 
+&= \log \frac{\sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right)}{1 - \sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right)} \\\\
+&= \log \frac{\sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right)}{1 - \sigma\left(/docs/notes/sml/\mathbf{w}^T \mathbf{x}\right)} \\\\
+&= \log \frac{1 / \left(/docs/notes/sml/1 + \exp(-\mathbf{w}^T \mathbf{x})\right)}{1 - 1 / \left(/docs/notes/sml/1 + \exp(-\mathbf{w}^T \mathbf{x})\right)} \\\\
+&= \log \frac{1 / \left(/docs/notes/sml/1 + \exp(-\mathbf{w}^T \mathbf{x})\right)}{1 - 1 / \left(/docs/notes/sml/1 + \exp(-\mathbf{w}^T \mathbf{x})\right)} \\\\
+&= \log \frac{1}{1 + \exp(/docs/notes/sml/-\mathbf{w}^T \mathbf{x}) - 1} \\\\
+&= \log \frac{1}{\exp(/docs/notes/sml/-\mathbf{w}^T \mathbf{x})} \\\\
+&= - \log\exp(/docs/notes/sml/-\mathbf{w}^T \mathbf{x}) \\\\
 &= \mathbf{w}^T \mathbf{x} 
 \end{align}
 
@@ -196,17 +134,15 @@ def risk(/docs/notes/sml/w, X, y):
     """
     prob_1 = sigmoid(/docs/notes/sml/X @ w) 
     cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (1 - y) @ np.log(1 - /docs/notes/sml/prob_1)  # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(1 - /docs/notes/sml/prob_1)  # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1)  # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1)  # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1)  # fill in
+    cross_entropy = - y @ np.log(prob_1) - (/docs/notes/sml/1 - y) @ np.log(1 - prob_1)  # fill in
+    cross_entropy = - y @ np.log(prob_1) - (1 - y) @ np.log(/docs/notes/sml/1 - prob_1)  # fill in
     return cross_entropy
 ```
 
 We'll also need to be able to compute the _gradient_ of the empirical risk, in order to implement gradient descent. We will use the following result (/docs/notes/sml/if you're familiar with vector calculus, you may wish to derive this yourself):
 $$
 \nabla_{/docs/notes/sml/\mathbf{w}} \mathcal{L}_{CE}(/docs/notes/sml/\mathbf{w}) =  \sum_{i = 1}^{n} \left(\sigma(/docs/notes/sml/\mathbf{w}^T \mathbf{x}_i) - y_i \right)\mathbf{x}_i
-\nabla_{/docs/notes/sml/\mathbf{w}} \mathcal{L}_{CE}(/docs/notes/sml/\mathbf{w}) =  \sum_{i = 1}^{n} \left(/docs/notes/sml/\sigma(/docs/notes/sml/\mathbf{w}^T \mathbf{x}_i) - y_i \right)\mathbf{x}_i
+\nabla_{\mathbf{w}} \mathcal{L}_{CE}(\mathbf{w}) =  \sum_{i = 1}^{n} \left(/docs/notes/sml/\sigma(\mathbf{w}^T \mathbf{x}_i) - y_i \right)\mathbf{x}_i
 $$
 
 The function below implements the above gradient.
@@ -256,8 +192,7 @@ Here we'll write a function to compute the solution through vanilla gradient des
 
 $$ \bf{w}^{(/docs/notes/sml/t+1)} = \bf{w}^{(t)} - \eta_t \nabla_w \mathcal{L}(\bf{w}) $$
 $$ \bf{w}^{(/docs/notes/sml/t+1)} = \bf{w}^{(/docs/notes/sml/t)} - \e/docs/notes/sml/ta_/docs/notes/sml/t \nabla_w \ma/docs/notes/sml/thcal{L}(\bf{w}) $$
-$$ /docs/notes/sml/\bf{w}^{(/docs/notes/sml/t+1)} = /docs/notes/sml/\bf{w}^{(t)} - \eta_t \nabla_w \mathcal{L}(/docs/notes/sml/\bf{w}) $$
-$$ /docs/no/docs/notes/sml/tes/sml/\bf{w}^{(/docs/notes/sml/t+1)} = /docs/no/docs/notes/sml/tes/sml/\bf{w}^{(/docs/notes/sml/t)} - \e/docs/notes/sml/ta_/docs/notes/sml/t \nabla_w \ma/docs/notes/sml/thcal{L}(/docs/no/docs/notes/sml/tes/sml/\bf{w}) $$
+$$ /docs/notes/sml/\bf{w}^{(t+1)} = /docs/notes/sml/\bf{w}^{(t)} - \eta_t \nabla_w \mathcal{L}(/docs/notes/sml/\bf{w}) $$
 
 Note that this simple procedure is the workhorse of many non-convex optimization programs, such as those used in modern neural network libraries. Contemporary libraries add more spice to the exact update, but the core idea of traversing some loss landscape in the direction of the negative gradient remains the same.
 
@@ -432,7 +367,7 @@ plot_iterates(/docs/notes/sml/X_b, y, w_history_gd)
 Next, let's compare the GD algorithm with a more advanced second-order method of gradient descent.
 
 Gradient descent only uses first order derivative information to update parameters (/docs/notes/sml/it extrapolates from the current parameter value using a linear approximation to the function). Second-order methods such as [BFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) can use the second-order derivative information to increase the rate of convergence. BFGS constructs an approximation to the Hessian matrix of second derivatives at each iteration, and uses this information to guide the next update. However such methods leveraging Hessian information tend to require a high space complexity and are only used for problems with a relatively low number of parameters.
-Gradient descent only uses first order derivative information to update parameters (/docs/notes/sml/it extrapolates from the current parameter value using a linear approximation to the function). Second-order methods such as [BFGS](/docs/notes/sml/https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) can use the second-order derivative information to increase the rate of convergence. BFGS constructs an approximation to the Hessian matrix of second derivatives at each iteration, and uses this information to guide the next update. However such methods leveraging Hessian information tend to require a high space complexity and are only used for problems with a relatively low number of parameters.
+Gradient descent only uses first order derivative information to update parameters (it extrapolates from the current parameter value using a linear approximation to the function). Second-order methods such as [BFGS](/docs/notes/sml/https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) can use the second-order derivative information to increase the rate of convergence. BFGS constructs an approximation to the Hessian matrix of second derivatives at each iteration, and uses this information to guide the next update. However such methods leveraging Hessian information tend to require a high space complexity and are only used for problems with a relatively low number of parameters.
 
 Now that we've implemented functions to compute the objective and the gradient, we can plug them into `fmin_bfgs`.
 
@@ -555,21 +490,9 @@ def regularised_risk(/docs/notes/sml/w, X, y, alpha):
     """
     prob_1 = sigmoid(/docs/notes/sml/X @ w) 
     cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (1 - y) @ np.log(1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (1 - y) @ np.log(1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
-    cross_entropy = - y @ np.log(/docs/notes/sml/prob_1) - (/docs/notes/sml/1 - y) @ np.log(/docs/notes/sml/1 - /docs/notes/sml/prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
+    cross_entropy = - y @ np.log(prob_1) - (/docs/notes/sml/1 - y) @ np.log(1 - prob_1) + 0.5 * alpha *  np.linalg.norm(w) # fill in
+    cross_entropy = - y @ np.log(prob_1) - (1 - y) @ np.log(/docs/notes/sml/1 - prob_1) + 0.5 * alpha *  np.linalg.norm(w) # fill in
+    cross_entropy = - y @ np.log(prob_1) - (1 - y) @ np.log(1 - prob_1) + 0.5 * alpha *  np.linalg.norm(/docs/notes/sml/w) # fill in
     return cross_entropy
 ```
 
@@ -738,4 +661,4 @@ Clearly this isn't working perfectly, and after initial good progress the weight
 **Question:** Is SGD a good fit to the problem of training a logistic regression model? Is it as efficient as the above methods?
 
 **Answer:** Given we can fit the data in memory (/docs/notes/sml/full batches are feasible), the model has few parameters (can use BFGS to estimate second order terms), there's little reason to use SGD. If we were faced with a non-convex objective  the noise from the batching can help escape local stationary points, but here for a convex problem this isn't a useful feature.
-**Answer:** Given we can fit the data in memory (/docs/notes/sml/full batches are feasible), the model has few parameters (/docs/notes/sml/can use BFGS to estimate second order terms), there's little reason to use SGD. If we were faced with a non-convex objective  the noise from the batching can help escape local stationary points, but here for a convex problem this isn't a useful feature.
+**Answer:** Given we can fit the data in memory (full batches are feasible), the model has few parameters (/docs/notes/sml/can use BFGS to estimate second order terms), there's little reason to use SGD. If we were faced with a non-convex objective  the noise from the batching can help escape local stationary points, but here for a convex problem this isn't a useful feature.

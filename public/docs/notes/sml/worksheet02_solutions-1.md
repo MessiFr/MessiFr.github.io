@@ -42,10 +42,8 @@ To quantify this prior belief, we assume that the prior distribution for $\theta
 The prior probability density function for $\theta$ is therefore given by:
 
 $$ p(/docs/notes/sml/\theta) = \frac{1}{B(a,b)} /docs/notes/sml/\theta^{a-1} (1 - /docs/notes/sml/\theta)^{b-1} $$
-$$ p(/docs/notes/sml/\theta) = \frac{1}{B(/docs/notes/sml/a,b)} /docs/notes/sml/\theta^{a-1} (1 - /docs/notes/sml/\theta)^{b-1} $$
-$$ p(/docs/notes/sml/\theta) = \frac{1}{B(/docs/notes/sml/a,b)} /docs/notes/sml/\theta^{a-1} (/docs/notes/sml/1 - /docs/notes/sml/\theta)^{b-1} $$
-$$ p(/docs/notes/sml/\theta) = \frac{1}{B(a,b)} /docs/notes/sml/\theta^{a-1} (/docs/notes/sml/1 - /docs/notes/sml/\theta)^{b-1} $$
-$$ p(/docs/notes/sml/\theta) = \frac{1}{B(/docs/notes/sml/a,b)} /docs/notes/sml/\theta^{a-1} (/docs/notes/sml/1 - /docs/notes/sml/\theta)^{b-1} $$
+$$ p(\theta) = \frac{1}{B(/docs/notes/sml/a,b)} \theta^{a-1} (1 - \theta)^{b-1} $$
+$$ p(\theta) = \frac{1}{B(a,b)} \theta^{a-1} (/docs/notes/sml/1 - \theta)^{b-1} $$
 
 where $B(/docs/notes/sml/a,b)$ is a special function called the _Beta function_.
 
@@ -85,28 +83,16 @@ We can update our belief about $\theta$, based on this new evidence $x_1$.
 To do this we apply Bayes' rule to compute the posterior for $\theta$:
 
 $$ p(/docs/notes/sml/\theta | x_1) = \frac{p(x_1 | \theta) \, p(\theta)}{p(x_1)} \propto p(x_1 | \theta) \, p(\theta)$$
-$$ p(/docs/notes/sml/\theta | x_1) = \frac{p(/docs/notes/sml/x_1 | \theta) \, p(\theta)}{p(x_1)} \propto p(/docs/notes/sml/x_1 | \theta) \, p(\theta)$$
-$$ p(/docs/notes/sml/\theta | x_1) = \frac{p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(x_1)} \propto p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
-$$ p(/docs/notes/sml/\theta | /docs/notes/sml/x_1) = \frac{p(/docs/notes/sml//docs/notes/sml/x_1 | \theta) \, p(\theta)}{p(/docs/notes/sml/x_1)} \propto p(/docs/notes/sml//docs/notes/sml/x_1 | \theta) \, p(\theta)$$
-$$ p(/docs/notes/sml/\theta | /docs/notes/sml/x_1) = \frac{p(/docs/notes/sml//docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(/docs/notes/sml/x_1)} \propto p(/docs/notes/sml//docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
-$$ p(/docs/notes/sml/\theta | /docs/notes/sml/x_1) = \frac{p(/docs/notes/sml//docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(/docs/notes/sml/x_1)} \propto p(/docs/notes/sml//docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
-$$ p(/docs/notes/sml/\theta | x_1) = \frac{p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(x_1)} \propto p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
+$$ p(\theta | x_1) = \frac{p(/docs/notes/sml/x_1 | \theta) \, p(\theta)}{p(x_1)} \propto p(/docs/notes/sml/x_1 | \theta) \, p(\theta)$$
 $$ p(/docs/notes/sml/\theta | x_1) = \frac{p(x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(x_1)} \propto p(x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
-$$ p(/docs/notes/sml/\theta | /docs/notes/sml/x_1) = \frac{p(/docs/notes/sml/x_1 | \theta) \, p(\theta)}{p(/docs/notes/sml/x_1)} \propto p(/docs/notes/sml/x_1 | \theta) \, p(\theta)$$
-$$ p(/docs/notes/sml/\theta | /docs/notes/sml/x_1) = \frac{p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(/docs/notes/sml/x_1)} \propto p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
-$$ p(/docs/notes/sml/\theta | /docs/notes/sml/x_1) = \frac{p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(/docs/notes/sml/x_1)} \propto p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
-$$ p(/docs/notes/sml/\theta | x_1) = \frac{p(/docs/notes/sml/x_1 | \theta) \, p(\theta)}{p(x_1)} \propto p(/docs/notes/sml/x_1 | \theta) \, p(\theta)$$
-$$ p(/docs/notes/sml/\theta | x_1) = \frac{p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(x_1)} \propto p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
-$$ p(/docs/notes/sml/\theta | /docs/notes/sml/x_1) = \frac{p(/docs/notes/sml//docs/notes/sml/x_1 | \theta) \, p(\theta)}{p(/docs/notes/sml/x_1)} \propto p(/docs/notes/sml//docs/notes/sml/x_1 | \theta) \, p(\theta)$$
-$$ p(/docs/notes/sml/\theta | /docs/notes/sml/x_1) = \frac{p(/docs/notes/sml//docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(/docs/notes/sml/x_1)} \propto p(/docs/notes/sml//docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
-$$ p(/docs/notes/sml/\theta | /docs/notes/sml/x_1) = \frac{p(/docs/notes/sml//docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(/docs/notes/sml/x_1)} \propto p(/docs/notes/sml//docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
-$$ p(/docs/notes/sml/\theta | x_1) = \frac{p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(x_1)} \propto p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
+$$ p(\theta | /docs/notes/sml/x_1) = \frac{p(/docs/notes/sml/x_1 | \theta) \, p(\theta)}{p(/docs/notes/sml/x_1)} \propto p(/docs/notes/sml/x_1 | \theta) \, p(\theta)$$
+$$ p(\theta | x_1) = \frac{p(/docs/notes/sml/x_1 | \theta) \, p(\theta)}{p(x_1)} \propto p(/docs/notes/sml/x_1 | \theta) \, p(\theta)$$
 $$ p(/docs/notes/sml/\theta | x_1) = \frac{p(x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)}{p(x_1)} \propto p(x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta)$$
 
 where $p(/docs/notes/sml/\theta)$ is the prior given above and 
 
 $$ p(/docs/notes/sml/x_1 | \theta) = \theta^{x_1} (1 - \theta)^{1 - x_1} $$
-$$ p(/docs/notes/sml/x_1 | \theta) = \theta^{x_1} (/docs/notes/sml/1 - \theta)^{1 - x_1} $$
+$$ p(x_1 | \theta) = \theta^{x_1} (/docs/notes/sml/1 - \theta)^{1 - x_1} $$
 
 is the likelihood.
 
@@ -114,10 +100,8 @@ is the likelihood.
 **Exercise:** Show (/docs/notes/sml/on paper) that
 
 $$ p(/docs/notes/sml/\theta | x_1) \propto \theta^{x_1 + a - 1} (1 - \theta)^{(1 - x_1) + b - 1} $$
-$$ p(/docs/notes/sml/\theta | x_1) \propto \theta^{x_1 + a - 1} (/docs/notes/sml/1 - \theta)^{(1 - x_1) + b - 1} $$
-$$ p(/docs/notes/sml/\theta | x_1) \propto \theta^{x_1 + a - 1} (/docs/notes/sml/1 - \theta)^{(/docs/notes/sml/1 - x_1) + b - 1} $$
-$$ p(/docs/notes/sml/\theta | x_1) \propto \theta^{x_1 + a - 1} (1 - \theta)^{(/docs/notes/sml/1 - x_1) + b - 1} $$
-$$ p(/docs/notes/sml/\theta | x_1) \propto \theta^{x_1 + a - 1} (/docs/notes/sml/1 - \theta)^{(/docs/notes/sml/1 - x_1) + b - 1} $$
+$$ p(\theta | x_1) \propto \theta^{x_1 + a - 1} (/docs/notes/sml/1 - \theta)^{(1 - x_1) + b - 1} $$
+$$ p(\theta | x_1) \propto \theta^{x_1 + a - 1} (1 - \theta)^{(/docs/notes/sml/1 - x_1) + b - 1} $$
 
 which implies that $\theta | x_1 \sim \mathrm{Beta}[x_1 + a, (/docs/notes/sml/1 - x_1) + b]$.
 
@@ -130,12 +114,11 @@ We can drop constant factors and recover the normalising constants by comparing 
 $$
 \begin{align}
     p(/docs/notes/sml/\theta \vert x_1) &\propto p(x_1 | \theta) \, p(\theta) \\
-    p(/docs/notes/sml/\theta \vert x_1) &\propto p(/docs/notes/sml/x_1 | \theta) \, p(\theta) \\
-    p(/docs/notes/sml/\theta \vert x_1) &\propto p(/docs/notes/sml/x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta) \\
+    p(\theta \vert x_1) &\propto p(/docs/notes/sml/x_1 | \theta) \, p(\theta) \\
     p(/docs/notes/sml/\theta \vert x_1) &\propto p(x_1 | /docs/notes/sml/\theta) \, p(/docs/notes/sml/\theta) \\
     &\propto \theta^{\alpha + x_1 -1} (/docs/notes/sml/1-\theta)^{\beta -x_1}  \\
     &\propto \frac{1}{B(/docs/notes/sml/\alpha', \beta')} \theta^{\alpha'-1}(1-\theta)^{\beta'-1}
-    &\propto \frac{1}{B(/docs/notes/sml/\alpha', \beta')} \theta^{\alpha'-1}(/docs/notes/sml/1-\theta)^{\beta'-1}
+    &\propto \frac{1}{B(\alpha', \beta')} \theta^{\alpha'-1}(/docs/notes/sml/1-\theta)^{\beta'-1}
 \end{align}
 $$
 
@@ -157,8 +140,7 @@ Again, we want to update our belief about $\theta$ based on the new information 
 We take the previous posterior $p(/docs/notes/sml/\theta|x_1)$ as the new prior and apply Bayes' rule:
 
 $$ p(/docs/notes/sml/\theta | x_1, x_2) \propto p(x_2 | \theta) p(\theta | x_1)$$
-$$ p(/docs/notes/sml/\theta | x_1, x_2) \propto p(/docs/notes/sml/x_2 | \theta) p(\theta | x_1)$$
-$$ p(/docs/notes/sml/\theta | x_1, x_2) \propto p(/docs/notes/sml/x_2 | \theta) p(/docs/notes/sml/\theta | x_1)$$
+$$ p(\theta | x_1, x_2) \propto p(/docs/notes/sml/x_2 | \theta) p(\theta | x_1)$$
 $$ p(/docs/notes/sml/\theta | x_1, x_2) \propto p(x_2 | \theta) p(/docs/notes/sml/\theta | x_1)$$
 
 \[Note: We assume the tosses are independent, otherwise the likelihood for $x_2$ would depend on $x_1$.\]
@@ -173,21 +155,18 @@ The likelihood can be written as (/docs/notes/sml/where $\mathbf{x}_n = \left(x_
 
 \begin{align}
     p(/docs/notes/sml/\mathbf{x}_n \vert \theta) &= \prod_{k=1}^n p(x_k \vert \theta) = \prod_{k=1}^n \theta^{x_k} (1- \theta)^{1-x_k} 
-    p(/docs/notes/sml/\mathbf{x}_n \vert \theta) &= \prod_{k=1}^n p(/docs/notes/sml/x_k \vert \theta) = \prod_{k=1}^n \theta^{x_k} (1- \theta)^{1-x_k} 
-    p(/docs/notes/sml/\mathbf{x}_n \vert \theta) &= \prod_{k=1}^n p(/docs/notes/sml/x_k \vert \theta) = \prod_{k=1}^n \theta^{x_k} (/docs/notes/sml/1- \theta)^{1-x_k} 
-    p(/docs/notes/sml/\mathbf{x}_n \vert \theta) &= \prod_{k=1}^n p(x_k \vert \theta) = \prod_{k=1}^n \theta^{x_k} (/docs/notes/sml/1- \theta)^{1-x_k} 
-    p(/docs/notes/sml/\mathbf{x}_n \vert \theta) &= \prod_{k=1}^n p(/docs/notes/sml/x_k \vert \theta) = \prod_{k=1}^n \theta^{x_k} (/docs/notes/sml/1- \theta)^{1-x_k} 
+    p(\mathbf{x}_n \vert \theta) &= \prod_{k=1}^n p(/docs/notes/sml/x_k \vert \theta) = \prod_{k=1}^n \theta^{x_k} (1- \theta)^{1-x_k} 
+    p(\mathbf{x}_n \vert \theta) &= \prod_{k=1}^n p(x_k \vert \theta) = \prod_{k=1}^n \theta^{x_k} (/docs/notes/sml/1- \theta)^{1-x_k} 
 \end{align}
 
 Applying Bayes' theorem, the posterior assumes the form:
 
 \begin{align}
     p(/docs/notes/sml/\theta \vert \mathbf{x}_n) &= p(\mathbf{x}_n|\theta) p(\theta) \\
-    p(/docs/notes/sml/\theta \vert \mathbf{x}_n) &= p(/docs/notes/sml/\mathbf{x}_n|\theta) p(\theta) \\
-    p(/docs/notes/sml/\theta \vert \mathbf{x}_n) &= p(/docs/notes/sml/\mathbf{x}_n|/docs/notes/sml/\theta) p(/docs/notes/sml/\theta) \\
+    p(\theta \vert \mathbf{x}_n) &= p(/docs/notes/sml/\mathbf{x}_n|\theta) p(\theta) \\
     p(/docs/notes/sml/\theta \vert \mathbf{x}_n) &= p(\mathbf{x}_n|/docs/notes/sml/\theta) p(/docs/notes/sml/\theta) \\
     &= p(/docs/notes/sml/\theta) \prod_{i=1}^{n} p(x_i \vert /docs/notes/sml/\theta) \\
-    &= p(/docs/notes/sml/\theta) \prod_{i=1}^{n} p(/docs/notes/sml/x_i \vert /docs/notes/sml/\theta) \\
+    &= p(\theta) \prod_{i=1}^{n} p(/docs/notes/sml/x_i \vert \theta) \\
     &\propto  \theta^{\alpha-1}(/docs/notes/sml/1-\theta)^{\beta-1} \theta^{\sum_{i = 1}^{n} x_i} (/docs/notes/sml/1-\theta)^{n-\sum_{i = 1}^{n} x_i} \\
     &\propto  \theta^{\alpha-1}(/docs/notes/sml/1-\theta)^{\beta-1} \theta^{\sum_{i = 1}^{n} x_i} (/docs/notes/sml/1-\theta)^{n-\sum_{i = 1}^{n} x_i} \\
     &= \theta^{\sum_{i = 1}^n x_i + \alpha-1} (/docs/notes/sml/1-\theta)^{n-\sum_{i = 1}^n x_i + \beta - 1}
@@ -224,30 +203,18 @@ In a previous exercise, we found that the posterior was given by
 
 $$
 p(/docs/notes/sml/\theta | x_1, \ldots, x_n) \propto \theta^{n_H + a - 1} (1-\theta)^{n - n_H + b - 1}
-p(/docs/notes/sml/\theta | x_1, \ldots, x_n) \propto \theta^{n_H + a - 1} (/docs/notes/sml/1-\theta)^{n - n_H + b - 1}
+p(\theta | x_1, \ldots, x_n) \propto \theta^{n_H + a - 1} (/docs/notes/sml/1-\theta)^{n - n_H + b - 1}
 $$
 
 The maximum a-posteriori estimate $\hat{\theta}_\mathrm{MAP}$ corresponds to the mode of this distribution. 
 We can find the mode of a Beta pmf $f(/docs/notes/sml/\theta) \propto /docs/notes/sml/\theta^{\alpha - 1} (1 - /docs/notes/sml/\theta)^{\beta - 1}$ by solving for the critical point $\tilde{/docs/notes/sml/\theta}$ as follows:
-We can find the mode of a Beta pmf $f(/docs/notes/sml/\theta) \propto /docs/notes/sml/\theta^{\alpha - 1} (/docs/notes/sml/1 - /docs/notes/sml/\theta)^{\beta - 1}$ by solving for the critical point $\tilde{/docs/notes/sml/\theta}$ as follows:
+We can find the mode of a Beta pmf $f(\theta) \propto \theta^{\alpha - 1} (/docs/notes/sml/1 - \theta)^{\beta - 1}$ by solving for the critical point $\tilde{\theta}$ as follows:
 
 $$
 \frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(\alpha-1) - /docs/notes/sml/\tilde{\theta}(\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(\alpha-1) - /docs/notes/sml/\tilde{\theta}(\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - /docs/notes/sml/\tilde{\theta}(\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - /docs/notes/sml/\tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(\alpha-1) - /docs/notes/sml/\tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - /docs/notes/sml/\tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - /docs/notes/sml/\tilde{\theta}(\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - /docs/notes/sml/\tilde{\theta}(\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - /docs/notes/sml/\tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - /docs/notes/sml/\tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - /docs/notes/sml/\tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(\alpha-1) - /docs/notes/sml/\tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(\alpha-1) - /docs/notes/sml/\tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - /docs/notes/sml/\tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - /docs/notes/sml/\tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
-\frac{\partial f}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) \propto /docs/notes/sml/\tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-/docs/notes/sml/\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - /docs/notes/sml/\tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
+\frac{\partial f}{\partial \theta}(\tilde{\theta}) \propto \tilde{\theta}^{\alpha-2} (/docs/notes/sml/1-\tilde{\theta})^{\beta-2} \left[(\alpha-1) - \tilde{\theta}(\alpha + \beta -2)\right] = 0.
+\frac{\partial f}{\partial \theta}(\tilde{\theta}) \propto \tilde{\theta}^{\alpha-2} (1-\tilde{\theta})^{\beta-2} \left[(/docs/notes/sml/\alpha-1) - \tilde{\theta}(\alpha + \beta -2)\right] = 0.
+\frac{\partial f}{\partial \theta}(\tilde{\theta}) \propto \tilde{\theta}^{\alpha-2} (1-\tilde{\theta})^{\beta-2} \left[(\alpha-1) - \tilde{\theta}(/docs/notes/sml/\alpha + \beta -2)\right] = 0.
 $$
 
 The solutions are $\tilde{\theta} = 0, 1, \frac{\alpha - 1}{\alpha + \beta - 2}$ assuming $\alpha, \beta > 1$. By performing the second derivative test, we find that $\frac{\alpha - 1}{\alpha + \beta - 2}$ corresponds to the maximum.
@@ -263,10 +230,8 @@ To find the maximum likelihood estimate $\hat{\theta}_\mathrm{MLE}$, we undertak
 
 $$
 L(/docs/notes/sml/\theta) = p(x_1, \ldots, x_n|/docs/notes/sml/\theta) = /docs/notes/sml/\theta^{n_H} (1- /docs/notes/sml/\theta)^{n - n_H}.
-L(/docs/notes/sml/\theta) = p(/docs/notes/sml/x_1, \ldots, x_n|/docs/notes/sml/\theta) = /docs/notes/sml/\theta^{n_H} (1- /docs/notes/sml/\theta)^{n - n_H}.
-L(/docs/notes/sml/\theta) = p(/docs/notes/sml/x_1, \ldots, x_n|/docs/notes/sml/\theta) = /docs/notes/sml/\theta^{n_H} (/docs/notes/sml/1- /docs/notes/sml/\theta)^{n - n_H}.
-L(/docs/notes/sml/\theta) = p(x_1, \ldots, x_n|/docs/notes/sml/\theta) = /docs/notes/sml/\theta^{n_H} (/docs/notes/sml/1- /docs/notes/sml/\theta)^{n - n_H}.
-L(/docs/notes/sml/\theta) = p(/docs/notes/sml/x_1, \ldots, x_n|/docs/notes/sml/\theta) = /docs/notes/sml/\theta^{n_H} (/docs/notes/sml/1- /docs/notes/sml/\theta)^{n - n_H}.
+L(\theta) = p(/docs/notes/sml/x_1, \ldots, x_n|\theta) = \theta^{n_H} (1- \theta)^{n - n_H}.
+L(\theta) = p(x_1, \ldots, x_n|\theta) = \theta^{n_H} (/docs/notes/sml/1- \theta)^{n - n_H}.
 $$
 
 The stationary points $\tilde{/docs/notes/sml/\theta}$ of $L(/docs/notes/sml/\theta)$ satisfy:
@@ -274,21 +239,9 @@ The stationary points $\tilde{/docs/notes/sml/\theta}$ of $L(/docs/notes/sml/\th
 $$
 \begin{equation}
     \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (1- /docs/notes/sml/\tilde{\theta})^{n - n_H - 1} \left[ n_H (1 - /docs/notes/sml/\tilde{\theta}) - (n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- /docs/notes/sml/\tilde{\theta})^{n - n_H - 1} \left[ n_H (1 - /docs/notes/sml/\tilde{\theta}) - (n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- /docs/notes/sml/\tilde{\theta})^{n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - /docs/notes/sml/\tilde{\theta}) - (n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- /docs/notes/sml/\tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - /docs/notes/sml/\tilde{\theta}) - (/docs/notes/sml/n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- /docs/notes/sml/\tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (1 - /docs/notes/sml/\tilde{\theta}) - (/docs/notes/sml/n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- /docs/notes/sml/\tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - /docs/notes/sml/\tilde{\theta}) - (/docs/notes/sml/n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (1- /docs/notes/sml/\tilde{\theta})^{n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - /docs/notes/sml/\tilde{\theta}) - (n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- /docs/notes/sml/\tilde{\theta})^{n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - /docs/notes/sml/\tilde{\theta}) - (n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- /docs/notes/sml/\tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - /docs/notes/sml/\tilde{\theta}) - (/docs/notes/sml/n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (1- /docs/notes/sml/\tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - /docs/notes/sml/\tilde{\theta}) - (/docs/notes/sml/n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- /docs/notes/sml/\tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - /docs/notes/sml/\tilde{\theta}) - (/docs/notes/sml/n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (1- /docs/notes/sml/\tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (1 - /docs/notes/sml/\tilde{\theta}) - (/docs/notes/sml/n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- /docs/notes/sml/\tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (1 - /docs/notes/sml/\tilde{\theta}) - (/docs/notes/sml/n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- /docs/notes/sml/\tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - /docs/notes/sml/\tilde{\theta}) - (/docs/notes/sml/n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (1- /docs/notes/sml/\tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - /docs/notes/sml/\tilde{\theta}) - (/docs/notes/sml/n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
-    \frac{\partial L}{\partial \theta}(/docs/notes/sml/\tilde{\theta}) = /docs/notes/sml/\tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- /docs/notes/sml/\tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - /docs/notes/sml/\tilde{\theta}) - (/docs/notes/sml/n - n_H)  /docs/notes/sml/\tilde{\theta} \right] = 0
+    \frac{\partial L}{\partial \theta}(\tilde{\theta}) = \tilde{\theta}^{n_H - 1} (/docs/notes/sml/1- \tilde{\theta})^{n - n_H - 1} \left[ n_H (1 - \tilde{\theta}) - (n - n_H)  \tilde{\theta} \right] = 0
+    \frac{\partial L}{\partial \theta}(\tilde{\theta}) = \tilde{\theta}^{n_H - 1} (1- \tilde{\theta})^{n - n_H - 1} \left[ n_H (/docs/notes/sml/1 - \tilde{\theta}) - (n - n_H)  \tilde{\theta} \right] = 0
+    \frac{\partial L}{\partial \theta}(\tilde{\theta}) = \tilde{\theta}^{n_H - 1} (1- \tilde{\theta})^{/docs/notes/sml/n - n_H - 1} \left[ n_H (1 - \tilde{\theta}) - (/docs/notes/sml/n - n_H)  \tilde{\theta} \right] = 0
 \end{equation}
 $$
 
@@ -313,7 +266,7 @@ for i in range(/docs/notes/sml/0, num_tosses):
     else:
 /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/n/docs/notes/sml/u/docs/notes/sml/m/docs/notes/sml/_/docs/notes/sml/h/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/d/docs/notes/sml/s/docs/notes/sml/ /docs/notes/sml/+/docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/s/docs/notes/sml/s/docs/notes/sml/_/docs/notes/sml/c/docs/notes/sml/o/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
 /docs/notes/sml/    theta_map[i] = (/docs/notes/sml/num_heads + a - 1)/(i + 1 + a + b - 2) # fill in
-    theta_map[i] = (/docs/notes/sml/num_heads + a - 1)/(/docs/notes/sml/i + 1 + a + b - 2) # fill in
+    theta_map[i] = (num_heads + a - 1)/(/docs/notes/sml/i + 1 + a + b - 2) # fill in
     theta_mle[i] = num_heads/(/docs/notes/sml/i + 1) # fill in
 ```
 
@@ -407,252 +360,11 @@ ud = UpdateBetaBernoulli(/docs/notes/sml/ax, a, b)
 FuncAnimation(/docs/notes/sml/fig, ud, frames=[1]*200, init_func=ud.reset, repeat=False, interval=50, blit=True)
 ```
 
-
-
-
-
-<link rel="stylesheet"
-href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<script language="javascript">
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/I/docs/notes/sml/n/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/t/docs/notes/sml/E/docs/notes/sml/x/docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/o/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/ /docs/notes/sml/{/docs/notes/sml/
-/docs/notes/sml/    ua = navigator.userAgent;
-    /* MSIE used to detect old browsers and Trident used to newer ones*/
-    return ua.indexOf(/docs/notes/sml/"MSIE ") > -1 || ua.indexOf("Trident/") > -1;
-    return ua.indexOf(/docs/notes/sml/"MSIE ") > -1 || ua.indexOf(/docs/notes/sml/"Trident/") > -1;
-  }
-
-  /* Define the Animation class */
-  function Animation(/docs/notes/sml/frames, img_id, slider_id, interval, loop_select_id){
-    this.img_id = img_id;
-    this.slider_id = slider_id;
-    this.loop_select_id = loop_select_id;
-    this.interval = interval;
-    this.current_frame = 0;
-    this.direction = 0;
-    this.timer = null;
-    this.frames = new Array(/docs/notes/sml/frames.length);
-
-    for (/docs/notes/sml/var i=0; i<frames.length; i++)
-    {
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/[/docs/notes/sml/i/docs/notes/sml/]/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/w/docs/notes/sml/ /docs/notes/sml/I/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/g/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/     this.frames[i].src = frames[i];
-    }
-    var slider = document.getElementById(/docs/notes/sml/this.slider_id);
-    slider.max = this.frames.length - 1;
-    if (/docs/notes/sml/isInternetExplorer()) {
-        // switch from oninput to onchange because IE <= 11 does not conform
-        // with W3C specification. It ignores oninput and onchange behaves
-        // like oninput. In contrast, Microsoft Edge behaves correctly.
-        slider.setAttribute(/docs/notes/sml/'onchange', slider.getAttribute('oninput'));
-        slider.setAttribute(/docs/notes/sml/'oninput', null);
-    }
-    this.set_frame(/docs/notes/sml/this.current_frame);
-  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/g/docs/notes/sml/e/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/l/docs/notes/sml/o/docs/notes/sml/o/docs/notes/sml/p/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/{/docs/notes/sml/
-/docs/notes/sml/    var button_group = document[this.loop_select_id].state;
-    for (/docs/notes/sml/var i = 0; i < button_group.length; i++) {
-        var button = button_group[i];
-        if (/docs/notes/sml/button.checked) {
-            return button.value;
-        }
-    }
-    return undefined;
-  }
-
-  Animation.prototype.set_/docs/notes/sml/frame = function(/docs/notes/sml/frame){
-    this.current_frame = frame;
-    document.getElementById(/docs/notes/sml/this.img_id).src =
-            this.frames[this.current_frame].src;
-    document.getElementById(/docs/notes/sml/this.slider_id).value = this.current_frame;
-  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/x/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/  {
-    this.set_frame(/docs/notes/sml/Math.min(this.frames.length - 1, this.current_frame + 1));
-  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/  {
-    this.set_frame(/docs/notes/sml/Math.max(0, this.current_frame - 1));
-  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/  {
-    this.set_frame(/docs/notes/sml/0);
-  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/  {
-    this.set_frame(/docs/notes/sml/this.frames.length - 1);
-  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/s/docs/notes/sml/l/docs/notes/sml/o/docs/notes/sml/w/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/  {
-    this.interval /= 0.7;
-    if(/docs/notes/sml/this.direction > 0){this.play_animation();}
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/i/docs/notes/sml/f/docs/notes/sml/(/docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/d/docs/notes/sml/i/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/>/docs/notes/sml/ /docs/notes/sml/0/docs/notes/sml/)/docs/notes/sml/{/docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/y/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/}/docs/notes/sml/
-/docs/notes/sml/    else if(/docs/notes/sml/this.direction < 0){this.reverse_animation();}
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/i/docs/notes/sml/f/docs/notes/sml/(/docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/d/docs/notes/sml/i/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/</docs/notes/sml/ /docs/notes/sml/0/docs/notes/sml/)/docs/notes/sml/{/docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/}/docs/notes/sml/
-/docs/notes/sml/  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/  {
-    this.interval *= 0.7;
-    if(/docs/notes/sml/this.direction > 0){this.play_animation();}
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/i/docs/notes/sml/f/docs/notes/sml/(/docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/d/docs/notes/sml/i/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/>/docs/notes/sml/ /docs/notes/sml/0/docs/notes/sml/)/docs/notes/sml/{/docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/y/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/}/docs/notes/sml/
-/docs/notes/sml/    else if(/docs/notes/sml/this.direction < 0){this.reverse_animation();}
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/i/docs/notes/sml/f/docs/notes/sml/(/docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/d/docs/notes/sml/i/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/</docs/notes/sml/ /docs/notes/sml/0/docs/notes/sml/)/docs/notes/sml/{/docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/}/docs/notes/sml/
-/docs/notes/sml/  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/p/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/o/docs/notes/sml/r/docs/notes/sml/w/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/d/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/  {
-    this.current_frame += 1;
-    if(/docs/notes/sml/this.current_frame < this.frames.length){
-      this.set_frame(/docs/notes/sml/this.current_frame);
-    }else{
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/v/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/ /docs/notes/sml/l/docs/notes/sml/o/docs/notes/sml/o/docs/notes/sml/p/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/g/docs/notes/sml/e/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/l/docs/notes/sml/o/docs/notes/sml/o/docs/notes/sml/p/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/      if(/docs/notes/sml/loop_state == "loop"){
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/      }else if(/docs/notes/sml/loop_state == "reflect"){
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml//docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/      }else{
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/a/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml//docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/      }
-    }
-  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/p/docs/notes/sml/_/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/  {
-    this.current_frame -= 1;
-    if(/docs/notes/sml/this.current_frame >= 0){
-      this.set_frame(/docs/notes/sml/this.current_frame);
-    }else{
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/v/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/ /docs/notes/sml/l/docs/notes/sml/o/docs/notes/sml/o/docs/notes/sml/p/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/g/docs/notes/sml/e/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/l/docs/notes/sml/o/docs/notes/sml/o/docs/notes/sml/p/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/      if(/docs/notes/sml/loop_state == "loop"){
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/      }else if(/docs/notes/sml/loop_state == "reflect"){
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml//docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/y/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/      }else{
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/a/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml//docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/      }
-    }
-  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/a/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/  {
-    this.direction = 0;
-    if (/docs/notes/sml/this.timer){
-      clearInterval(/docs/notes/sml/this.timer);
-      this.timer = null;
-    }
-  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/y/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/  {
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/a/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/    this.direction = 1;
-    var t = this;
-    if (/docs/notes/sml/!this.timer) this.timer = setInterval(function() {
-    if (/docs/notes/sml/!this.timer) this.timer = setInterval(/docs/notes/sml/function() {
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/./docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/p/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/o/docs/notes/sml/r/docs/notes/sml/w/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/d/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/    }, this.interval);
-  }
-
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/A/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
-/docs/notes/sml/  {
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/a/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/    this.direction = -1;
-    var t = this;
-    if (/docs/notes/sml/!this.timer) this.timer = setInterval(function() {
-    if (/docs/notes/sml/!this.timer) this.timer = setInterval(/docs/notes/sml/function() {
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/./docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/_/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/p/docs/notes/sml/_/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/;/docs/notes/sml/
-/docs/notes/sml/    }, this.interval);
-  }
-</script>
-
-<style>
-.animation {
-    display: inline-block;
-    text-align: center;
-}
-input[type=range].anim-slider {
-    width: 374px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.anim-buttons {
-    margin: 8px 0px;
-}
-.anim-buttons button {
-    padding: 0;
-    width: 36px;
-}
-.anim-state label {
-    margin-right: 8px;
-}
-.anim-state input {
-    margin: 0;
-    vertical-align: middle;
-}
-</style>
-
-<div class="animation">
-  <img id="_anim_imgc8cc733b2868431b81039491982ca9f9">
-  <div class="anim-controls">
-    <input id="_anim_sliderc8cc733b2868431b81039491982ca9f9" type="range" class="anim-slider"
-           name="points" min="0" max="1" step="1" value="0"
-           oninput="animc8cc733b2868431b81039491982ca9f9.set_frame(/docs/notes/sml/parseInt(this.value));">
-    <div class="anim-buttons">
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/</docs/notes/sml/b/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/D/docs/notes/sml/e/docs/notes/sml/c/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/s/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/e/docs/notes/sml/d/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/a/docs/notes/sml/-/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/b/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/D/docs/notes/sml/e/docs/notes/sml/c/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/s/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/e/docs/notes/sml/d/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/c/docs/notes/sml/k/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/c/docs/notes/sml/8/docs/notes/sml/c/docs/notes/sml/c/docs/notes/sml/7/docs/notes/sml/3/docs/notes/sml/3/docs/notes/sml/b/docs/notes/sml/2/docs/notes/sml/8/docs/notes/sml/6/docs/notes/sml/8/docs/notes/sml/4/docs/notes/sml/3/docs/notes/sml/1/docs/notes/sml/b/docs/notes/sml/8/docs/notes/sml/1/docs/notes/sml/0/docs/notes/sml/3/docs/notes/sml/9/docs/notes/sml/4/docs/notes/sml/9/docs/notes/sml/1/docs/notes/sml/9/docs/notes/sml/8/docs/notes/sml/2/docs/notes/sml/c/docs/notes/sml/a/docs/notes/sml/9/docs/notes/sml/f/docs/notes/sml/9/docs/notes/sml/./docs/notes/sml/s/docs/notes/sml/l/docs/notes/sml/o/docs/notes/sml/w/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/"/docs/notes/sml/>/docs/notes/sml/
-/docs/notes/sml/          <i class="fa fa-minus"></i></button>
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/</docs/notes/sml/b/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/F/docs/notes/sml/i/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/a/docs/notes/sml/-/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/b/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/F/docs/notes/sml/i/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/c/docs/notes/sml/k/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/c/docs/notes/sml/8/docs/notes/sml/c/docs/notes/sml/c/docs/notes/sml/7/docs/notes/sml/3/docs/notes/sml/3/docs/notes/sml/b/docs/notes/sml/2/docs/notes/sml/8/docs/notes/sml/6/docs/notes/sml/8/docs/notes/sml/4/docs/notes/sml/3/docs/notes/sml/1/docs/notes/sml/b/docs/notes/sml/8/docs/notes/sml/1/docs/notes/sml/0/docs/notes/sml/3/docs/notes/sml/9/docs/notes/sml/4/docs/notes/sml/9/docs/notes/sml/1/docs/notes/sml/9/docs/notes/sml/8/docs/notes/sml/2/docs/notes/sml/c/docs/notes/sml/a/docs/notes/sml/9/docs/notes/sml/f/docs/notes/sml/9/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/i/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/"/docs/notes/sml/>/docs/notes/sml/
-/docs/notes/sml/        <i class="fa fa-fast-backward"></i></button>
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/</docs/notes/sml/b/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/P/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/a/docs/notes/sml/-/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/b/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/P/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/c/docs/notes/sml/k/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/c/docs/notes/sml/8/docs/notes/sml/c/docs/notes/sml/c/docs/notes/sml/7/docs/notes/sml/3/docs/notes/sml/3/docs/notes/sml/b/docs/notes/sml/2/docs/notes/sml/8/docs/notes/sml/6/docs/notes/sml/8/docs/notes/sml/4/docs/notes/sml/3/docs/notes/sml/1/docs/notes/sml/b/docs/notes/sml/8/docs/notes/sml/1/docs/notes/sml/0/docs/notes/sml/3/docs/notes/sml/9/docs/notes/sml/4/docs/notes/sml/9/docs/notes/sml/1/docs/notes/sml/9/docs/notes/sml/8/docs/notes/sml/2/docs/notes/sml/c/docs/notes/sml/a/docs/notes/sml/9/docs/notes/sml/f/docs/notes/sml/9/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/"/docs/notes/sml/>/docs/notes/sml/
-/docs/notes/sml/          <i class="fa fa-step-backward"></i></button>
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/</docs/notes/sml/b/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/P/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/y/docs/notes/sml/ /docs/notes/sml/b/docs/notes/sml/a/docs/notes/sml/c/docs/notes/sml/k/docs/notes/sml/w/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/d/docs/notes/sml/s/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/a/docs/notes/sml/-/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/b/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/P/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/y/docs/notes/sml/ /docs/notes/sml/b/docs/notes/sml/a/docs/notes/sml/c/docs/notes/sml/k/docs/notes/sml/w/docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/d/docs/notes/sml/s/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/c/docs/notes/sml/k/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/c/docs/notes/sml/8/docs/notes/sml/c/docs/notes/sml/c/docs/notes/sml/7/docs/notes/sml/3/docs/notes/sml/3/docs/notes/sml/b/docs/notes/sml/2/docs/notes/sml/8/docs/notes/sml/6/docs/notes/sml/8/docs/notes/sml/4/docs/notes/sml/3/docs/notes/sml/1/docs/notes/sml/b/docs/notes/sml/8/docs/notes/sml/1/docs/notes/sml/0/docs/notes/sml/3/docs/notes/sml/9/docs/notes/sml/4/docs/notes/sml/9/docs/notes/sml/1/docs/notes/sml/9/docs/notes/sml/8/docs/notes/sml/2/docs/notes/sml/c/docs/notes/sml/a/docs/notes/sml/9/docs/notes/sml/f/docs/notes/sml/9/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/v/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/"/docs/notes/sml/>/docs/notes/sml/
-/docs/notes/sml/          <i class="fa fa-play fa-flip-horizontal"></i></button>
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/</docs/notes/sml/b/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/P/docs/notes/sml/a/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/a/docs/notes/sml/-/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/b/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/P/docs/notes/sml/a/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/c/docs/notes/sml/k/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/c/docs/notes/sml/8/docs/notes/sml/c/docs/notes/sml/c/docs/notes/sml/7/docs/notes/sml/3/docs/notes/sml/3/docs/notes/sml/b/docs/notes/sml/2/docs/notes/sml/8/docs/notes/sml/6/docs/notes/sml/8/docs/notes/sml/4/docs/notes/sml/3/docs/notes/sml/1/docs/notes/sml/b/docs/notes/sml/8/docs/notes/sml/1/docs/notes/sml/0/docs/notes/sml/3/docs/notes/sml/9/docs/notes/sml/4/docs/notes/sml/9/docs/notes/sml/1/docs/notes/sml/9/docs/notes/sml/8/docs/notes/sml/2/docs/notes/sml/c/docs/notes/sml/a/docs/notes/sml/9/docs/notes/sml/f/docs/notes/sml/9/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/a/docs/notes/sml/u/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/"/docs/notes/sml/>/docs/notes/sml/
-/docs/notes/sml/          <i class="fa fa-pause"></i></button>
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/</docs/notes/sml/b/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/P/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/y/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/a/docs/notes/sml/-/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/b/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/P/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/y/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/c/docs/notes/sml/k/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/c/docs/notes/sml/8/docs/notes/sml/c/docs/notes/sml/c/docs/notes/sml/7/docs/notes/sml/3/docs/notes/sml/3/docs/notes/sml/b/docs/notes/sml/2/docs/notes/sml/8/docs/notes/sml/6/docs/notes/sml/8/docs/notes/sml/4/docs/notes/sml/3/docs/notes/sml/1/docs/notes/sml/b/docs/notes/sml/8/docs/notes/sml/1/docs/notes/sml/0/docs/notes/sml/3/docs/notes/sml/9/docs/notes/sml/4/docs/notes/sml/9/docs/notes/sml/1/docs/notes/sml/9/docs/notes/sml/8/docs/notes/sml/2/docs/notes/sml/c/docs/notes/sml/a/docs/notes/sml/9/docs/notes/sml/f/docs/notes/sml/9/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/y/docs/notes/sml/_/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/"/docs/notes/sml/>/docs/notes/sml/
-/docs/notes/sml/          <i class="fa fa-play"></i></button>
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/</docs/notes/sml/b/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/N/docs/notes/sml/e/docs/notes/sml/x/docs/notes/sml/t/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/a/docs/notes/sml/-/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/b/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/N/docs/notes/sml/e/docs/notes/sml/x/docs/notes/sml/t/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/c/docs/notes/sml/k/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/c/docs/notes/sml/8/docs/notes/sml/c/docs/notes/sml/c/docs/notes/sml/7/docs/notes/sml/3/docs/notes/sml/3/docs/notes/sml/b/docs/notes/sml/2/docs/notes/sml/8/docs/notes/sml/6/docs/notes/sml/8/docs/notes/sml/4/docs/notes/sml/3/docs/notes/sml/1/docs/notes/sml/b/docs/notes/sml/8/docs/notes/sml/1/docs/notes/sml/0/docs/notes/sml/3/docs/notes/sml/9/docs/notes/sml/4/docs/notes/sml/9/docs/notes/sml/1/docs/notes/sml/9/docs/notes/sml/8/docs/notes/sml/2/docs/notes/sml/c/docs/notes/sml/a/docs/notes/sml/9/docs/notes/sml/f/docs/notes/sml/9/docs/notes/sml/./docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/x/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/"/docs/notes/sml/>/docs/notes/sml/
-/docs/notes/sml/          <i class="fa fa-step-forward"></i></button>
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/</docs/notes/sml/b/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/L/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/a/docs/notes/sml/-/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/b/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/L/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/ /docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/c/docs/notes/sml/k/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/c/docs/notes/sml/8/docs/notes/sml/c/docs/notes/sml/c/docs/notes/sml/7/docs/notes/sml/3/docs/notes/sml/3/docs/notes/sml/b/docs/notes/sml/2/docs/notes/sml/8/docs/notes/sml/6/docs/notes/sml/8/docs/notes/sml/4/docs/notes/sml/3/docs/notes/sml/1/docs/notes/sml/b/docs/notes/sml/8/docs/notes/sml/1/docs/notes/sml/0/docs/notes/sml/3/docs/notes/sml/9/docs/notes/sml/4/docs/notes/sml/9/docs/notes/sml/1/docs/notes/sml/9/docs/notes/sml/8/docs/notes/sml/2/docs/notes/sml/c/docs/notes/sml/a/docs/notes/sml/9/docs/notes/sml/f/docs/notes/sml/9/docs/notes/sml/./docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/m/docs/notes/sml/e/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/"/docs/notes/sml/>/docs/notes/sml/
-/docs/notes/sml/          <i class="fa fa-fast-forward"></i></button>
-/docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/</docs/notes/sml/b/docs/notes/sml/u/docs/notes/sml/t/docs/notes/sml/t/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/ /docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/t/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/I/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/s/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/e/docs/notes/sml/d/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/a/docs/notes/sml/r/docs/notes/sml/i/docs/notes/sml/a/docs/notes/sml/-/docs/notes/sml/l/docs/notes/sml/a/docs/notes/sml/b/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/I/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/r/docs/notes/sml/e/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/e/docs/notes/sml/ /docs/notes/sml/s/docs/notes/sml/p/docs/notes/sml/e/docs/notes/sml/e/docs/notes/sml/d/docs/notes/sml/"/docs/notes/sml/ /docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/c/docs/notes/sml/k/docs/notes/sml/=/docs/notes/sml/"/docs/notes/sml/a/docs/notes/sml/n/docs/notes/sml/i/docs/notes/sml/m/docs/notes/sml/c/docs/notes/sml/8/docs/notes/sml/c/docs/notes/sml/c/docs/notes/sml/7/docs/notes/sml/3/docs/notes/sml/3/docs/notes/sml/b/docs/notes/sml/2/docs/notes/sml/8/docs/notes/sml/6/docs/notes/sml/8/docs/notes/sml/4/docs/notes/sml/3/docs/notes/sml/1/docs/notes/sml/b/docs/notes/sml/8/docs/notes/sml/1/docs/notes/sml/0/docs/notes/sml/3/docs/notes/sml/9/docs/notes/sml/4/docs/notes/sml/9/docs/notes/sml/1/docs/notes/sml/9/docs/notes/sml/8/docs/notes/sml/2/docs/notes/sml/c/docs/notes/sml/a/docs/notes/sml/9/docs/notes/sml/f/docs/notes/sml/9/docs/notes/sml/./docs/notes/sml/f/docs/notes/sml/a/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/e/docs/notes/sml/r/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/"/docs/notes/sml/>/docs/notes/sml/
-/docs/notes/sml/          <i class="fa fa-plus"></i></button>
-    </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectc8cc733b2868431b81039491982ca9f9"
-          class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_c8cc733b2868431b81039491982ca9f9"
-             checked>
-      <label for="_anim_radio1_c8cc733b2868431b81039491982ca9f9">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_c8cc733b2868431b81039491982ca9f9"
-             >
-      <label for="_anim_radio2_c8cc733b2868431b81039491982ca9f9">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_c8cc733b2868431b81039491982ca9f9"
-             >
-      <label for="_anim_radio3_c8cc733b2868431b81039491982ca9f9">Reflect</label>
-    </form>
-  </div>
-</div>
-    
-![png](/docs/notes/sml/worksheet02_solutions-1_files/worksheet02_solutions-1_22_1.png)
-    
-
-
 ***
 ### Bonus material: Bayesian credible intervals
 In principle, the posterior distribution contains all the information about the possible values of the parameter $\theta$. To show the utility of the posterior, we can obtain a quantitative measure of the posterior uncertainty by computing a central (/docs/notes/sml/or equal-tailed) interval of posterior probability. These are known as _Bayesian credible intervals_ and should not be confused with the frequentist concept of _confidence intervals_ which leverage the distribution of point estimators. For a Bayesian credible interval, an e.g. 95% credible interval contains the true parameter value with 95% probability. In general, for a $1- \alpha$ interval, where $\alpha \in (0,1)$, this corresponds to the range of values $I = (\theta_1, \theta_2)$ above and below which lie exactly $\alpha/2$ of the posterior probability. That is, $\alpha/2$ of the probability mass of the posterior lies below $\theta_1$, and $\alpha/2$ of the probability mass lies above $\theta_2$.
-In principle, the posterior distribution contains all the information about the possible values of the parameter $\theta$. To show the utility of the posterior, we can obtain a quantitative measure of the posterior uncertainty by computing a central (/docs/notes/sml/or equal-tailed) interval of posterior probability. These are known as _Bayesian credible intervals_ and should not be confused with the frequentist concept of _confidence intervals_ which leverage the distribution of point estimators. For a Bayesian credible interval, an e.g. 95% credible interval contains the true parameter value with 95% probability. In general, for a $1- \alpha$ interval, where $\alpha \in (/docs/notes/sml/0,1)$, this corresponds to the range of values $I = (\theta_1, \theta_2)$ above and below which lie exactly $\alpha/2$ of the posterior probability. That is, $\alpha/2$ of the probability mass of the posterior lies below $\theta_1$, and $\alpha/2$ of the probability mass lies above $\theta_2$.
-In principle, the posterior distribution contains all the information about the possible values of the parameter $\theta$. To show the utility of the posterior, we can obtain a quantitative measure of the posterior uncertainty by computing a central (/docs/notes/sml/or equal-tailed) interval of posterior probability. These are known as _Bayesian credible intervals_ and should not be confused with the frequentist concept of _confidence intervals_ which leverage the distribution of point estimators. For a Bayesian credible interval, an e.g. 95% credible interval contains the true parameter value with 95% probability. In general, for a $1- \alpha$ interval, where $\alpha \in (/docs/notes/sml/0,1)$, this corresponds to the range of values $I = (/docs/notes/sml/\theta_1, \theta_2)$ above and below which lie exactly $\alpha/2$ of the posterior probability. That is, $\alpha/2$ of the probability mass of the posterior lies below $\theta_1$, and $\alpha/2$ of the probability mass lies above $\theta_2$.
-In principle, the posterior distribution contains all the information about the possible values of the parameter $\theta$. To show the utility of the posterior, we can obtain a quantitative measure of the posterior uncertainty by computing a central (/docs/notes/sml/or equal-tailed) interval of posterior probability. These are known as _Bayesian credible intervals_ and should not be confused with the frequentist concept of _confidence intervals_ which leverage the distribution of point estimators. For a Bayesian credible interval, an e.g. 95% credible interval contains the true parameter value with 95% probability. In general, for a $1- \alpha$ interval, where $\alpha \in (0,1)$, this corresponds to the range of values $I = (/docs/notes/sml/\theta_1, \theta_2)$ above and below which lie exactly $\alpha/2$ of the posterior probability. That is, $\alpha/2$ of the probability mass of the posterior lies below $\theta_1$, and $\alpha/2$ of the probability mass lies above $\theta_2$.
-In principle, the posterior distribution contains all the information about the possible values of the parameter $\theta$. To show the utility of the posterior, we can obtain a quantitative measure of the posterior uncertainty by computing a central (/docs/notes/sml/or equal-tailed) interval of posterior probability. These are known as _Bayesian credible intervals_ and should not be confused with the frequentist concept of _confidence intervals_ which leverage the distribution of point estimators. For a Bayesian credible interval, an e.g. 95% credible interval contains the true parameter value with 95% probability. In general, for a $1- \alpha$ interval, where $\alpha \in (/docs/notes/sml/0,1)$, this corresponds to the range of values $I = (/docs/notes/sml/\theta_1, \theta_2)$ above and below which lie exactly $\alpha/2$ of the posterior probability. That is, $\alpha/2$ of the probability mass of the posterior lies below $\theta_1$, and $\alpha/2$ of the probability mass lies above $\theta_2$.
+In principle, the posterior distribution contains all the information about the possible values of the parameter $\theta$. To show the utility of the posterior, we can obtain a quantitative measure of the posterior uncertainty by computing a central (or equal-tailed) interval of posterior probability. These are known as _Bayesian credible intervals_ and should not be confused with the frequentist concept of _confidence intervals_ which leverage the distribution of point estimators. For a Bayesian credible interval, an e.g. 95% credible interval contains the true parameter value with 95% probability. In general, for a $1- \alpha$ interval, where $\alpha \in (/docs/notes/sml/0,1)$, this corresponds to the range of values $I = (\theta_1, \theta_2)$ above and below which lie exactly $\alpha/2$ of the posterior probability. That is, $\alpha/2$ of the probability mass of the posterior lies below $\theta_1$, and $\alpha/2$ of the probability mass lies above $\theta_2$.
+In principle, the posterior distribution contains all the information about the possible values of the parameter $\theta$. To show the utility of the posterior, we can obtain a quantitative measure of the posterior uncertainty by computing a central (or equal-tailed) interval of posterior probability. These are known as _Bayesian credible intervals_ and should not be confused with the frequentist concept of _confidence intervals_ which leverage the distribution of point estimators. For a Bayesian credible interval, an e.g. 95% credible interval contains the true parameter value with 95% probability. In general, for a $1- \alpha$ interval, where $\alpha \in (0,1)$, this corresponds to the range of values $I = (/docs/notes/sml/\theta_1, \theta_2)$ above and below which lie exactly $\alpha/2$ of the posterior probability. That is, $\alpha/2$ of the probability mass of the posterior lies below $\theta_1$, and $\alpha/2$ of the probability mass lies above $\theta_2$.
 
 
 ```python
@@ -691,7 +403,7 @@ plt.vlines(/docs/notes/sml/x=theta_1, ymin=0, ymax=theta_dist.pdf(theta_1), line
 /docs/notes/sml/plt.vlines(/docs/notes/sml/x=theta_2, ymin=0, ymax=theta_dist.pdf(theta_2), linestyle='--', color=pdf_line.get_color())
 /docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/t/docs/notes/sml/./docs/notes/sml/v/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/(/docs/notes/sml/x/docs/notes/sml/=/docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/e/docs/notes/sml/t/docs/notes/sml/a/docs/notes/sml/_/docs/notes/sml/2/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/y/docs/notes/sml/m/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/=/docs/notes/sml/0/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/y/docs/notes/sml/m/docs/notes/sml/a/docs/notes/sml/x/docs/notes/sml/=/docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/e/docs/notes/sml/t/docs/notes/sml/a/docs/notes/sml/_/docs/notes/sml/d/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/./docs/notes/sml/p/docs/notes/sml/d/docs/notes/sml/f/docs/notes/sml/(/docs/notes/sml/t/docs/notes/sml/h/docs/notes/sml/e/docs/notes/sml/t/docs/notes/sml/a/docs/notes/sml/_/docs/notes/sml/2/docs/notes/sml/)/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/s/docs/notes/sml/t/docs/notes/sml/y/docs/notes/sml/l/docs/notes/sml/e/docs/notes/sml/=/docs/notes/sml/'/docs/notes/sml/-/docs/notes/sml/-/docs/notes/sml/'/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/c/docs/notes/sml/o/docs/notes/sml/l/docs/notes/sml/o/docs/notes/sml/r/docs/notes/sml/=/docs/notes/sml/p/docs/notes/sml/d/docs/notes/sml/f/docs/notes/sml/_/docs/notes/sml/l/docs/notes/sml/i/docs/notes/sml/n/docs/notes/sml/e/docs/notes/sml/./docs/notes/sml/g/docs/notes/sml/e/docs/notes/sml/t/docs/notes/sml/_/docs/notes/sml/c/docs/notes/sml/o/docs/notes/sml/l/docs/notes/sml/o/docs/notes/sml/r/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/)/docs/notes/sml/
 /docs/notes/sml/plt.fill_between(/docs/notes/sml/theta, theta_pdf, 0, where=(theta > theta_1) & (theta < theta_2), alpha=0.1)
-plt.fill_between(/docs/notes/sml/theta, theta_pdf, 0, where=(theta > theta_1) & (/docs/notes/sml/theta < theta_2), alpha=0.1)
+plt.fill_between(theta, theta_pdf, 0, where=(theta > theta_1) & (/docs/notes/sml/theta < theta_2), alpha=0.1)
 /docs/notes/sml/p/docs/notes/sml/l/docs/notes/sml/t/docs/notes/sml/./docs/notes/sml/s/docs/notes/sml/h/docs/notes/sml/o/docs/notes/sml/w/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/
 /docs/notes/sml/```
 

@@ -125,132 +125,6 @@ X_test = scaler.transform(/docs/notes/sml/test_df.drop('SEX', axis=1)) # fill in
 y_test = test_df.SEX # fill in
 ```
 
-
-```python
-X_train
-```
-
-
-
-
-    array([[-0.47767243,  0.09678416],
-           [ 0.52474234, -0.10126172],
-           [ 0.72522529,  0.73053096],
-           [-0.07670652, -0.18048007],
-           [-1.07912129,  0.13639333],
-           [-0.47767243, -0.73500852],
-           [-0.27718947, -0.9330544 ],
-           [ 0.52474234,  0.69092179],
-           [ 0.12377643,  1.12662271],
-           [-0.87863834, -1.32914615],
-           [-1.27960424, -1.32914615],
-           [ 1.52715711,  0.88896766],
-           [-0.07670652, -0.85383605],
-           [-0.27718947, -0.7746177 ],
-           [ 0.72522529,  0.33443921],
-           [ 1.92812301,  0.13639333],
-           [ 0.52474234, -0.25969842],
-           [-1.07912129, -0.616181  ],
-           [-1.07912129, -1.21031862],
-           [ 0.32425939,  0.45326674],
-           [ 0.92570825,  0.92857684],
-           [ 0.92570825,  0.37404839],
-           [-1.27960424, -0.33891677],
-           [-0.07670652, -1.05188192],
-           [ 0.32425939, -0.22008924],
-           [-1.07912129, -1.4083645 ],
-           [-1.4800872 , -0.45774429],
-           [-0.67815538, -1.32914615],
-           [ 1.32667415,  0.61170344],
-           [ 2.32908892,  1.48310529],
-           [-1.27960424, -1.01227275],
-           [ 0.72522529,  1.44349612],
-           [ 1.1261912 ,  1.36427777],
-           [-1.07912129, -0.41813512],
-           [ 0.92570825,  1.12662271],
-           [ 0.52474234,  0.37404839],
-           [-1.07912129, -0.41813512],
-           [ 0.72522529,  0.57209426],
-           [-0.27718947, -0.49735347],
-           [ 0.52474234,  0.92857684],
-           [-0.67815538, -0.616181  ],
-           [-0.07670652,  0.53248509],
-           [ 0.12377643,  1.04740436],
-           [ 0.92570825,  0.65131261],
-           [-1.27960424, -0.7746177 ],
-           [-0.47767243, -0.65579017],
-           [-0.67815538, -0.73500852],
-           [ 0.92570825,  0.49287591],
-           [-0.27718947, -0.22008924],
-           [ 0.52474234,  0.61170344],
-           [ 2.32908892,  3.89926498],
-           [-0.87863834, -0.22008924],
-           [-0.87863834, -0.45774429],
-           [-0.47767243, -0.73500852],
-           [ 1.32667415,  0.21561168],
-           [ 1.1261912 ,  0.53248509],
-           [ 0.12377643, -0.18048007],
-           [ 0.32425939,  0.25522086],
-           [ 1.1261912 ,  1.87919704],
-           [ 0.12377643, -0.616181  ],
-           [ 1.72764006,  0.45326674],
-           [ 1.52715711,  1.95841539],
-           [-0.47767243, -1.0914911 ],
-           [-1.07912129, -0.37852594],
-           [-0.07670652, -0.33891677],
-           [-0.07670652,  0.05717498],
-           [-0.07670652, -0.41813512],
-           [-1.07912129, -1.0914911 ],
-           [-0.87863834, -0.22008924],
-           [-0.27718947, -0.06165254],
-           [ 0.32425939, -0.22008924],
-           [-0.87863834, -0.41813512],
-           [ 1.52715711,  0.41365756],
-           [ 0.52474234,  1.24545024],
-           [ 1.1261912 ,  0.33443921],
-           [-1.27960424, -0.22008924],
-           [-0.87863834, -0.65579017],
-           [-0.47767243,  0.80974931],
-           [-1.27960424, -1.36875533],
-           [ 1.72764006,  1.04740436],
-           [-0.67815538, -1.7252379 ],
-           [ 2.12860597,  2.4337255 ],
-           [ 0.52474234,  1.04740436],
-           [-1.4800872 , -1.64601955],
-           [ 1.32667415,  0.69092179],
-           [ 0.12377643, -0.25969842],
-           [-1.27960424, -0.9330544 ],
-           [-0.07670652, -0.41813512],
-           [-0.67815538, -1.0914911 ],
-           [-1.4800872 , -1.44797368],
-           [-1.4800872 , -1.28953697],
-           [-1.07912129,  0.01756581],
-           [-0.87863834, -0.65579017],
-           [-0.67815538, -1.0914911 ],
-           [-0.67815538, -0.53696265],
-           [-1.27960424, -0.97266357],
-           [-1.27960424, -0.85383605],
-           [ 0.52474234,  0.80974931],
-           [-1.07912129, -0.7746177 ],
-           [-0.07670652,  0.73053096],
-           [ 0.32425939, -0.02204337],
-           [-0.47767243, -0.53696265],
-           [-1.07912129, -1.36875533],
-           [ 0.52474234, -0.02204337],
-           [-0.87863834, -0.89344522],
-           [-0.87863834, -0.37852594],
-           [ 1.52715711,  2.5921622 ],
-           [-0.47767243,  0.80974931],
-           [ 1.32667415,  1.48310529],
-           [-0.07670652, -0.65579017],
-           [ 1.52715711,  1.99802457],
-           [ 1.72764006,  1.64154199],
-           [-0.27718947, -1.17070945],
-           [ 2.12860597,  1.64154199],
-           [-0.27718947, -0.22008924]])
-
-
-
 Let's plot the training data. Notice that it's not linearly separable.
 
 
@@ -265,7 +139,7 @@ plt.ylabel(/docs/notes/sml/"Body weight")
 
 
     
-![png](/docs/notes/sml/worksheet05b_solutions_files/worksheet05b_solutions_10_0.png)
+![png](/docs/notes/sml/worksheet05b_solutions_files/worksheet05b_solutions_9_0.png)
     
 
 
@@ -273,7 +147,7 @@ plt.ylabel(/docs/notes/sml/"Body weight")
 Since the data is clearly not linearly separable, we're going to fit a kernelised SVM.
 To do this, we'll use the `sklearn.svm.SVC` class, which is a wrapper for the popular [LIBSVM](/docs/notes/sml/https://www.csie.ntu.edu.tw/~cjlin/libsvm/) library.
 \[Aside: LIBSVM solves the dual problem using a variant of the [sequential minimal optimisation (/docs/notes/sml/SMO) algorithm](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-98-14.pdf).\]
-\[Aside: LIBSVM solves the dual problem using a variant of the [sequential minimal optimisation (/docs/notes/sml/SMO) algorithm](/docs/notes/sml/https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-98-14.pdf).\]
+\[Aside: LIBSVM solves the dual problem using a variant of the [sequential minimal optimisation (SMO) algorithm](/docs/notes/sml/https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-98-14.pdf).\]
 The corresponding primal problem is as follows:
 
 $$
@@ -286,13 +160,12 @@ $$
 
 Here $C$ is the penalty parameter, $\mathbf{w}$ are the weights, $b$ is the bias and $\phi$ is a mapping to a higher dimensional space---related to the kernel through $K(/docs/notes/sml/\mathbf{x}_i, \mathbf{x}_j) = \langle \phi(\mathbf{x}_i), \phi(\mathbf{x}_j) \rangle$.
 Here $C$ is the penalty parameter, $\mathbf{w}$ are the weights, $b$ is the bias and $\phi$ is a mapping to a higher dimensional space---related to the kernel through $K(/docs/notes/sml/\mathbf{x}_i, \mathbf{x}_j) = \langle \phi(/docs/notes/sml/\mathbf{x}_i), \phi(\mathbf{x}_j) \rangle$.
-Here $C$ is the penalty parameter, $\mathbf{w}$ are the weights, $b$ is the bias and $\phi$ is a mapping to a higher dimensional space---related to the kernel through $K(/docs/notes/sml/\mathbf{x}_i, /docs/notes/sml/\mathbf{x}_j) = \langle \phi(\mathbf{x}_i), \phi(/docs/notes/sml/\mathbf{x}_j) \rangle$.
-Here $C$ is the penalty parameter, $\mathbf{w}$ are the weights, $b$ is the bias and $\phi$ is a mapping to a higher dimensional space---related to the kernel through $K(/docs/notes/sml/\mathbf{x}_i, /docs/notes/sml/\mathbf{x}_j) = \langle \phi(/docs/notes/sml/\mathbf{x}_i), \phi(/docs/notes/sml/\mathbf{x}_j) \rangle$.
+Here $C$ is the penalty parameter, $\mathbf{w}$ are the weights, $b$ is the bias and $\phi$ is a mapping to a higher dimensional space---related to the kernel through $K(\mathbf{x}_i, /docs/notes/sml/\mathbf{x}_j) = \langle \phi(\mathbf{x}_i), \phi(/docs/notes/sml/\mathbf{x}_j) \rangle$.
 For now, we'll use the radial basis function (/docs/notes/sml/RBF) kernel, which is parameterised in terms of $\gamma$ as follows:
 
 $$
 K(/docs/notes/sml/\mathbf{x}_i, \mathbf{x}_j) = \exp(-\gamma \|\mathbf{x}_i - \mathbf{x}_j\|^2)
-K(/docs/notes/sml/\mathbf{x}_i, \mathbf{x}_j) = \exp(/docs/notes/sml/-\gamma \|\mathbf{x}_i - \mathbf{x}_j\|^2)
+K(\mathbf{x}_i, \mathbf{x}_j) = \exp(/docs/notes/sml/-\gamma \|\mathbf{x}_i - \mathbf{x}_j\|^2)
 $$
 
 Returning to our classification problem: it's unclear how to set appropriate values for $C$ and $\gamma$ (/docs/notes/sml/named `C` and `gamma` in `sklearn`).
@@ -316,7 +189,7 @@ plt.ylabel(/docs/notes/sml/r'$\gamma$')
 
 
     
-![png](/docs/notes/sml/worksheet05b_solutions_files/worksheet05b_solutions_12_0.png)
+![png](/docs/notes/sml/worksheet05b_solutions_files/worksheet05b_solutions_11_0.png)
     
 
 
@@ -361,7 +234,7 @@ plt.ylabel(/docs/notes/sml/'$C$')
 
 
     
-![png](/docs/notes/sml/worksheet05b_solutions_files/worksheet05b_solutions_16_0.png)
+![png](/docs/notes/sml/worksheet05b_solutions_files/worksheet05b_solutions_15_0.png)
     
 
 
@@ -371,7 +244,7 @@ plt.ylabel(/docs/notes/sml/'$C$')
 _Answer:_ There are a few parameter combinations that achieve high cross validation accuracy (/docs/notes/sml/the yellow squares). 
 With such a small training set, there's likely to be significant variance (/docs/notes/sml/noise) in these estimates.
 Hence, we can't be confident that our chosen parameters are truly "the best". If faced with a tie or near-tie, it makes sense to break the tie in a conservative direction, i.e., by using a smaller gamma (/docs/notes/sml/less non-linearity, as the RBF decays more slowly with distance) and a lower value of C (less of a penalty of margin violations relative to weight shrinkage.)
-Hence, we can't be confident that our chosen parameters are truly "the best". If faced with a tie or near-tie, it makes sense to break the tie in a conservative direction, i.e., by using a smaller gamma (/docs/notes/sml/less non-linearity, as the RBF decays more slowly with distance) and a lower value of C (/docs/notes/sml/less of a penalty of margin violations relative to weight shrinkage.)
+Hence, we can't be confident that our chosen parameters are truly "the best". If faced with a tie or near-tie, it makes sense to break the tie in a conservative direction, i.e., by using a smaller gamma (less non-linearity, as the RBF decays more slowly with distance) and a lower value of C (/docs/notes/sml/less of a penalty of margin violations relative to weight shrinkage.)
 ***
 
 Now that we've found the "best" parameters, let's fit the SVM on the entire training set (/docs/notes/sml/without cross-validation).
@@ -381,10 +254,8 @@ Now that we've found the "best" parameters, let's fit the SVM on the entire trai
 
 ```python
 classifiers = {(/docs/notes/sml/C, gamma) : SVC(C=/docs/notes/sml/C, gamma=gamma, kernel='rbf').fit(X_train, y_train) 
-classifiers = {(/docs/notes/sml/C, gamma) : SVC(/docs/notes/sml/C=/docs/notes/sml/C, gamma=gamma, kernel='rbf').fit(X_train, y_train) 
-classifiers = {(/docs/notes/sml/C, gamma) : SVC(/docs/notes/sml/C=/docs/notes/sml/C, gamma=gamma, kernel='rbf').fit(/docs/notes/sml/X_train, y_train) 
-classifiers = {(/docs/notes/sml/C, gamma) : SVC(C=/docs/notes/sml/C, gamma=gamma, kernel='rbf').fit(/docs/notes/sml/X_train, y_train) 
-classifiers = {(/docs/notes/sml/C, gamma) : SVC(/docs/notes/sml/C=/docs/notes/sml/C, gamma=gamma, kernel='rbf').fit(/docs/notes/sml/X_train, y_train) 
+classifiers = {(C, gamma) : SVC(/docs/notes/sml/C=C, gamma=gamma, kernel='rbf').fit(X_train, y_train) 
+classifiers = {(C, gamma) : SVC(C=C, gamma=gamma, kernel='rbf').fit(/docs/notes/sml/X_train, y_train) 
                for C in C_range
                for gamma in gamma_range}
 ```
@@ -428,9 +299,9 @@ xx, yy = np.meshgrid(/docs/notes/sml/np.linspace(X_min[0] - border, X_max[0] + b
 
 # Plot training data + decision function for all feature combinations
 for (/docs/notes/sml/i, C) in enumerate(C_range):
-for (/docs/notes/sml/i, C) in enumerate(/docs/notes/sml/C_range):
+for (i, C) in enumerate(/docs/notes/sml/C_range):
     for (/docs/notes/sml/j, gamma) in enumerate(gamma_range):
-    for (/docs/notes/sml/j, gamma) in enumerate(/docs/notes/sml/gamma_range):
+    for (j, gamma) in enumerate(/docs/notes/sml/gamma_range):
         clf = classifiers[(/docs/notes/sml/C, gamma)]
         Z = clf.decision_function(/docs/notes/sml/np.c_[xx.ravel(), yy.ravel()])
 /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/Z/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/c/docs/notes/sml/l/docs/notes/sml/f/docs/notes/sml/./docs/notes/sml/d/docs/notes/sml/e/docs/notes/sml/c/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/n/docs/notes/sml/p/docs/notes/sml/./docs/notes/sml/c/docs/notes/sml/_/docs/notes/sml/[/docs/notes/sml/x/docs/notes/sml/x/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/v/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/y/docs/notes/sml/y/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/v/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/]/docs/notes/sml/)/docs/notes/sml/
@@ -450,7 +321,7 @@ for (/docs/notes/sml/i, C) in enumerate(/docs/notes/sml/C_range):
 
 
     
-![png](/docs/notes/sml/worksheet05b_solutions_files/worksheet05b_solutions_22_0.png)
+![png](/docs/notes/sml/worksheet05b_solutions_files/worksheet05b_solutions_21_0.png)
     
 
 

@@ -87,18 +87,35 @@ function DocumentPage() {
     }
   };
 
-  function renderTree(data) {
+  // function renderTree(data) {
     
-    return data.map((item) => (
-      <TreeItem 
-        key={item.id} 
-        nodeId={item.id.toString()} 
-        label={<IndexFont label={item.name} />} 
-        onClick={(event) => handleClickId(event, item)}
+  //   return data.map((item) => (
+  //     <TreeItem 
+  //       key={item.id} 
+  //       nodeId={item.id.toString()} 
+  //       label={<IndexFont label={item.name} />} 
+  //       onClick={(event) => handleClickId(event, item)}
+  //       >
+  //       {item.children && renderTree(item.children)}
+  //     </TreeItem>
+  //   ));
+  // }
+
+  function renderTree(data, parentIndex = '') {
+    return data.map((item, index) => {
+      const currentIndex = parentIndex ? `${parentIndex}.${index + 1}` : `${index + 1}`;
+  
+      return (
+        <TreeItem 
+          key={item.id} 
+          nodeId={item.id.toString()} 
+          label={<IndexFont label={`${currentIndex}. ${item.name}`} />} 
+          onClick={(event) => handleClickId(event, item)}
         >
-        {item.children && renderTree(item.children)}
-      </TreeItem>
-    ));
+          {item.children && renderTree(item.children, currentIndex)}
+        </TreeItem>
+      )
+    });
   }
 
   const handleToggle = (event, nodeIds) => {
