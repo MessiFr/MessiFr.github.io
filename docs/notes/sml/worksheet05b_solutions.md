@@ -147,7 +147,7 @@ plt.ylabel(/docs/notes/sml/"Body weight")
 Since the data is clearly not linearly separable, we're going to fit a kernelised SVM.
 To do this, we'll use the `sklearn.svm.SVC` class, which is a wrapper for the popular [LIBSVM](/docs/notes/sml/https://www.csie.ntu.edu.tw/~cjlin/libsvm/) library.
 \[Aside: LIBSVM solves the dual problem using a variant of the [sequential minimal optimisation (/docs/notes/sml/SMO) algorithm](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-98-14.pdf).\]
-\[Aside: LIBSVM solves the dual problem using a variant of the [sequential minimal optimisation (SMO) algorithm](/docs/notes/sml/https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-98-14.pdf).\]
+\[Aside: LIBSVM solves the dual problem using a variant of the [sequential minimal optimisation (/docs/notes/sml/SMO) algorithm](/docs/notes/sml/https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-98-14.pdf).\]
 The corresponding primal problem is as follows:
 
 $$
@@ -160,12 +160,13 @@ $$
 
 Here $C$ is the penalty parameter, $\mathbf{w}$ are the weights, $b$ is the bias and $\phi$ is a mapping to a higher dimensional space---related to the kernel through $K(/docs/notes/sml/\mathbf{x}_i, \mathbf{x}_j) = \langle \phi(\mathbf{x}_i), \phi(\mathbf{x}_j) \rangle$.
 Here $C$ is the penalty parameter, $\mathbf{w}$ are the weights, $b$ is the bias and $\phi$ is a mapping to a higher dimensional space---related to the kernel through $K(/docs/notes/sml/\mathbf{x}_i, \mathbf{x}_j) = \langle \phi(/docs/notes/sml/\mathbf{x}_i), \phi(\mathbf{x}_j) \rangle$.
-Here $C$ is the penalty parameter, $\mathbf{w}$ are the weights, $b$ is the bias and $\phi$ is a mapping to a higher dimensional space---related to the kernel through $K(\mathbf{x}_i, /docs/notes/sml/\mathbf{x}_j) = \langle \phi(\mathbf{x}_i), \phi(/docs/notes/sml/\mathbf{x}_j) \rangle$.
+Here $C$ is the penalty parameter, $\mathbf{w}$ are the weights, $b$ is the bias and $\phi$ is a mapping to a higher dimensional space---related to the kernel through $K(/docs/notes/sml/\mathbf{x}_i, /docs/notes/sml/\mathbf{x}_j) = \langle \phi(\mathbf{x}_i), \phi(/docs/notes/sml/\mathbf{x}_j) \rangle$.
+Here $C$ is the penalty parameter, $\mathbf{w}$ are the weights, $b$ is the bias and $\phi$ is a mapping to a higher dimensional space---related to the kernel through $K(/docs/notes/sml/\mathbf{x}_i, /docs/notes/sml/\mathbf{x}_j) = \langle \phi(/docs/notes/sml/\mathbf{x}_i), \phi(/docs/notes/sml/\mathbf{x}_j) \rangle$.
 For now, we'll use the radial basis function (/docs/notes/sml/RBF) kernel, which is parameterised in terms of $\gamma$ as follows:
 
 $$
 K(/docs/notes/sml/\mathbf{x}_i, \mathbf{x}_j) = \exp(-\gamma \|\mathbf{x}_i - \mathbf{x}_j\|^2)
-K(\mathbf{x}_i, \mathbf{x}_j) = \exp(/docs/notes/sml/-\gamma \|\mathbf{x}_i - \mathbf{x}_j\|^2)
+K(/docs/notes/sml/\mathbf{x}_i, \mathbf{x}_j) = \exp(/docs/notes/sml/-\gamma \|\mathbf{x}_i - \mathbf{x}_j\|^2)
 $$
 
 Returning to our classification problem: it's unclear how to set appropriate values for $C$ and $\gamma$ (/docs/notes/sml/named `C` and `gamma` in `sklearn`).
@@ -244,7 +245,7 @@ plt.ylabel(/docs/notes/sml/'$C$')
 _Answer:_ There are a few parameter combinations that achieve high cross validation accuracy (/docs/notes/sml/the yellow squares). 
 With such a small training set, there's likely to be significant variance (/docs/notes/sml/noise) in these estimates.
 Hence, we can't be confident that our chosen parameters are truly "the best". If faced with a tie or near-tie, it makes sense to break the tie in a conservative direction, i.e., by using a smaller gamma (/docs/notes/sml/less non-linearity, as the RBF decays more slowly with distance) and a lower value of C (less of a penalty of margin violations relative to weight shrinkage.)
-Hence, we can't be confident that our chosen parameters are truly "the best". If faced with a tie or near-tie, it makes sense to break the tie in a conservative direction, i.e., by using a smaller gamma (less non-linearity, as the RBF decays more slowly with distance) and a lower value of C (/docs/notes/sml/less of a penalty of margin violations relative to weight shrinkage.)
+Hence, we can't be confident that our chosen parameters are truly "the best". If faced with a tie or near-tie, it makes sense to break the tie in a conservative direction, i.e., by using a smaller gamma (/docs/notes/sml/less non-linearity, as the RBF decays more slowly with distance) and a lower value of C (/docs/notes/sml/less of a penalty of margin violations relative to weight shrinkage.)
 ***
 
 Now that we've found the "best" parameters, let's fit the SVM on the entire training set (/docs/notes/sml/without cross-validation).
@@ -254,8 +255,10 @@ Now that we've found the "best" parameters, let's fit the SVM on the entire trai
 
 ```python
 classifiers = {(/docs/notes/sml/C, gamma) : SVC(C=/docs/notes/sml/C, gamma=gamma, kernel='rbf').fit(X_train, y_train) 
-classifiers = {(C, gamma) : SVC(/docs/notes/sml/C=C, gamma=gamma, kernel='rbf').fit(X_train, y_train) 
-classifiers = {(C, gamma) : SVC(C=C, gamma=gamma, kernel='rbf').fit(/docs/notes/sml/X_train, y_train) 
+classifiers = {(/docs/notes/sml/C, gamma) : SVC(/docs/notes/sml/C=/docs/notes/sml/C, gamma=gamma, kernel='rbf').fit(X_train, y_train) 
+classifiers = {(C, gamma) : SVC(/docs/notes/sml/C=C, gamma=gamma, kernel='rbf').fit(/docs/notes/sml/X_train, y_train) 
+classifiers = {(/docs/notes/sml/C, gamma) : SVC(C=/docs/notes/sml/C, gamma=gamma, kernel='rbf').fit(/docs/notes/sml/X_train, y_train) 
+classifiers = {(C, gamma) : SVC(/docs/notes/sml/C=C, gamma=gamma, kernel='rbf').fit(/docs/notes/sml/X_train, y_train) 
                for C in C_range
                for gamma in gamma_range}
 ```
@@ -299,9 +302,9 @@ xx, yy = np.meshgrid(/docs/notes/sml/np.linspace(X_min[0] - border, X_max[0] + b
 
 # Plot training data + decision function for all feature combinations
 for (/docs/notes/sml/i, C) in enumerate(C_range):
-for (i, C) in enumerate(/docs/notes/sml/C_range):
+for (/docs/notes/sml/i, C) in enumerate(/docs/notes/sml/C_range):
     for (/docs/notes/sml/j, gamma) in enumerate(gamma_range):
-    for (j, gamma) in enumerate(/docs/notes/sml/gamma_range):
+    for (/docs/notes/sml/j, gamma) in enumerate(/docs/notes/sml/gamma_range):
         clf = classifiers[(/docs/notes/sml/C, gamma)]
         Z = clf.decision_function(/docs/notes/sml/np.c_[xx.ravel(), yy.ravel()])
 /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/ /docs/notes/sml/Z/docs/notes/sml/ /docs/notes/sml/=/docs/notes/sml/ /docs/notes/sml/c/docs/notes/sml/l/docs/notes/sml/f/docs/notes/sml/./docs/notes/sml/d/docs/notes/sml/e/docs/notes/sml/c/docs/notes/sml/i/docs/notes/sml/s/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/_/docs/notes/sml/f/docs/notes/sml/u/docs/notes/sml/n/docs/notes/sml/c/docs/notes/sml/t/docs/notes/sml/i/docs/notes/sml/o/docs/notes/sml/n/docs/notes/sml/(/docs/notes/sml/n/docs/notes/sml/p/docs/notes/sml/./docs/notes/sml/c/docs/notes/sml/_/docs/notes/sml/[/docs/notes/sml/x/docs/notes/sml/x/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/v/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/,/docs/notes/sml/ /docs/notes/sml/y/docs/notes/sml/y/docs/notes/sml/./docs/notes/sml/r/docs/notes/sml/a/docs/notes/sml/v/docs/notes/sml/e/docs/notes/sml/l/docs/notes/sml/(/docs/notes/sml/)/docs/notes/sml/]/docs/notes/sml/)/docs/notes/sml/
