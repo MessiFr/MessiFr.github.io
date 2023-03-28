@@ -16,6 +16,7 @@ import Zoom from "@material-ui/core/Zoom";
 import PropTypes from "prop-types";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import data from "views/documents/plugin/doc";
 
 import { Grid } from '@mui/material';
 import { Typography } from '@mui/material';
@@ -67,18 +68,38 @@ ScrollTop.propTypes = {
   children: PropTypes.element.isRequired
 };
 
+
+
 function DocumentPage() {
   const [expanded, setExpanded] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
-  const [id, setId] = React.useState(0);
+  // const [id, setId] = React.useState(0);
+  const [curr, setCurr] = React.useState({id: '0', path: 'docs/homepage.md'})
 
   // const { label, nodeId } = props;
   const history = useHistory();
 
-  const handleClick = (event, id) => {
-    history.push(`/documents/${id}`);
-    setId(id);
+  const handleClickId = (event, item) => {
+    // console.log(item)
+    if (item.path) {
+      history.push(`/documents/${item.id}`);
+      setCurr(item);
+    }
   };
+
+  function renderTree(data) {
+    
+    return data.map((item) => (
+      <TreeItem 
+        key={item.id} 
+        nodeId={item.id.toString()} 
+        label={<IndexFont label={item.name} />} 
+        onClick={(event) => handleClickId(event, item)}
+        >
+        {item.children && renderTree(item.children)}
+      </TreeItem>
+    ));
+  }
 
   const handleToggle = (event, nodeIds) => {
     setExpanded(nodeIds);
@@ -90,10 +111,11 @@ function DocumentPage() {
 
   const handleExpandClick = () => {
     setExpanded((oldExpanded) =>
-      oldExpanded.length === 0 ? ['100', '200', '1', '106', '102', '900'] : [],
+      oldExpanded.length === 0 ? ["1", "4", "5"] : [],
     );
   };
 
+  console.log(expanded);
   return (
     <>
       <SolidNavbar label="Documents"/>
@@ -106,7 +128,7 @@ function DocumentPage() {
 
               {/* 目录 */}
               <Box sx={{ height: 600, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}>
-                <h3 className="title" style={{ textAlign: 'left' }} onClick={(event) => handleClick(event, 0)}>Documents</h3>
+                <h3 className="title" style={{ textAlign: 'left' }} onClick={(event) => handleClickId(event, 0)}>Documents</h3>
                 <Box sx={{ mb: 1 }}>
                   <Button onClick={handleExpandClick} size='small'>
                     {expanded.length === 0 ? 'Expand all' : 'Collapse all'}
@@ -123,42 +145,14 @@ function DocumentPage() {
                   onNodeSelect={handleSelect}
                   multiSelect
                 >
-                  <TreeItem nodeId="100" label={<IndexFont label="1. Notes" />}>
-                    <TreeItem nodeId="101" label={<IndexFont label="1.1 NLP" />} > 
-                      {/* <TreeItem nodeId="104" label={<IndexFont label="1.1.1 Assignment 1" />} onClick={(event) => handleClick(event, 104)} /> */}
-                    </TreeItem>
-                    <TreeItem nodeId="106" label={<IndexFont label="1.2 Machine Learning" />} > 
-                      <TreeItem nodeId="107" label={<IndexFont label="1.2.1 Linear Regression" />} onClick={(event) => handleClick(event, 107)} />
-                      <TreeItem nodeId="108" label={<IndexFont label="1.2.2 Bayes Inference" />} onClick={(event) => handleClick(event, 108)} />
-                      <TreeItem nodeId="109" label={<IndexFont label="1.2.3 Gradient Based Training" />} onClick={(event) => handleClick(event, 109)} />
-                      <TreeItem nodeId="110" label={<IndexFont label="1.2.4 SVM" />} onClick={(event) => handleClick(event, 110)} />
-                      <TreeItem nodeId="111" label={<IndexFont label="1.2.5 Pytorch" />} onClick={(event) => handleClick(event, 111)} />
-
-                    </TreeItem>
-                    <TreeItem nodeId="102" label={<IndexFont label="1.3 Cluster Cloud Computing" />} >
-                      <TreeItem nodeId="105" label={<IndexFont label="1.3.1 Slides 1" />} onClick={(event) => handleClick(event, 105)} />
-                    </TreeItem>
-                  </TreeItem>
-                  <TreeItem nodeId="200" label={<IndexFont label="2. Programs" />}>
-                    <TreeItem nodeId="201" label={<IndexFont label="2.1 Cluster Cloud Computing" />} />
-                    <TreeItem nodeId="202" label={<IndexFont label="2.2 Machine Learning" />} />
-                    <TreeItem nodeId="203" label={<IndexFont label="2.3 NLP" />} />
-                  </TreeItem>
-                  <TreeItem nodeId="1" label={<IndexFont label="3. Resume" />}>
-                    <TreeItem nodeId='2' label={<IndexFont label="3.1 Resume(zh)" />}/>
-                    <TreeItem nodeId='3' label={<IndexFont label="3.2 Resume(en)" />}/>
-                  </TreeItem>   
-                  <TreeItem nodeId="900" label={<IndexFont label="4. Development"/>}>
-                    <TreeItem nodeId="901" label={<IndexFont label=" -test-" />} onClick={(event) => handleClick(event, 901)} />
-                  </TreeItem>
-                   
+                  {renderTree(data)}
                 </TreeView>
               </Box>
               
             </Grid>
             <Grid item xs={8} sx={{ p: 2, alignItems: 'flex-start', marginRight: '2%'}}>
               {/* 文章内容 */}
-              <DocumentContext id={id}/>
+              <DocumentContext item={curr}/>
               <ScrollTop>
                 <Fab color="primary" size="medium" aria-label="scroll back to top">
                   <KeyboardArrowUpIcon />

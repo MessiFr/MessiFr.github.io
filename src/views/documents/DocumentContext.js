@@ -15,7 +15,7 @@ import { MathJaxContext, MathJax } from 'better-react-mathjax';
 // import CodeBlock from "./plugin/CodeBlock";
 // import './CodeBlock.css';
 
-import fileInfo from "./plugin/doc";
+// import fileInfo from "./plugin/doc";
 import { Container } from "reactstrap";
 
 export default function DocumentContext(props)  {
@@ -49,19 +49,19 @@ export default function DocumentContext(props)  {
   };
 
   useEffect(() => {
-    
-    const path = `/docs/${fileInfo[props.id][0]}`; // "./docs/notes/nlp/assignment_1"
-    // console.log(path)
+    // console.log(props)
+    const path = `/${props.item.path}`; // "./docs/notes/nlp/assignment_1"
+    console.log(path)
 
     fetch(path)
       .then((res) => res.text())
       .then((text) => setContent(text));
-  }, [props.id]);
+  }, [props]);
 
 
   return (
     <Container>
-    <h3 className="title" style={{ textAlign: 'center' }}>{fileInfo[props.id][1]}</h3>
+    {/* <h3 className="title" style={{ textAlign: 'center' }}>{props.item.title}</h3> */}
     <div className="post">
         <MathJaxContext config={config} >
             <MathJax>
