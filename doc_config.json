@@ -1,0 +1,242 @@
+[
+  {
+    "docs": {
+      "name": "docs",
+      "title": "docs"
+    }
+  },
+  {
+    "development": {
+      "name": "Development",
+      "title": "development"
+    }
+  },
+  {
+    "test2.md": {
+      "name": "test2",
+      "title": "test2.md"
+    }
+  },
+  {
+    "test.md": {
+      "name": "test",
+      "title": "test.md"
+    }
+  },
+  {
+    "projects": {
+      "name": "Projects",
+      "title": "projects"
+    }
+  },
+  {
+    "Capstone-group16-melbourne-pollen": {
+      "name": "Capstone Project",
+      "title": "Capstone-group16-melbourne-pollen"
+    }
+  },
+  {
+    "README.md": {
+      "name": "README",
+      "title": "README.md"
+    }
+  },
+  {
+    "feature_analysis": {
+      "name": "Feature Analysis",
+      "title": "feature_analysis"
+    }
+  },
+  {
+    "feature_analysis_report.md": {
+      "name": "Feature Analysis Report",
+      "title": "feature_analysis_report.md"
+    }
+  },
+  {
+    "Modeling": {
+      "name": "Modeling",
+      "title": "Modeling"
+    }
+  },
+  {
+    "prophet_model": {
+      "name": "Prophet",
+      "title": "prophet_model"
+    }
+  },
+  {
+    "prophet model.md": {
+      "name": "Model",
+      "title": "prophet model.md"
+    }
+  },
+  {
+    "lightgbm_gfsdata": {
+      "name": "LightBGM (GFS Data)",
+      "title": "lightgbm_gfsdata"
+    }
+  },
+  {
+    "gfs_modelling.md": {
+      "name": "Modelling",
+      "title": "gfs_modelling.md"
+    }
+  },
+  {
+    "gfs_preprocessing.md": {
+      "name": "Preprocessing (GFS Data)",
+      "title": "gfs_preprocessing.md"
+    }
+  },
+  {
+    "classifier": {
+      "name": "Classification",
+      "title": "classifier"
+    }
+  },
+  {
+    "support_evaluation.md": {
+      "name": "Support Evaluation",
+      "title": "support_evaluation.md"
+    }
+  },
+  {
+    "gbm.md": {
+      "name": "GBM",
+      "title": "gbm.md"
+    }
+  },
+  {
+    "gbm_gfs.md": {
+      "name": "GBM (GFS Data)",
+      "title": "gbm_gfs.md"
+    }
+  },
+  {
+    "time_series": {
+      "name": "Time Series",
+      "title": "time_series"
+    }
+  },
+  {
+    "time series.md": {
+      "name": "Time Series Model",
+      "title": "time series.md"
+    }
+  },
+  {
+    "regressor": {
+      "name": "Regressioni",
+      "title": "regressor"
+    }
+  },
+  {
+    "backup_modelling_v4.md": {
+      "name": "Backup",
+      "title": "backup_modelling_v4.md"
+    }
+  },
+  {
+    "lightgbm_backupdata": {
+      "name": "LightGBM (Backup)",
+      "title": "lightgbm_backupdata"
+    }
+  },
+  {
+    "backup_data_preprocessing.md": {
+      "name": "Preprocessing (Backup)",
+      "title": "backup_data_preprocessing.md"
+    }
+  },
+  {
+    "backup_modelling.md": {
+      "name": "Modelling (Backup)",
+      "title": "backup_modelling.md"
+    }
+  },
+  {
+    "naive_forecasting": {
+      "name": "Naive Forecasting",
+      "title": "naive_forecasting"
+    }
+  },
+  {
+    "naive_forecasting.md": {
+      "name": "Naive Forecasting Model",
+      "title": "naive_forecasting.md"
+    }
+  },
+  {
+    "notes": {
+      "name": "Notes",
+      "title": "notes"
+    }
+  },
+  {
+    "ccc": {
+      "name": "CCC",
+      "title": "ccc"
+    }
+  },
+  {
+    "ccc.pdf": {
+      "name": "ccc.pdf",
+      "title": "ccc.pdf"
+    }
+  },
+  {
+    "sml": {
+      "name": "SML",
+      "title": "sml"
+    }
+  },
+  {
+    "worksheet02_solutions-1.md": {
+      "name": "Bayesian Inference",
+      "title": "worksheet02_solutions-1.md"
+    }
+  },
+  {
+    "worksheet05b_solutions.md": {
+      "name": "worksheet05b_solutions.md",
+      "title": "worksheet05b_solutions.md"
+    }
+  },
+  {
+    "worksheet04_solutions.md": {
+      "name": "worksheet04_solutions.md",
+      "title": "worksheet04_solutions.md"
+    }
+  },
+  {
+    "worksheet03_solutions.md": {
+      "name": "worksheet03_solutions.md",
+      "title": "worksheet03_solutions.md"
+    }
+  },
+  {
+    "worksheet08_solutions.md": {
+      "name": "worksheet08_solutions.md",
+      "title": "worksheet08_solutions.md"
+    }
+  },
+  {
+    "worksheet09.md": {
+      "name": "worksheet09.md",
+      "title": "worksheet09.md"
+    }
+  },
+  {
+    "worksheet06_solutions.md": {
+      "name": "worksheet06_solutions.md",
+      "title": "worksheet06_solutions.md"
+    }
+  },
+  {
+    "worksheet07_solutions.md": {
+      "name": "worksheet07_solutions.md",
+      "title": "worksheet07_solutions.md"
+    }
+  }
+]

@@ -65,7 +65,7 @@ plt.ylabel(/docs/notes/sml/r'$p(\theta)$')
 
 
     
-![png](/docs/notes/sml/worksheet02_solutions-1_files/worksheet02_solutions-1_5_0.png)
+![png](/docs/notes/sml/worksheet02_solutions-1.md/worksheet02_solutions-1_files/worksheet02_solutions-1_5_0.png)
     
 
 
