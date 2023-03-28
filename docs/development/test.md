@@ -18,7 +18,7 @@ print('Test')
 ```
 
 ## Image
-![test.png](/docs/development/test_img/test.png)
+![png](/docs/development/test_img/test.png)
 
 ## HTML test
 
