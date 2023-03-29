@@ -81,11 +81,11 @@ This is why logistic regression is referred to as a _log-linear model_. What is 
 
 **Answer:** \begin{align}
 \log \frac{p(y=1 \vert \mathbf{x})}{p(y=0 \vert \mathbf{x})} 
-&= \log \frac{\sigma\left(\mathbf{w}^T \mathbf{x}\right)}{1 - \sigma\left(\mathbf{w}^T \mathbf{x}\right)} \\\\
-&= \log \frac{1 / \left(1 + \exp(-\mathbf{w}^T \mathbf{x})\right)}{1 - 1 / \left(1 + \exp(-\mathbf{w}^T \mathbf{x})\right)} \\\\
-&= \log \frac{1}{1 + \exp(-\mathbf{w}^T \mathbf{x}) - 1} \\\\
-&= \log \frac{1}{\exp(-\mathbf{w}^T \mathbf{x})} \\\\
-&= - \log\exp(-\mathbf{w}^T \mathbf{x}) \\\\
+&= \log \frac{\sigma\left(\mathbf{w}^T \mathbf{x}\right)}{1 - \sigma\left(\mathbf{w}^T \mathbf{x}\right)} \\
+&= \log \frac{1 / \left(1 + \exp(-\mathbf{w}^T \mathbf{x})\right)}{1 - 1 / \left(1 + \exp(-\mathbf{w}^T \mathbf{x})\right)} \\
+&= \log \frac{1}{1 + \exp(-\mathbf{w}^T \mathbf{x}) - 1} \\
+&= \log \frac{1}{\exp(-\mathbf{w}^T \mathbf{x})} \\
+&= - \log\exp(-\mathbf{w}^T \mathbf{x}) \\
 &= \mathbf{w}^T \mathbf{x} 
 \end{align}
 
@@ -300,10 +300,7 @@ print("Weights according to scikit-learn: {}".format(w_sklearn))
 
 
 Let's take a look at the path taken by the GD algorithm to reach the optimal solution.
-We plot the weight vectors at each iteration 
-$$\mathbf{w}_0, \mathbf{w}_1$$ 
-on top of contours of the empirical risk 
-$$\mathcal{L}_{CE}(\mathbf{w})$$. 
+We plot the weight vectors at each iteration $$\mathbf{w}_0, \mathbf{w}_1, \ldots$$ on top of contours of the empirical risk $$\mathcal{L}_{CE}(\mathbf{w})$$. 
 The darker the shade, the lower the empirical risk. Note that we fix the bias term at its trained value, such that we can plot the objective surface in 2D.
 
 
