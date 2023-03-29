@@ -286,5 +286,17 @@
       "name": "Pos Tagging",
       "title": "05-pos-tagging.md"
     }
+  },
+  {
+    "prophet_model.md": {
+      "name": "prophet_model.md",
+      "title": "prophet_model.md"
+    }
+  },
+  {
+    "time_series.md": {
+      "name": "time_series.md",
+      "title": "time_series.md"
+    }
   }
 ]

@@ -9,14 +9,14 @@ import seaborn as sns
 import pandas as pd
 
 
-ds=pd.read_pickle(/docs/projects/capstone/Modeling/time_series/'/Users/demi/Desktop/pollen data/weather_v2.pkl')
+ds=pd.read_pickle('/Users/demi/Desktop/pollen data/weather_v2.pkl')
 df=ds[1]
 df1=df.loc['2000-01-01':'2021-01-31']
 # df1=df.loc[df.index<='2021-1-31']
 
 
 df1['Count Date']=df1.index
-df1['Count Date']=df1['Count Date'].astype(/docs/projects/capstone/Modeling/time_series/'datetime64[ns]')
+df1['Count Date']=df1['Count Date'].astype('datetime64[ns]')
 df1
 ```
 
@@ -31,7 +31,7 @@ df1
     Try using .loc[row_indexer,col_indexer] = value instead
     
     See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-      df1['Count Date']=df1['Count Date'].astype(/docs/projects/capstone/Modeling/time_series/'datetime64[ns]')
+      df1['Count Date']=df1['Count Date'].astype('datetime64[ns]')
 
 
 
@@ -352,15 +352,14 @@ df1
 
 
 ```python
-d2=pd.read_csv(/docs/projects/capstone/Modeling/time_series/'/Users/demi/Desktop/pollen data/melbourne_grass_preprocessed.csv')
+d2=pd.read_csv('/Users/demi/Desktop/pollen data/melbourne_grass_preprocessed.csv')
 # df2=d1.loc[d1['Location']==1]
-d2['Count Date']=d2['Count Date'].astype(/docs/projects/capstone/Modeling/time_series/'datetime64[ns]')
-df=pd.merge(/docs/projects/capstone/Modeling/time_series/df1,d2,on='Count Date')
+d2['Count Date']=d2['Count Date'].astype('datetime64[ns]')
+df=pd.merge(df1,d2,on='Count Date')
 
-# df=df.drop(/docs/projects/capstone/Modeling/time_series/['Location','QCL','Latitude','Longitude','Elevation','Continuation Location','Sample Time','SchColTime','Name','State','NameMLFile'],axis=1)
-# df['Count']=df['Count'].fillna(/docs/projects/capstone/Modeling/time_series/method='bfill').astype(int)
-# df['Count']=df['Count'].fillna(method='bfill').astype(/docs/projects/capstone/Modeling/time_series/int)
-# print(/docs/projects/capstone/Modeling/time_series/df['Count'].isnull().values==True)
+# df=df.drop(['Location','QCL','Latitude','Longitude','Elevation','Continuation Location','Sample Time','SchColTime','Name','State','NameMLFile'],axis=1)
+# df['Count']=df['Count'].fillna(method='bfill').astype(int)
+# print(df['Count'].isnull().values==True)
 df
 ```
 
@@ -682,386 +681,24 @@ df
 
 
 ```python
-print(/docs/projects/capstone/Modeling/time_series/df['Count Date'])
-/docs/projects/capstone/Modeling/time_series/df['Count Date'] = pd.to_datetime(/docs/projects/capstone/Modeling/time_series/df['Count Date'])
-df = df.set_index(/docs/projects/capstone/Modeling/time_series/'Count Date')
-df
+# df=pd.read_csv('/Users/demi/Desktop/pollen data/Grass.csv')
+df['grass_count'].plot(figsize=(16,8))
+# size of script
+plt.tick_params(labelsize=10)
+# generate grids
+plt.grid()
 ```
 
-    0      2000-01-02
-    1      2000-01-03
-    2      2000-01-04
-    3      2000-01-05
-    4      2000-01-06
-              ...    
-    7696   2021-01-27
-    7697   2021-01-28
-    7698   2021-01-29
-    7699   2021-01-30
-    7700   2021-01-31
-    Name: Count Date, Length: 7701, dtype: datetime64[ns]
-
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>av_abl_ht</th>
-      <th>accum_prcp</th>
-      <th>av_lwsfcdown</th>
-      <th>av_mslp</th>
-      <th>av_qsair_scrn</th>
-      <th>av_swsfcdown</th>
-      <th>av_temp_scrn</th>
-      <th>av_uwnd10m</th>
-      <th>av_vwnd10m</th>
-      <th>av_wndgust10m</th>
-      <th>...</th>
-      <th>thermal_time_10D</th>
-      <th>thermal_time_30D</th>
-      <th>thermal_time_90D</th>
-      <th>thermal_time_180D</th>
-      <th>soil_mois_1D</th>
-      <th>soil_mois_10D</th>
-      <th>soil_mois_30D</th>
-      <th>soil_mois_90D</th>
-      <th>soil_mois_180D</th>
-      <th>grass_count</th>
-    </tr>
-    <tr>
-      <th>Count Date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2000-01-02</th>
-      <td>753.565000</td>
-      <td>0.000156</td>
-      <td>293.490000</td>
-      <td>101769.360000</td>
-      <td>0.006113</td>
-      <td>411.645000</td>
-      <td>289.752500</td>
-      <td>-0.855000</td>
-      <td>4.340000</td>
-      <td>8.495000</td>
-      <td>...</td>
-      <td>6.375000</td>
-      <td>6.375000</td>
-      <td>6.375000</td>
-      <td>6.375000</td>
-      <td>2343.648438</td>
-      <td>2721.484375</td>
-      <td>2721.484375</td>
-      <td>2721.484375</td>
-      <td>2721.484375</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2000-01-03</th>
-      <td>882.295000</td>
-      <td>0.011341</td>
-      <td>340.160000</td>
-      <td>101239.120000</td>
-      <td>0.007275</td>
-      <td>333.087500</td>
-      <td>294.993125</td>
-      <td>0.780000</td>
-      <td>-1.270000</td>
-      <td>8.580000</td>
-      <td>...</td>
-      <td>13.000000</td>
-      <td>13.000000</td>
-      <td>13.000000</td>
-      <td>13.000000</td>
-      <td>2341.230469</td>
-      <td>4969.046875</td>
-      <td>4969.046875</td>
-      <td>4969.046875</td>
-      <td>4969.046875</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2000-01-04</th>
-      <td>642.775000</td>
-      <td>0.241001</td>
-      <td>354.760625</td>
-      <td>101026.800000</td>
-      <td>0.008047</td>
-      <td>274.170000</td>
-      <td>289.227500</td>
-      <td>3.050000</td>
-      <td>4.835000</td>
-      <td>12.920000</td>
-      <td>...</td>
-      <td>17.375000</td>
-      <td>17.375000</td>
-      <td>17.375000</td>
-      <td>17.375000</td>
-      <td>2340.359375</td>
-      <td>7215.773438</td>
-      <td>7215.773438</td>
-      <td>7215.773438</td>
-      <td>7215.773438</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2000-01-05</th>
-      <td>850.585000</td>
-      <td>0.021159</td>
-      <td>332.816250</td>
-      <td>101789.000000</td>
-      <td>0.006387</td>
-      <td>309.916250</td>
-      <td>287.412500</td>
-      <td>3.655000</td>
-      <td>7.555000</td>
-      <td>16.020000</td>
-      <td>...</td>
-      <td>20.250000</td>
-      <td>20.250000</td>
-      <td>20.250000</td>
-      <td>20.250000</td>
-      <td>2339.445312</td>
-      <td>9461.621094</td>
-      <td>9461.621094</td>
-      <td>9461.621094</td>
-      <td>9461.621094</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2000-01-06</th>
-      <td>772.685000</td>
-      <td>0.006436</td>
-      <td>339.945000</td>
-      <td>101948.000000</td>
-      <td>0.007227</td>
-      <td>344.033125</td>
-      <td>289.284375</td>
-      <td>0.785000</td>
-      <td>5.965000</td>
-      <td>10.745000</td>
-      <td>...</td>
-      <td>23.000000</td>
-      <td>23.000000</td>
-      <td>23.000000</td>
-      <td>23.000000</td>
-      <td>2338.539062</td>
-      <td>11706.601562</td>
-      <td>11706.601562</td>
-      <td>11706.601562</td>
-      <td>11706.601562</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>2021-01-27</th>
-      <td>834.791667</td>
-      <td>0.075095</td>
-      <td>352.086666</td>
-      <td>100960.166667</td>
-      <td>0.007849</td>
-      <td>130.549167</td>
-      <td>289.445415</td>
-      <td>-0.145833</td>
-      <td>4.887499</td>
-      <td>10.920833</td>
-      <td>...</td>
-      <td>75.999756</td>
-      <td>184.374908</td>
-      <td>184.374908</td>
-      <td>787.493103</td>
-      <td>7547.602417</td>
-      <td>76221.471649</td>
-      <td>229415.330170</td>
-      <td>692386.868195</td>
-      <td>961095.985832</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>2021-01-28</th>
-      <td>963.125000</td>
-      <td>0.000219</td>
-      <td>335.512920</td>
-      <td>101483.541667</td>
-      <td>0.007803</td>
-      <td>334.555417</td>
-      <td>293.186250</td>
-      <td>-2.487500</td>
-      <td>2.991666</td>
-      <td>9.762500</td>
-      <td>...</td>
-      <td>76.049896</td>
-      <td>186.924896</td>
-      <td>186.924896</td>
-      <td>789.674408</td>
-      <td>7535.679962</td>
-      <td>76149.324097</td>
-      <td>229251.895264</td>
-      <td>692180.215698</td>
-      <td>967718.756729</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>2021-01-29</th>
-      <td>896.600000</td>
-      <td>0.484703</td>
-      <td>395.593999</td>
-      <td>101408.280000</td>
-      <td>0.009936</td>
-      <td>132.476798</td>
-      <td>295.356401</td>
-      <td>-2.292000</td>
-      <td>-0.148000</td>
-      <td>5.888000</td>
-      <td>...</td>
-      <td>74.274933</td>
-      <td>185.274902</td>
-      <td>185.274902</td>
-      <td>790.161865</td>
-      <td>7836.774933</td>
-      <td>76074.451599</td>
-      <td>229086.352783</td>
-      <td>691967.418121</td>
-      <td>974334.436188</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>2021-01-30</th>
-      <td>632.791667</td>
-      <td>0.407535</td>
-      <td>395.608746</td>
-      <td>100911.333333</td>
-      <td>0.011993</td>
-      <td>86.142084</td>
-      <td>292.612085</td>
-      <td>0.550000</td>
-      <td>-1.445833</td>
-      <td>7.416667</td>
-      <td>...</td>
-      <td>71.924927</td>
-      <td>182.549927</td>
-      <td>182.549927</td>
-      <td>789.127441</td>
-      <td>7542.737488</td>
-      <td>76027.771698</td>
-      <td>228949.192780</td>
-      <td>691782.330627</td>
-      <td>980975.300159</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2021-01-31</th>
-      <td>748.458333</td>
-      <td>0.001671</td>
-      <td>359.496667</td>
-      <td>101510.916667</td>
-      <td>0.008391</td>
-      <td>275.843329</td>
-      <td>291.180419</td>
-      <td>0.341666</td>
-      <td>3.920833</td>
-      <td>9.358333</td>
-      <td>...</td>
-      <td>67.650024</td>
-      <td>185.149872</td>
-      <td>185.149872</td>
-      <td>791.405579</td>
-      <td>7537.892426</td>
-      <td>76006.474243</td>
-      <td>228821.920197</td>
-      <td>691599.008057</td>
-      <td>987616.377117</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>7701 rows × 172 columns</p>
-</div>
-
-
-
-
-```python
-# df=pd.read_csv(/docs/projects/capstone/Modeling/time_series/'/Users/demi/Desktop/pollen data/Grass.csv')
-df['grass_count'].plot(/docs/projects/capstone/Modeling/time_series/figsize=(16,8))
-# size of script
-plt.tick_params(/docs/projects/capstone/Modeling/time_series/labelsize=10)
-# generate grids
-/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
-
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_3_0.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_2_0.png)
     
 
 
 
 ```python
-plt.style.use(/docs/projects/capstone/Modeling/time_series/{'figure.figsize':(5,5)})
-df['grass_count'].plot(/docs/projects/capstone/Modeling/time_series/kind='hist',bins=20)
+plt.style.use({'figure.figsize':(5,5)})
+df['grass_count'].plot(kind='hist',bins=20)
 ```
 
 
@@ -1073,17 +710,16 @@ df['grass_count'].plot(/docs/projects/capstone/Modeling/time_series/kind='hist',
 
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_4_1.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_3_1.png)
     
 
 
 
 ```python
 # mean of the year 2018
-df_M=pd.DataFrame(/docs/projects/capstone/Modeling/time_series/df['grass_count']['2018'])
-df_M.resample(/docs/projects/capstone/Modeling/time_series/'M').mean().T
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/M/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/M/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/T/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
+df_M=pd.DataFrame(df['grass_count']['2018'])
+df_M.resample('M').mean().T
+```
 
 
 
@@ -1144,11 +780,50 @@ df_M.resample(/docs/projects/capstone/Modeling/time_series/'M').mean().T
 
 
 ```python
-plt.style.use(/docs/projects/capstone/Modeling/time_series/{'figure.figsize':(8,5)})
+plt.style.use({'figure.figsize':(8,5)})
 
-sns.heatmap(/docs/projects/capstone/Modeling/time_series/df_M.resample('M').mean().T)
-/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/M/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/M/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/T/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
+sns.heatmap(df_M.resample('M').mean().T)
+```
+
+
+
+
+    <AxesSubplot:xlabel='Count Date'>
+
+
+
+
+    
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_5_1.png)
+    
+
+
+
+```python
+# Apply the Moving Average function by a subset of size 7 days.
+
+fig,axes=plt.subplots(2,2)
+plt.subplot(2,2,1)
+# Select the subset data from 2017-9 to 2017-12
+df2017=df.loc['2017-9':'2017-12']['Count']      
+df2017_mean = df2017.T.rolling(window=7).mean()
+df2017_mean.plot(figsize=(32,10))
+plt.subplot(2,2,2)
+# Select the subset data from 2018-9 to 2018-12
+df2018=df.loc['2018-10':'2018-12']['Count']      
+df2018_mean = df2017.T.rolling(window=7).mean()
+df2018_mean.plot(figsize=(32,10))
+plt.subplot(2,2,3)
+# Select the subset data from 2019-9 to 2019-12
+df2019=df.loc['2019-10':'2019-12']['Count']      
+df2019_mean = df2017.T.rolling(window=7).mean()
+df2019_mean.plot(figsize=(32,10))
+plt.subplot(2,2,4)
+# Select the subset data from 2020-9 to 2020-12
+df2020=df.loc['2020-10':'2020-12']['Count']      
+df2020_mean = df2017.T.rolling(window=7).mean()
+df2020_mean.plot(figsize=(32,10))
+```
 
 
 
@@ -1165,33 +840,8 @@ sns.heatmap(/docs/projects/capstone/Modeling/time_series/df_M.resample('M').mean
 
 
 ```python
-# Apply the Moving Average function by a subset of size 7 days.
-
-fig,axes=plt.subplots(/docs/projects/capstone/Modeling/time_series/2,2)
-plt.subplot(/docs/projects/capstone/Modeling/time_series/2,2,1)
-# Select the subset data from 2017-9 to 2017-12
-df2017=df.loc['2017-9':'2017-12']['Count']      
-df2017_mean = df2017.T.rolling(/docs/projects/capstone/Modeling/time_series/window=7).mean()
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/7/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/7/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/T/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/7/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/df2017_mean.plot(/docs/projects/capstone/Modeling/time_series/figsize=(32,10))
-plt.subplot(/docs/projects/capstone/Modeling/time_series/2,2,2)
-# Select the subset data from 2018-9 to 2018-12
-df2018=df.loc['2018-10':'2018-12']['Count']      
-df2018_mean = df2017.T.rolling(/docs/projects/capstone/Modeling/time_series/window=7).mean()
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/8/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/7/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/T/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/7/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/df2018_mean.plot(/docs/projects/capstone/Modeling/time_series/figsize=(32,10))
-plt.subplot(/docs/projects/capstone/Modeling/time_series/2,2,3)
-# Select the subset data from 2019-9 to 2019-12
-df2019=df.loc['2019-10':'2019-12']['Count']      
-df2019_mean = df2017.T.rolling(/docs/projects/capstone/Modeling/time_series/window=7).mean()
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/9/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/7/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/T/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/7/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/df2019_mean.plot(/docs/projects/capstone/Modeling/time_series/figsize=(32,10))
-plt.subplot(/docs/projects/capstone/Modeling/time_series/2,2,4)
-# Select the subset data from 2020-9 to 2020-12
-df2020=df.loc['2020-10':'2020-12']['Count']      
-df2020_mean = df2017.T.rolling(/docs/projects/capstone/Modeling/time_series/window=7).mean()
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/7/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/T/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/7/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/df2020_mean.plot(/docs/projects/capstone/Modeling/time_series/figsize=(32,10))
+df_mean = df['Count'].T.rolling(window=10).mean()
+df_mean.plot(figsize=(32,10))
 ```
 
 
@@ -1209,9 +859,8 @@ df2020_mean = df2017.T.rolling(/docs/projects/capstone/Modeling/time_series/wind
 
 
 ```python
-df_mean = df['Count'].T.rolling(/docs/projects/capstone/Modeling/time_series/window=10).mean()
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/[/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/C/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/]/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/T/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/df_mean.plot(/docs/projects/capstone/Modeling/time_series/figsize=(32,10))
+df_mean = df['grass_count'].T.rolling(window=10).mean()
+df_mean.plot(figsize=(32,10))
 ```
 
 
@@ -1227,26 +876,6 @@ df_mean = df['Count'].T.rolling(/docs/projects/capstone/Modeling/time_series/win
     
 
 
-
-```python
-df_mean = df['grass_count'].T.rolling(/docs/projects/capstone/Modeling/time_series/window=10).mean()
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/[/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/c/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/]/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/T/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/df_mean.plot(/docs/projects/capstone/Modeling/time_series/figsize=(32,10))
-```
-
-
-
-
-    <AxesSubplot:xlabel='Count Date'>
-
-
-
-
-    
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_9_1.png)
-    
-
-
 ### Time-series decomposition
 
 
@@ -1254,18 +883,17 @@ df_mean = df['grass_count'].T.rolling(/docs/projects/capstone/Modeling/time_seri
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 # Additive Decomposition
-result_add = seasonal_decompose(/docs/projects/capstone/Modeling/time_series/df2017, model='additive')
+result_add = seasonal_decompose(df2017, model='additive')
 
 # Plot
-plt.rcParams.update(/docs/projects/capstone/Modeling/time_series/{'figure.figsize': (7,10)})
-/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/A/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/v/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/D/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/c/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/,/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/z/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/result_add.plot().suptitle(/docs/projects/capstone/Modeling/time_series/'Additive Decomposition', fontsize=12)
-/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
+plt.rcParams.update({'figure.figsize': (7,10)})
+result_add.plot().suptitle('Additive Decomposition', fontsize=12)
+plt.show()
+```
 
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_11_0.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_10_0.png)
     
 
 
@@ -1278,55 +906,50 @@ unstable with seasonality
 from scipy.stats import pearsonr
 
 a = df['grass_count']
-a = a.fillna(/docs/projects/capstone/Modeling/time_series/method='bfill')
-b = a.shift(/docs/projects/capstone/Modeling/time_series/1)
+a = a.fillna(method='bfill')
+b = a.shift(1)
 
-print(/docs/projects/capstone/Modeling/time_series/pearsonr(a[1:], b[1:]))
+print(pearsonr(a[1:], b[1:]))
 ```
 
-    PearsonRResult(/docs/projects/capstone/Modeling/time_series/statistic=0.5552438295581152, pvalue=0.0)
+    PearsonRResult(statistic=0.5552438295581152, pvalue=0.0)
 
 
 
 ```python
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
-fig, axes = plt.subplots(/docs/projects/capstone/Modeling/time_series/2,1)
-plot_acf(/docs/projects/capstone/Modeling/time_series/a, ax=axes[0])
-plot_pacf(/docs/projects/capstone/Modeling/time_series/a, ax=axes[1])
+fig, axes = plt.subplots(2,1)
+plot_acf(a, ax=axes[0])
+plot_pacf(a, ax=axes[1])
 
-/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/y/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series//docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/
+plt.tight_layout()
+plt.show()
+
 ## lags are on the horizontal
 ```
 
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/graphics/tsaplots.py:348: FutureWarning: The default method 'yw' can produce PACF values outside of the [-1,1] interval. After 0.13, the default will change tounadjusted Yule-Walker (/docs/projects/capstone/Modeling/time_series/'ywm'). You can use this method now by setting method=/docs/projects/capstone/Modeling/time_series/'ywm'.
-      warnings.warn(
-
-
-
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_15_1.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_14_1.png)
     
 
 
-You can observe that the PACF lag 1 is quite significant since is well above the significance line. Lag 2 turns out to be significant as well, managing to cross the significance limit (/docs/projects/capstone/Modeling/time_series/blue region). So take p as 2.
+You can observe that the PACF lag 1 is quite significant since is well above the significance line. Lag 2 turns out to be significant as well, managing to cross the significance limit (blue region). So take p as 2.
 
 Couple of lags are well above the significance line. So, let’s tentatively fix q as 2.
 
 
 ```python
 
-plt.style.use(/docs/projects/capstone/Modeling/time_series/{'figure.figsize':(13,7)})
+plt.style.use({'figure.figsize':(13,7)})
 
 from pandas.plotting import autocorrelation_plot
-autocorrelation_plot(/docs/projects/capstone/Modeling/time_series/df2018)
-plt.title(/docs/projects/capstone/Modeling/time_series/'autorelation')
+autocorrelation_plot(df2018)
+plt.title('autorelation')
 # 设置坐标文字大小
-plt.tick_params(/docs/projects/capstone/Modeling/time_series/labelsize=10)
+plt.tick_params(labelsize=10)
 
-# plt.xticks(/docs/projects/capstone/Modeling/time_series/np.linspace(0, 3650, 7))
-plt.yticks(/docs/projects/capstone/Modeling/time_series/np.linspace(-1, 1, 20))
+# plt.xticks(np.linspace(0, 3650, 7))
+plt.yticks(np.linspace(-1, 1, 20))
 ```
 
 
@@ -1352,32 +975,32 @@ plt.yticks(/docs/projects/capstone/Modeling/time_series/np.linspace(-1, 1, 20))
       <matplotlib.axis.YTick at 0x287c464c0>,
       <matplotlib.axis.YTick at 0x287c550a0>,
       <matplotlib.axis.YTick at 0x287c55760>],
-     [Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, ''),
-      Text(/docs/projects/capstone/Modeling/time_series/0, 0, '')])
+     [Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, ''),
+      Text(0, 0, '')])
 
 
 
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_17_1.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_16_1.png)
     
 
 
@@ -1387,7 +1010,7 @@ plt.yticks(/docs/projects/capstone/Modeling/time_series/np.linspace(-1, 1, 20))
 ```python
 from statsmodels.tsa.stattools import adfuller
 a = df['Count']
-a = a.fillna(/docs/projects/capstone/Modeling/time_series/method='bfill')
+a = a.fillna(method='bfill')
 print(adfuller(a,   
 				maxlag=None, 
 				regression='c', 
@@ -1399,7 +1022,7 @@ print(adfuller(a,
 
 ```
 
-    (/docs/projects/capstone/Modeling/time_series/-4.03425679820627, 0.0012413820990973753, 6, 423, {'1%': -3.4459042013025836, '5%': -2.8683970525583358, '10%': -2.5704225783970176}, 4229.037182676861)
+    (-4.03425679820627, 0.0012413820990973753, 6, 423, {'1%': -3.4459042013025836, '5%': -2.8683970525583358, '10%': -2.5704225783970176}, 4229.037182676861)
 
 
 p-value is 0.0012413820990973753, so it is stationary
@@ -1410,16 +1033,16 @@ p-value is 0.0012413820990973753, so it is stationary
 ```python
 from statsmodels.tsa.api import ExponentialSmoothing,SimpleExpSmoothing, Holt
 
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/D/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/F/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/df1['ds']=df['Count Date']
+df1=pd.DataFrame()
+df1['ds']=df['Count Date']
 df1['y']=df['grass_count']
-/docs/projects/capstone/Modeling/time_series/df1['ds'] = pd.to_datetime(/docs/projects/capstone/Modeling/time_series/df1['ds'])
-df1 = df1.set_index(/docs/projects/capstone/Modeling/time_series/'ds')
+df1['ds'] = pd.to_datetime(df1['ds'])
+df1 = df1.set_index('ds')
 # split data
 train_data=df1[0:310]
 test_data=df1[304:]
-/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/
+test_data.head()
+
 ```
 
 
@@ -1479,48 +1102,33 @@ test_data=df1[304:]
 
 
 ```python
-df1.plot(/docs/projects/capstone/Modeling/time_series/marker='o', color='blueviolet',legend=True)
-fit1 = SimpleExpSmoothing(/docs/projects/capstone/Modeling/time_series/train_data).fit(smoothing_level=0.2,optimized=False)
-fit1 = SimpleExpSmoothing(train_data).fit(/docs/projects/capstone/Modeling/time_series/smoothing_level=0.2,optimized=False)
-fcast1 = fit1.forecast(/docs/projects/capstone/Modeling/time_series/300).rename(r'$$\alpha=0.2$$')
-fcast1 = fit1.forecast(300).rename(/docs/projects/capstone/Modeling/time_series/r'$$\alpha=0.2$$')
+df1.plot(marker='o', color='blueviolet',legend=True)
+fit1 = SimpleExpSmoothing(train_data).fit(smoothing_level=0.2,optimized=False)
+fcast1 = fit1.forecast(300).rename(r'$$\alpha=0.2$$')
 # plot
-fcast1.plot(/docs/projects/capstone/Modeling/time_series/marker='o', color='blue', legend=True)
-fit1.fittedvalues.plot(/docs/projects/capstone/Modeling/time_series/marker='o',  color='blue')
+fcast1.plot(marker='o', color='blue', legend=True)
+fit1.fittedvalues.plot(marker='o',  color='blue')
 
 
 
-fit2 = SimpleExpSmoothing(/docs/projects/capstone/Modeling/time_series/train_data).fit(smoothing_level=0.6,optimized=False)
-fit2 = SimpleExpSmoothing(train_data).fit(/docs/projects/capstone/Modeling/time_series/smoothing_level=0.6,optimized=False)
-fcast2 = fit2.forecast(/docs/projects/capstone/Modeling/time_series/len(test_data)).rename(r'$$\alpha=0.6$$')
-fcast2 = fit2.forecast(len(test_data)).rename(/docs/projects/capstone/Modeling/time_series/r'$$\alpha=0.6$$')
+fit2 = SimpleExpSmoothing(train_data).fit(smoothing_level=0.6,optimized=False)
+fcast2 = fit2.forecast(len(test_data)).rename(r'$$\alpha=0.6$$')
 # plot
-fcast2.plot(/docs/projects/capstone/Modeling/time_series/marker='o', color='red',legend=True)
-fit2.fittedvalues.plot(/docs/projects/capstone/Modeling/time_series/marker='o', color='red')
+fcast2.plot(marker='o', color='red',legend=True)
+fit2.fittedvalues.plot(marker='o', color='red')
 
 
-fit3 = SimpleExpSmoothing(/docs/projects/capstone/Modeling/time_series/train_data).fit()
-/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/3/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/S/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/E/docs/projects/capstone/Modeling/time_series/x/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/S/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/fcast3 = fit3.forecast(/docs/projects/capstone/Modeling/time_series/len(test_data)).rename(r'$$\alpha=%s$$'%fit3.model.params['smoothing_level'])
-fcast3 = fit3.forecast(len(test_data)).rename(/docs/projects/capstone/Modeling/time_series/r'$$\alpha=%s$$'%fit3.model.params['smoothing_level'])
+fit3 = SimpleExpSmoothing(train_data).fit()
+fcast3 = fit3.forecast(len(test_data)).rename(r'$$\alpha=%s$$'%fit3.model.params['smoothing_level'])
 # plot
-fcast3.plot(/docs/projects/capstone/Modeling/time_series/marker='o', color='green', legend=True)
-fit3.fittedvalues.plot(/docs/projects/capstone/Modeling/time_series/marker='o', color='green')
+fcast3.plot(marker='o', color='green', legend=True)
+fit3.fittedvalues.plot(marker='o', color='green')
 
-/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
-
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-
-
+plt.show()
+```
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_23_1.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_22_1.png)
     
 
 
@@ -1528,42 +1136,22 @@ fit3.fittedvalues.plot(/docs/projects/capstone/Modeling/time_series/marker='o', 
 
 
 ```python
-df1.plot(/docs/projects/capstone/Modeling/time_series/marker='o', color='blueviolet',legend=True)
-fit1 = Holt(/docs/projects/capstone/Modeling/time_series/train_data).fit(smoothing_level=0.8, smoothing_slope=0.2, optimized=False)
-fit1 = Holt(train_data).fit(/docs/projects/capstone/Modeling/time_series/smoothing_level=0.8, smoothing_slope=0.2, optimized=False)
-fcast1 = fit1.forecast(/docs/projects/capstone/Modeling/time_series/120).rename("Holt's linear trend")
-fcast1 = fit1.forecast(120).rename(/docs/projects/capstone/Modeling/time_series/"Holt's linear trend")
-fit1.fittedvalues.plot(/docs/projects/capstone/Modeling/time_series/marker="o", color='blue')
-fcast1.plot(/docs/projects/capstone/Modeling/time_series/color='blue', marker="o", legend=True)
+df1.plot(marker='o', color='blueviolet',legend=True)
+fit1 = Holt(train_data).fit(smoothing_level=0.8, smoothing_slope=0.2, optimized=False)
+fcast1 = fit1.forecast(120).rename("Holt's linear trend")
+fit1.fittedvalues.plot(marker="o", color='blue')
+fcast1.plot(color='blue', marker="o", legend=True)
 
-fit3 = Holt(/docs/projects/capstone/Modeling/time_series/train_data, damped=True).fit(smoothing_level=0.8, smoothing_slope=0.2)
-fit3 = Holt(train_data, damped=True).fit(/docs/projects/capstone/Modeling/time_series/smoothing_level=0.8, smoothing_slope=0.2)
-fcast3 = fit3.forecast(/docs/projects/capstone/Modeling/time_series/12).rename("Additive damped trend")
-fcast3 = fit3.forecast(12).rename(/docs/projects/capstone/Modeling/time_series/"Additive damped trend")
-fit3.fittedvalues.plot(/docs/projects/capstone/Modeling/time_series/marker="o", color='green')
-fcast3.plot(/docs/projects/capstone/Modeling/time_series/color='green', marker="o", legend=True)
+fit3 = Holt(train_data, damped=True).fit(smoothing_level=0.8, smoothing_slope=0.2)
+fcast3 = fit3.forecast(12).rename("Additive damped trend")
+fit3.fittedvalues.plot(marker="o", color='green')
+fcast3.plot(color='green', marker="o", legend=True)
 
-/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
-
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-    /var/folders/q1/7fhq9ggs78g6wf7c38dhzh9h0000gn/T/ipykernel_78036/1622727271.py:2: FutureWarning: the 'smoothing_slope'' keyword is deprecated, use 'smoothing_trend' instead.
-      fit1 = Holt(/docs/projects/capstone/Modeling/time_series/train_data).fit(smoothing_level=0.8, smoothing_slope=0.2, optimized=False)
-      fit1 = Holt(train_data).fit(/docs/projects/capstone/Modeling/time_series/smoothing_level=0.8, smoothing_slope=0.2, optimized=False)
-    /var/folders/q1/7fhq9ggs78g6wf7c38dhzh9h0000gn/T/ipykernel_78036/1622727271.py:7: FutureWarning: the 'damped'' keyword is deprecated, use 'damped_trend' instead.
-      fit3 = Holt(/docs/projects/capstone/Modeling/time_series/train_data, damped=True).fit(smoothing_level=0.8, smoothing_slope=0.2)
-      fit3 = Holt(train_data, damped=True).fit(/docs/projects/capstone/Modeling/time_series/smoothing_level=0.8, smoothing_slope=0.2)
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-    /var/folders/q1/7fhq9ggs78g6wf7c38dhzh9h0000gn/T/ipykernel_78036/1622727271.py:7: FutureWarning: the 'smoothing_slope'' keyword is deprecated, use 'smoothing_trend' instead.
-      fit3 = Holt(/docs/projects/capstone/Modeling/time_series/train_data, damped=True).fit(smoothing_level=0.8, smoothing_slope=0.2)
-      fit3 = Holt(train_data, damped=True).fit(/docs/projects/capstone/Modeling/time_series/smoothing_level=0.8, smoothing_slope=0.2)
-
-
+plt.show()
+```
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_25_1.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_24_1.png)
     
 
 
@@ -1571,24 +1159,16 @@ fcast3.plot(/docs/projects/capstone/Modeling/time_series/color='green', marker="
 
 
 ```python
-df1.plot(/docs/projects/capstone/Modeling/time_series/marker='o', color='blueviolet',legend=True)
-fit1 = ExponentialSmoothing(/docs/projects/capstone/Modeling/time_series/train_data, seasonal_periods=4, trend='add', seasonal='add').fit()
-/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/E/docs/projects/capstone/Modeling/time_series/x/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/S/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/,/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/4/docs/projects/capstone/Modeling/time_series/,/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/,/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/# fit3 = ExponentialSmoothing(/docs/projects/capstone/Modeling/time_series/train_data, seasonal_periods=4, trend='add', seasonal='add', damped=True).fit()
-/docs/projects/capstone/Modeling/time_series/#/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/3/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/E/docs/projects/capstone/Modeling/time_series/x/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/S/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/,/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/4/docs/projects/capstone/Modeling/time_series/,/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/,/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/,/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/T/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/fit1.fittedvalues.plot(/docs/projects/capstone/Modeling/time_series/style='--', color='red')
-fit1.forecast(/docs/projects/capstone/Modeling/time_series/120).plot(style='--', marker='o', color='red', legend=True)
-fit1.forecast(120).plot(/docs/projects/capstone/Modeling/time_series/style='--', marker='o', color='red', legend=True)
-/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
-
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-
-
+df1.plot(marker='o', color='blueviolet',legend=True)
+fit1 = ExponentialSmoothing(train_data, seasonal_periods=4, trend='add', seasonal='add').fit()
+# fit3 = ExponentialSmoothing(train_data, seasonal_periods=4, trend='add', seasonal='add', damped=True).fit()
+fit1.fittedvalues.plot(style='--', color='red')
+fit1.forecast(120).plot(style='--', marker='o', color='red', legend=True)
+plt.show()
+```
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_27_1.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_26_1.png)
     
 
 
@@ -1600,27 +1180,15 @@ fit1.forecast(120).plot(/docs/projects/capstone/Modeling/time_series/style='--',
 from statsmodels.tsa.arima.model import ARIMA
 
 # 2,0,2 ARIMA Model
-model = ARIMA(/docs/projects/capstone/Modeling/time_series/df1, order=(3,0,1))#p,d,q
-/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/print(/docs/projects/capstone/Modeling/time_series/model_fit.summary())
+model = ARIMA(df1, order=(3,0,1))#p,d,q
+model_fit = model.fit()
+print(model_fit.summary())
 ```
-
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/statespace/sarimax.py:966: UserWarning: Non-stationary starting autoregressive parameters found. Using zeros as starting parameters.
-      warn('Non-stationary starting autoregressive parameters'
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/statespace/sarimax.py:978: UserWarning: Non-invertible starting MA parameters found. Using zeros as starting parameters.
-      warn('Non-invertible starting MA parameters found.'
-
 
                                    SARIMAX Results                                
     ==============================================================================
     Dep. Variable:                      y   No. Observations:                 7701
-    Model:                 ARIMA(/docs/projects/capstone/Modeling/time_series/3, 0, 1)   Log Likelihood              -35188.301
+    Model:                 ARIMA(3, 0, 1)   Log Likelihood              -35188.301
     Date:                Wed, 12 Oct 2022   AIC                          70388.601
     Time:                        12:24:40   BIC                          70430.296
     Sample:                    01-02-2000   HQIC                         70402.900
@@ -1636,25 +1204,21 @@ model = ARIMA(/docs/projects/capstone/Modeling/time_series/df1, order=(3,0,1))#p
     ma.L1         -0.8400      0.005   -163.338      0.000      -0.850      -0.830
     sigma2       544.9080      2.394    227.659      0.000     540.217     549.599
     ===================================================================================
-    Ljung-Box (/docs/projects/capstone/Modeling/time_series/L1) (Q):                   0.61   Jarque-Bera (JB):            750889.23
-    Ljung-Box (L1) (/docs/projects/capstone/Modeling/time_series/Q):                   0.61   Jarque-Bera (JB):            750889.23
-    Ljung-Box (L1) (Q):                   0.61   Jarque-Bera (/docs/projects/capstone/Modeling/time_series/JB):            750889.23
-    Prob(/docs/projects/capstone/Modeling/time_series/Q):                              0.43   Prob(JB):                         0.00
-    Prob(Q):                              0.43   Prob(/docs/projects/capstone/Modeling/time_series/JB):                         0.00
-    /docs/projects/capstone/Modeling/time_series/Heteroskedasticity (/docs/projects/capstone/Modeling/time_series/H):               1.04   Skew:                             4.57
-    Prob(/docs/projects/capstone/Modeling/time_series/H) (two-sided):                  0.29   Kurtosis:                        50.50
-    Prob(H) (/docs/projects/capstone/Modeling/time_series/two-sided):                  0.29   Kurtosis:                        50.50
+    Ljung-Box (L1) (Q):                   0.61   Jarque-Bera (JB):            750889.23
+    Prob(Q):                              0.43   Prob(JB):                         0.00
+    Heteroskedasticity (H):               1.04   Skew:                             4.57
+    Prob(H) (two-sided):                  0.29   Kurtosis:                        50.50
     ===================================================================================
     
     Warnings:
-    [1] Covariance matrix calculated using the outer product of gradients (/docs/projects/capstone/Modeling/time_series/complex-step).
+    [1] Covariance matrix calculated using the outer product of gradients (complex-step).
 
 
 
 ```python
 import pmdarima as pm
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/model = pm.auto_arima(df1, start_p=1, start_q=1,
+df=df.dropna()
+model = pm.auto_arima(df1, start_p=1, start_q=1,
                       test='adf',       # use adftest to find optimal 'd'
                       max_p=3, max_q=8, # maximum p and q
                       m=1,              # frequency of series
@@ -1667,50 +1231,33 @@ import pmdarima as pm
                       suppress_warnings=True, 
                       stepwise=True)
 
-print(/docs/projects/capstone/Modeling/time_series/model.summary())
+print(model.summary())
 ```
 
     Performing stepwise search to minimize aic
-     ARIMA(/docs/projects/capstone/Modeling/time_series/1,0,1)(0,0,0)[0]             : AIC=70806.920, Time=0.84 sec
-     ARIMA(1,0,1)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0]             : AIC=70806.920, Time=0.84 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/0,0,0)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0]             : AIC=75108.108, Time=0.07 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/0,0,0)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0]             : AIC=75108.108, Time=0.07 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/1,0,0)(0,0,0)[0]             : AIC=71756.761, Time=0.08 sec
-     ARIMA(1,0,0)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0]             : AIC=71756.761, Time=0.08 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/0,0,1)(0,0,0)[0]             : AIC=72808.756, Time=0.40 sec
-     ARIMA(0,0,1)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0]             : AIC=72808.756, Time=0.40 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/2,0,1)(0,0,0)[0]             : AIC=70520.237, Time=1.06 sec
-     ARIMA(2,0,1)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0]             : AIC=70520.237, Time=1.06 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/2,0,0)(0,0,0)[0]             : AIC=71604.928, Time=0.26 sec
-     ARIMA(2,0,0)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0]             : AIC=71604.928, Time=0.26 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/3,0,1)(0,0,0)[0]             : AIC=70399.024, Time=1.09 sec
-     ARIMA(3,0,1)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0]             : AIC=70399.024, Time=1.09 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/3,0,0)(0,0,0)[0]             : AIC=71316.743, Time=0.32 sec
-     ARIMA(3,0,0)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0]             : AIC=71316.743, Time=0.32 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/3,0,2)(0,0,0)[0]             : AIC=70479.297, Time=1.58 sec
-     ARIMA(3,0,2)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0]             : AIC=70479.297, Time=1.58 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/2,0,2)(0,0,0)[0]             : AIC=70451.165, Time=1.06 sec
-     ARIMA(2,0,2)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0]             : AIC=70451.165, Time=1.06 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/3,0,1)(0,0,0)[0] intercept   : AIC=70388.600, Time=2.60 sec
-     ARIMA(3,0,1)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0] intercept   : AIC=70388.600, Time=2.60 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/2,0,1)(0,0,0)[0] intercept   : AIC=70510.479, Time=1.87 sec
-     ARIMA(2,0,1)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0] intercept   : AIC=70510.479, Time=1.87 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/3,0,0)(0,0,0)[0] intercept   : AIC=71217.808, Time=0.48 sec
-     ARIMA(3,0,0)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0] intercept   : AIC=71217.808, Time=0.48 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/3,0,2)(0,0,0)[0] intercept   : AIC=70469.505, Time=2.75 sec
-     ARIMA(3,0,2)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0] intercept   : AIC=70469.505, Time=2.75 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/2,0,0)(0,0,0)[0] intercept   : AIC=71460.298, Time=0.36 sec
-     ARIMA(2,0,0)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0] intercept   : AIC=71460.298, Time=0.36 sec
-     ARIMA(/docs/projects/capstone/Modeling/time_series/2,0,2)(0,0,0)[0] intercept   : AIC=70441.285, Time=2.16 sec
-     ARIMA(2,0,2)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0] intercept   : AIC=70441.285, Time=2.16 sec
+     ARIMA(1,0,1)(0,0,0)[0]             : AIC=70806.920, Time=0.84 sec
+     ARIMA(0,0,0)(0,0,0)[0]             : AIC=75108.108, Time=0.07 sec
+     ARIMA(1,0,0)(0,0,0)[0]             : AIC=71756.761, Time=0.08 sec
+     ARIMA(0,0,1)(0,0,0)[0]             : AIC=72808.756, Time=0.40 sec
+     ARIMA(2,0,1)(0,0,0)[0]             : AIC=70520.237, Time=1.06 sec
+     ARIMA(2,0,0)(0,0,0)[0]             : AIC=71604.928, Time=0.26 sec
+     ARIMA(3,0,1)(0,0,0)[0]             : AIC=70399.024, Time=1.09 sec
+     ARIMA(3,0,0)(0,0,0)[0]             : AIC=71316.743, Time=0.32 sec
+     ARIMA(3,0,2)(0,0,0)[0]             : AIC=70479.297, Time=1.58 sec
+     ARIMA(2,0,2)(0,0,0)[0]             : AIC=70451.165, Time=1.06 sec
+     ARIMA(3,0,1)(0,0,0)[0] intercept   : AIC=70388.600, Time=2.60 sec
+     ARIMA(2,0,1)(0,0,0)[0] intercept   : AIC=70510.479, Time=1.87 sec
+     ARIMA(3,0,0)(0,0,0)[0] intercept   : AIC=71217.808, Time=0.48 sec
+     ARIMA(3,0,2)(0,0,0)[0] intercept   : AIC=70469.505, Time=2.75 sec
+     ARIMA(2,0,0)(0,0,0)[0] intercept   : AIC=71460.298, Time=0.36 sec
+     ARIMA(2,0,2)(0,0,0)[0] intercept   : AIC=70441.285, Time=2.16 sec
     
-    Best model:  ARIMA(/docs/projects/capstone/Modeling/time_series/3,0,1)(0,0,0)[0] intercept
-    Best model:  ARIMA(3,0,1)(/docs/projects/capstone/Modeling/time_series/0,0,0)[0] intercept
+    Best model:  ARIMA(3,0,1)(0,0,0)[0] intercept
     Total fit time: 17.305 seconds
                                    SARIMAX Results                                
     ==============================================================================
     Dep. Variable:                      y   No. Observations:                 7701
-    Model:               SARIMAX(/docs/projects/capstone/Modeling/time_series/3, 0, 1)   Log Likelihood              -35188.300
+    Model:               SARIMAX(3, 0, 1)   Log Likelihood              -35188.300
     Date:                Wed, 12 Oct 2022   AIC                          70388.600
     Time:                        12:21:07   BIC                          70430.294
     Sample:                    01-02-2000   HQIC                         70402.898
@@ -1726,29 +1273,25 @@ print(/docs/projects/capstone/Modeling/time_series/model.summary())
     ma.L1         -0.8400      0.005   -163.305      0.000      -0.850      -0.830
     sigma2       544.9156      2.394    227.657      0.000     540.224     549.607
     ===================================================================================
-    Ljung-Box (/docs/projects/capstone/Modeling/time_series/L1) (Q):                   0.61   Jarque-Bera (JB):            750912.58
-    Ljung-Box (L1) (/docs/projects/capstone/Modeling/time_series/Q):                   0.61   Jarque-Bera (JB):            750912.58
-    Ljung-Box (L1) (Q):                   0.61   Jarque-Bera (/docs/projects/capstone/Modeling/time_series/JB):            750912.58
-    Prob(/docs/projects/capstone/Modeling/time_series/Q):                              0.43   Prob(JB):                         0.00
-    Prob(Q):                              0.43   Prob(/docs/projects/capstone/Modeling/time_series/JB):                         0.00
-    /docs/projects/capstone/Modeling/time_series/Heteroskedasticity (/docs/projects/capstone/Modeling/time_series/H):               1.04   Skew:                             4.57
-    Prob(/docs/projects/capstone/Modeling/time_series/H) (two-sided):                  0.29   Kurtosis:                        50.51
-    Prob(H) (/docs/projects/capstone/Modeling/time_series/two-sided):                  0.29   Kurtosis:                        50.51
+    Ljung-Box (L1) (Q):                   0.61   Jarque-Bera (JB):            750912.58
+    Prob(Q):                              0.43   Prob(JB):                         0.00
+    Heteroskedasticity (H):               1.04   Skew:                             4.57
+    Prob(H) (two-sided):                  0.29   Kurtosis:                        50.51
     ===================================================================================
     
     Warnings:
-    [1] Covariance matrix calculated using the outer product of gradients (/docs/projects/capstone/Modeling/time_series/complex-step).
+    [1] Covariance matrix calculated using the outer product of gradients (complex-step).
 
 
 
 ```python
-model.plot_diagnostics(/docs/projects/capstone/Modeling/time_series/figsize=(7,5))
-/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
+model.plot_diagnostics(figsize=(7,5))
+plt.show()
+```
 
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_31_0.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_30_0.png)
     
 
 
@@ -1758,23 +1301,15 @@ Top Right: The density plot suggest normal distribution with mean near zero.
 
 Bottom left: Some dots don't fall in line with the red line. Any significant deviations would imply the distribution is skewed.
 
-Bottom Right: The Correlogram, aka, ACF plot shows the residual errors are not autocorrelated. Any autocorrelation would imply that there is some pattern in the residual errors which are not explained in the model. So you will need to look for more X’s (/docs/projects/capstone/Modeling/time_series/predictors) to the model.
+Bottom Right: The Correlogram, aka, ACF plot shows the residual errors are not autocorrelated. Any autocorrelation would imply that there is some pattern in the residual errors which are not explained in the model. So you will need to look for more X’s (predictors) to the model.
 
 
 ```python
 # Build Model
-model = ARIMA(/docs/projects/capstone/Modeling/time_series/train_data, order=(3, 0, 1))  
-/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/print(/docs/projects/capstone/Modeling/time_series/fitted.summary)
+model = ARIMA(train_data, order=(3, 0, 1))  
+fitted = model.fit()  
+print(fitted.summary)
 ```
-
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/tsa/base/tsa_model.py:471: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
-      self._init_dates(/docs/projects/capstone/Modeling/time_series/dates, freq)
-
 
     <bound method SARIMAXResults.summary of <statsmodels.tsa.arima.model.ARIMAResults object at 0x29d2f5490>>
 
@@ -1784,39 +1319,39 @@ model = ARIMA(/docs/projects/capstone/Modeling/time_series/train_data, order=(3,
 from pmdarima.model_selection import train_test_split
 
 # Load/split your data
-train, test = train_test_split(/docs/projects/capstone/Modeling/time_series/df1, train_size=7575)
+train, test = train_test_split(df1, train_size=7575)
 # Fit your model
-model = pm.auto_arima(/docs/projects/capstone/Modeling/time_series/train, seasonal=True, m=12)
+model = pm.auto_arima(train, seasonal=True, m=12)
 # make your forecasts
-forecasts = model.predict(/docs/projects/capstone/Modeling/time_series/len(test))  # predict N steps into the future
+forecasts = model.predict(len(test))  # predict N steps into the future
 
 ```
 
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_34_0.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_33_0.png)
     
 
 
 
 ```python
-# Visualize the forecasts (/docs/projects/capstone/Modeling/time_series/blue=train, green=forecasts)
-f, ax = plt.subplots(/docs/projects/capstone/Modeling/time_series/1)
-f.set_figheight(/docs/projects/capstone/Modeling/time_series/5)
-f.set_figwidth(/docs/projects/capstone/Modeling/time_series/18)
+# Visualize the forecasts (blue=train, green=forecasts)
+f, ax = plt.subplots(1)
+f.set_figheight(5)
+f.set_figwidth(18)
 
-# fig = model.plot(/docs/projects/capstone/Modeling/time_series/forecasts, ax=ax)
-# x = np.arange(/docs/projects/capstone/Modeling/time_series/len(df1))
+# fig = model.plot(forecasts, ax=ax)
+# x = np.arange(len(df1))
 x=df1.index
-plt.plot(/docs/projects/capstone/Modeling/time_series/ x[-126:],test['y'], color='r')
-plt.plot(/docs/projects/capstone/Modeling/time_series/x[:-126], train, c='blue')
-plt.plot(/docs/projects/capstone/Modeling/time_series/x[-126:], forecasts, c='green')
-/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
+plt.plot( x[-126:],test['y'], color='r')
+plt.plot(x[:-126], train, c='blue')
+plt.plot(x[-126:], forecasts, c='green')
+plt.show()
+```
 
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_35_0.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_34_0.png)
     
 
 
@@ -1826,11 +1361,11 @@ plt.plot(/docs/projects/capstone/Modeling/time_series/x[-126:], forecasts, c='gr
 ```python
 from fbprophet import Prophet
 
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/D/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/F/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/df1['ds']=df['Count Date']
+df1=pd.DataFrame()
+df1['ds']=df['Count Date']
 df1['y']=df['Count']
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
+df1.head()
+```
 
 
 
@@ -1895,13 +1430,9 @@ df1['y']=df['Count']
 train_data=df1[0:310]
 test_data=df1[311:]
 # fit model
-/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/P/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/m.fit(/docs/projects/capstone/Modeling/time_series/train_data)
+m = Prophet()
+m.fit(train_data)
 ```
-
-    INFO:fbprophet:Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
 
 
     Initial log joint probability = -5.91056
@@ -1921,54 +1452,37 @@ test_data=df1[311:]
 
 ```python
 # forecast the following 365 days
-future = m.make_future_dataframe(/docs/projects/capstone/Modeling/time_series/periods=365)
-forecast = m.predict(/docs/projects/capstone/Modeling/time_series/future)
+future = m.make_future_dataframe(periods=365)
+forecast = m.predict(future)
 ```
-
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-
 
 
 ```python
-fig1 = m.plot(/docs/projects/capstone/Modeling/time_series/forecast)
-fig2 = m.plot_components(/docs/projects/capstone/Modeling/time_series/forecast)
+fig1 = m.plot(forecast)
+fig2 = m.plot_components(forecast)
 ```
 
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-
-
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_40_1.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_39_1.png)
     
 
 
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_40_2.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_39_2.png)
     
 
 
 
 ```python
 from fbprophet.diagnostics import cross_validation
-df_cv = cross_validation(/docs/projects/capstone/Modeling/time_series/m, initial='300 days', period='80 days', horizon = '200 days')
+df_cv = cross_validation(m, initial='300 days', period='80 days', horizon = '200 days')
 ```
 
     INFO:fbprophet:Making 5 forecasts with cutoffs between 2019-04-30 00:00:00 and 2020-03-15 00:00:00
     WARNING:fbprophet:Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
-      0%|          | 0/5 [00:00<?, ?it/s]/opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
+      0%|          | 0/5 [00:00<?, ?it/s]
 
 
     Initial log joint probability = -8.92491
@@ -1980,12 +1494,7 @@ df_cv = cross_validation(/docs/projects/capstone/Modeling/time_series/m, initial
       Convergence detected: absolute parameter change was below tolerance
 
 
-     20%|██        | 1/5 [00:00<00:02,  1.95it/s]/opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
+     20%|██        | 1/5 [00:00<00:02,  1.95it/s]
 
 
     Initial log joint probability = -8.92491
@@ -1997,12 +1506,7 @@ df_cv = cross_validation(/docs/projects/capstone/Modeling/time_series/m, initial
       Convergence detected: absolute parameter change was below tolerance
 
 
-     40%|████      | 2/5 [00:10<00:17,  5.86s/it]/opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
+     40%|████      | 2/5 [00:10<00:17,  5.86s/it]
 
 
     Initial log joint probability = -8.50317
@@ -2015,12 +1519,7 @@ df_cv = cross_validation(/docs/projects/capstone/Modeling/time_series/m, initial
       Convergence detected: absolute parameter change was below tolerance
 
 
-     60%|██████    | 3/5 [00:10<00:06,  3.44s/it]/opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
+     60%|██████    | 3/5 [00:10<00:06,  3.44s/it]
 
 
     Initial log joint probability = -5.29624
@@ -2032,12 +1531,7 @@ df_cv = cross_validation(/docs/projects/capstone/Modeling/time_series/m, initial
       Convergence detected: relative gradient magnitude is below tolerance
 
 
-     80%|████████  | 4/5 [00:11<00:02,  2.26s/it]/opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
-    /opt/homebrew/lib/python3.9/site-packages/fbprophet/forecaster.py:891: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-      components = components.append(/docs/projects/capstone/Modeling/time_series/new_comp)
+     80%|████████  | 4/5 [00:11<00:02,  2.26s/it]
 
 
     Initial log joint probability = -4.90379
@@ -2053,9 +1547,9 @@ df_cv = cross_validation(/docs/projects/capstone/Modeling/time_series/m, initial
 
 ```python
 from fbprophet.diagnostics import performance_metrics
-df_p = performance_metrics(/docs/projects/capstone/Modeling/time_series/df_cv)
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
+df_p = performance_metrics(df_cv)
+df_p.head()
+```
 
     INFO:fbprophet:Skipping MAPE because y close to 0
 
@@ -2160,31 +1654,31 @@ from sklearn.feature_selection import f_regression
 
 
 ```python
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/=/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/target = df['grass_count']
-print(/docs/projects/capstone/Modeling/time_series/'X.shape:', df.shape)
+df=df.dropna()
+target = df['grass_count']
+print('X.shape:', df.shape)
  
  
 # select feature by person coefficient
-X = np.array(/docs/projects/capstone/Modeling/time_series/df)
-Y = np.array(/docs/projects/capstone/Modeling/time_series/target)
-skb = SelectKBest(/docs/projects/capstone/Modeling/time_series/score_func=f_regression, k=7)
-skb.fit(/docs/projects/capstone/Modeling/time_series/X, Y.ravel())
-print(/docs/projects/capstone/Modeling/time_series/'selected features:', [df.columns[i] for i in skb.get_support(indices = True)])
-/docs/projects/capstone/Modeling/time_series/X_selected = skb.transform(/docs/projects/capstone/Modeling/time_series/X)
-print(/docs/projects/capstone/Modeling/time_series/'X_selected.shape:', X_selected.shape)
+X = np.array(df)
+Y = np.array(target)
+skb = SelectKBest(score_func=f_regression, k=7)
+skb.fit(X, Y.ravel())
+print('selected features:', [df.columns[i] for i in skb.get_support(indices = True)])
+X_selected = skb.transform(X)
+print('X_selected.shape:', X_selected.shape)
 
 
 ```
 
-    X.shape: (/docs/projects/capstone/Modeling/time_series/7695, 172)
+    X.shape: (7695, 172)
     selected features: ['av_swsfcdown', 'av_swsfcdown_numhours_1D', 'av_swsfcdown_numhours_10D', 'av_swsfcdown_sum_10D', 'forcing_temp_numhours_180D', 'forcing_temp_sum_180D', 'grass_count']
-    X_selected.shape: (/docs/projects/capstone/Modeling/time_series/7695, 7)
+    X_selected.shape: (7695, 7)
 
 
 
 ```python
-X_selected=pd.DataFrame(/docs/projects/capstone/Modeling/time_series/X_selected,columns=[df.columns[i] for i in skb.get_support(indices = True)])
+X_selected=pd.DataFrame(X_selected,columns=[df.columns[i] for i in skb.get_support(indices = True)])
 X_selected
 ```
 
@@ -2344,193 +1838,37 @@ from statsmodels.tsa.stattools import grangercausalitytests
 
 maxlag=12
 test = 'ssr_chi2test'
-def grangers_causation_matrix(/docs/projects/capstone/Modeling/time_series/data, variables, test='ssr_chi2test', verbose=False):    
+def grangers_causation_matrix(data, variables, test='ssr_chi2test', verbose=False):    
     """Check Granger Causality of all possible combinations of the Time series.
     The rows are the response variable, columns are predictors. The values in the table 
-    are the P-Values. P-Values lesser than the significance level (/docs/projects/capstone/Modeling/time_series/0.05), implies 
+    are the P-Values. P-Values lesser than the significance level (0.05), implies 
     the Null Hypothesis that the coefficients of the corresponding past values is 
     zero, that is, the X does not cause Y can be rejected.
 
     data      : pandas dataframe containing the time series variables
     variables : list containing names of the time series variables.
     """
-    df = pd.DataFrame(/docs/projects/capstone/Modeling/time_series/np.zeros((len(variables), len(variables))), columns=variables, index=variables)
-    df = pd.DataFrame(np.zeros((len(/docs/projects/capstone/Modeling/time_series/variables), len(/docs/projects/capstone/Modeling/time_series/variables))), columns=/docs/projects/capstone/Modeling/time_series/variables, index=/docs/projects/capstone/Modeling/time_series/variables)
+    df = pd.DataFrame(np.zeros((len(variables), len(variables))), columns=variables, index=variables)
     for c in df.columns:
         for r in df.index:
-            test_result = grangercausalitytests(/docs/projects/capstone/Modeling/time_series/data[[r, c]], maxlag=maxlag, verbose=False)
-            p_values = [round(/docs/projects/capstone/Modeling/time_series/test_result[i+1][0][test][1],4) for i in range(maxlag)]
-            p_values = [round(test_result[i+1][0][test][1],4) for i in range(/docs/projects/capstone/Modeling/time_series/maxlag)]
-            if verbose: print(/docs/projects/capstone/Modeling/time_series/f'Y = {r}, X = {c}, P Values = {p_values}')
-            min_p_value = np.min(/docs/projects/capstone/Modeling/time_series/p_values)
+            test_result = grangercausalitytests(data[[r, c]], maxlag=maxlag, verbose=False)
+            p_values = [round(test_result[i+1][0][test][1],4) for i in range(maxlag)]
+            if verbose: print(f'Y = {r}, X = {c}, P Values = {p_values}')
+            min_p_value = np.min(p_values)
             df.loc[r, c] = min_p_value
     df.columns = [var + '_x' for var in variables]
     df.index=[var for var in variables]
-    # df.drop(/docs/projects/capstone/Modeling/time_series/[i for i in variables if i!='grass_count'])
-    # df=df.drop(/docs/projects/capstone/Modeling/time_series/[1,2,3,4,5,6])
+    # df.drop([i for i in variables if i!='grass_count'])
+    # df=df.drop([1,2,3,4,5,6])
     return df
 
-gm=grangers_causation_matrix(/docs/projects/capstone/Modeling/time_series/X_selected, variables = X_selected.columns)
-```
-
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 2, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 3, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 4, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 5, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 6, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 2, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 3, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 4, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 5, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 6, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 7, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 8, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 9, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 10, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 11, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 12, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 2, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 3, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 4, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 5, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 6, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 7, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 8, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 9, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 10, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 11, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 12, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 2, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 3, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 4, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 6, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 2, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 3, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 4, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 3, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 5, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-    /opt/homebrew/lib/python3.9/site-packages/statsmodels/base/model.py:1871: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 7, but rank is 1
-      warnings.warn('covariance of constraints does not have full '
-
-
-
-```python
-gm=gm.drop(/docs/projects/capstone/Modeling/time_series/[i for i in X_selected.columns if i!='grass_count'])
-
+gm=grangers_causation_matrix(X_selected, variables = X_selected.columns)
 ```
 
 
-    ---------------------------------------------------------------------------
-
-    KeyError                                  Traceback (/docs/projects/capstone/Modeling/time_series/most recent call last)
-
-/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series///docs/projects/capstone/Modeling/time_series/U/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series///docs/projects/capstone/Modeling/time_series/D/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series///docs/projects/capstone/Modeling/time_series/D/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/k/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series///docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series///docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/y/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/b/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/C/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/5/docs/projects/capstone/Modeling/time_series/0/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/</docs/projects/capstone/Modeling/time_series/c/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/:/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/1/docs/projects/capstone/Modeling/time_series/>/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/    ----> <a href='vscode-notebook-cell:/Users/Demi/Desktop/pollen%20data/time%20series.ipynb#Y146sZmlsZQ%3D%3D?line=0'>1</a> gm=gm.drop(/docs/projects/capstone/Modeling/time_series/[i for i in X_selected.columns if i!='grass_count'])
-          <a href='vscode-notebook-cell:/Users/Demi/Desktop/pollen%20data/time%20series.ipynb#Y146sZmlsZQ%3D%3D?line=1'>2</a> print(/docs/projects/capstone/Modeling/time_series/gm)
-
-
-    File /opt/homebrew/lib/python3.9/site-packages/pandas/util/_decorators.py:311, in deprecate_nonkeyword_arguments.<locals>.decorate.<locals>.wrapper(/docs/projects/capstone/Modeling/time_series/*args, **kwargs)
-        305 if len(/docs/projects/capstone/Modeling/time_series/args) > num_allow_/docs/projects/capstone/Modeling/time_series/args:
-        306     warnings.warn(
-        307         msg.format(/docs/projects/capstone/Modeling/time_series/arguments=arguments),
-        308         FutureWarning,
-        309         stacklevel=stacklevel,
-        310     )
-    --> 311 return func(/docs/projects/capstone/Modeling/time_series/*args, **kwargs)
-
-
-    File /opt/homebrew/lib/python3.9/site-packages/pandas/core/frame.py:4954, in DataFrame.drop(/docs/projects/capstone/Modeling/time_series/self, labels, axis, index, columns, level, inplace, errors)
-       4806 @deprecate_nonkeyword_arguments(/docs/projects/capstone/Modeling/time_series/version=None, allowed_args=["self", "labels"])
-       4807 def drop(
-       4808     self,
-       (/docs/projects/capstone/Modeling/time_series/...)
-       4815     errors: str = "raise",
-       4816 ):
-       4817     """
-       4818     Drop specified labels from rows or columns.
-       4819 
-       (/docs/projects/capstone/Modeling/time_series/...)
-       4952             weight  1.0     0.8
-       4953     """
-/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/-/docs/projects/capstone/Modeling/time_series/>/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/4/docs/projects/capstone/Modeling/time_series/9/docs/projects/capstone/Modeling/time_series/5/docs/projects/capstone/Modeling/time_series/4/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/       4955         labels=labels,
-       4956         axis=axis,
-       4957         index=index,
-       4958         columns=columns,
-       4959         level=level,
-       4960         inplace=inplace,
-       4961         errors=errors,
-       4962     )
-
-
-    File /opt/homebrew/lib/python3.9/site-packages/pandas/core/generic.py:4267, in NDFrame.drop(/docs/projects/capstone/Modeling/time_series/self, labels, axis, index, columns, level, inplace, errors)
-/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/4/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/6/docs/projects/capstone/Modeling/time_series/5/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/x/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/,/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/b/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/x/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/:/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/       4266     if labels is not None:
-    -> 4267         obj = obj._drop_axis(/docs/projects/capstone/Modeling/time_series/labels, axis, level=level, errors=errors)
-       4269 if inplace:
-       4270     self._update_inplace(/docs/projects/capstone/Modeling/time_series/obj)
-
-
-    File /opt/homebrew/lib/python3.9/site-packages/pandas/core/generic.py:4311, in NDFrame._drop_axis(/docs/projects/capstone/Modeling/time_series/self, labels, axis, level, errors, consolidate, only_slice)
-       4309         new_axis = axis.drop(/docs/projects/capstone/Modeling/time_series/labels, level=level, errors=errors)
-       4310     else:
-    -> 4311         new_axis = axis.drop(/docs/projects/capstone/Modeling/time_series/labels, errors=errors)
-       4312     indexer = axis.get_indexer(/docs/projects/capstone/Modeling/time_series/new_axis)
-       4314 # Case for non-unique axis
-       4315 else:
-
-
-    File /opt/homebrew/lib/python3.9/site-packages/pandas/core/indexes/base.py:6644, in Index.drop(/docs/projects/capstone/Modeling/time_series/self, labels, errors)
-/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/6/docs/projects/capstone/Modeling/time_series/6/docs/projects/capstone/Modeling/time_series/4/docs/projects/capstone/Modeling/time_series/2/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/k/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/y/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/:/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/       6643     if errors != "ignore":
-    -> 6644         raise KeyError(/docs/projects/capstone/Modeling/time_series/f"{list(labels[mask])} not found in axis")
-       6645     indexer = indexer[~mask]
-       6646 return self.delete(/docs/projects/capstone/Modeling/time_series/indexer)
-
-
-    KeyError: "['av_swsfcdown', 'av_swsfcdown_numhours_1D', 'av_swsfcdown_numhours_10D', 'av_swsfcdown_sum_10D', 'forcing_temp_numhours_180D', 'forcing_temp_sum_180D'] not found in axis"
-
-
-
 ```python
-pd.set_option(/docs/projects/capstone/Modeling/time_series/'display.max_colwidth',50)
-print(/docs/projects/capstone/Modeling/time_series/gm)
+pd.set_option('display.max_colwidth',50)
+print(gm)
 ```
 
                  av_swsfcdown_x  av_swsfcdown_numhours_1D_x  \
@@ -2546,8 +1884,7 @@ print(/docs/projects/capstone/Modeling/time_series/gm)
     grass_count            1.0  
 
 
-If a given p-value is < 0.05, then, the corresponding X series (/docs/projects/capstone/Modeling/time_series/column) causes the Y (row).
-If a given p-value is < 0.05, then, the corresponding X series (column) causes the Y (/docs/projects/capstone/Modeling/time_series/row).
+If a given p-value is < 0.05, then, the corresponding X series (column) causes the Y (row).
 Almost all the variables in the system are interchangeably causing each other except 9 values > 0.05
 
 ## Cointegration test
@@ -2558,28 +1895,24 @@ the presence of a statistically significant connection between two or more time 
 ```python
 from statsmodels.tsa.vector_ar.vecm import coint_johansen
 
-def cointegration_test(/docs/projects/capstone/Modeling/time_series/df, alpha=0.05): 
+def cointegration_test(df, alpha=0.05): 
     """Perform Johanson's Cointegration Test and Report Summary"""
-    out = coint_johansen(/docs/projects/capstone/Modeling/time_series/df,-1,5)
+    out = coint_johansen(df,-1,5)
     d = {'0.90':0, '0.95':1, '0.99':2}
     traces = out.lr1
-    cvts = out.cvt[:, d[str(/docs/projects/capstone/Modeling/time_series/1-alpha)]]
-    def adjust(/docs/projects/capstone/Modeling/time_series/val, length= 6): return str(val).ljust(length)
-    def adjust(/docs/projects/capstone/Modeling/time_series/val, length= 6): return str(/docs/projects/capstone/Modeling/time_series/val).ljust(length)
-    def adjust(val, /docs/projects/capstone/Modeling/time_series/length= 6): return str(val).ljust(/docs/projects/capstone/Modeling/time_series/length)
+    cvts = out.cvt[:, d[str(1-alpha)]]
+    def adjust(val, length= 6): return str(val).ljust(length)
 
     # Summary
-    print(/docs/projects/capstone/Modeling/time_series/'Name   ::  Test Stat > C(95%)    =>   Signif  \n', '--'*20)
-    for col, trace, cvt in zip(/docs/projects/capstone/Modeling/time_series/df.columns, traces, cvts):
-        print(/docs/projects/capstone/Modeling/time_series/adjust(col), ':: ', adjust(round(trace,2), 9), ">", adjust(cvt, 8), ' =>  ' , trace > cvt)
-        print(adjust(col), ':: ', adjust(/docs/projects/capstone/Modeling/time_series/round(trace,2), 9), ">", adjust(cvt, 8), ' =>  ' , trace > cvt)
-        print(adjust(col), ':: ', adjust(round(trace,2), 9), ">", adjust(/docs/projects/capstone/Modeling/time_series/cvt, 8), ' =>  ' , trace > cvt)
+    print('Name   ::  Test Stat > C(95%)    =>   Signif  \n', '--'*20)
+    for col, trace, cvt in zip(df.columns, traces, cvts):
+        print(adjust(col), ':: ', adjust(round(trace,2), 9), ">", adjust(cvt, 8), ' =>  ' , trace > cvt)
 
-cointegration_test(/docs/projects/capstone/Modeling/time_series/X_selected)
+cointegration_test(X_selected)
 
 ```
 
-    Name   ::  Test Stat > C(/docs/projects/capstone/Modeling/time_series/95%)    =>   Signif  
+    Name   ::  Test Stat > C(95%)    =>   Signif  
      ----------------------------------------
     av_swsfcdown ::  4708.36   > 111.7797  =>   True
     av_swsfcdown_numhours_1D ::  2074.2    > 83.9383   =>   True
@@ -2596,56 +1929,49 @@ nobs = 200
 df_train, df_test = X_selected[0:-nobs], X_selected[-nobs:]
 
 # Check size
-print(/docs/projects/capstone/Modeling/time_series/df_train.shape)  # (119, 8)
-print(df_train.shape)  # (/docs/projects/capstone/Modeling/time_series/119, 8)
-print(/docs/projects/capstone/Modeling/time_series/df_test.shape)  # (4, 8)
-print(df_test.shape)  # (/docs/projects/capstone/Modeling/time_series/4, 8)
+print(df_train.shape)  # (119, 8)
+print(df_test.shape)  # (4, 8)
 ```
 
-    (/docs/projects/capstone/Modeling/time_series/7495, 7)
-    (/docs/projects/capstone/Modeling/time_series/200, 7)
+    (7495, 7)
+    (200, 7)
 
 
 ### ADF test for stationarity
 
 
 ```python
-def adfuller_test(/docs/projects/capstone/Modeling/time_series/series, signif=0.05, name='', verbose=False):
+def adfuller_test(series, signif=0.05, name='', verbose=False):
     """Perform ADFuller to test for Stationarity of given series and print report"""
-    r = adfuller(/docs/projects/capstone/Modeling/time_series/series, autolag='AIC')
-    output = {'test_statistic':round(/docs/projects/capstone/Modeling/time_series/r[0], 4), 'pvalue':round(r[1], 4), 'n_lags':round(r[2], 4), 'n_obs':r[3]}
-    output = {'test_statistic':round(r[0], 4), 'pvalue':round(/docs/projects/capstone/Modeling/time_series/r[1], 4), 'n_lags':round(r[2], 4), 'n_obs':r[3]}
-    output = {'test_statistic':round(r[0], 4), 'pvalue':round(r[1], 4), 'n_lags':round(/docs/projects/capstone/Modeling/time_series/r[2], 4), 'n_obs':r[3]}
+    r = adfuller(series, autolag='AIC')
+    output = {'test_statistic':round(r[0], 4), 'pvalue':round(r[1], 4), 'n_lags':round(r[2], 4), 'n_obs':r[3]}
     p_value = output['pvalue'] 
-    def adjust(/docs/projects/capstone/Modeling/time_series/val, length= 6): return str(val).ljust(length)
-    def adjust(/docs/projects/capstone/Modeling/time_series/val, length= 6): return str(/docs/projects/capstone/Modeling/time_series/val).ljust(length)
-    def adjust(val, /docs/projects/capstone/Modeling/time_series/length= 6): return str(val).ljust(/docs/projects/capstone/Modeling/time_series/length)
+    def adjust(val, length= 6): return str(val).ljust(length)
 
     # Print Summary
-    print(/docs/projects/capstone/Modeling/time_series/f'    Augmented Dickey-Fuller Test on "{name}"', "\n   ", '-'*47)
-    print(/docs/projects/capstone/Modeling/time_series/f' Null Hypothesis: Data has unit root. Non-Stationary.')
-    print(/docs/projects/capstone/Modeling/time_series/f' Significance Level    = {signif}')
-    print(/docs/projects/capstone/Modeling/time_series/f' Test Statistic        = {output["test_statistic"]}')
-    print(/docs/projects/capstone/Modeling/time_series/f' No. Lags Chosen       = {output["n_lags"]}')
+    print(f'    Augmented Dickey-Fuller Test on "{name}"', "\n   ", '-'*47)
+    print(f' Null Hypothesis: Data has unit root. Non-Stationary.')
+    print(f' Significance Level    = {signif}')
+    print(f' Test Statistic        = {output["test_statistic"]}')
+    print(f' No. Lags Chosen       = {output["n_lags"]}')
 
-/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/k/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/y/docs/projects/capstone/Modeling/time_series/,/docs/projects/capstone/Modeling/time_series/v/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/[/docs/projects/capstone/Modeling/time_series/4/docs/projects/capstone/Modeling/time_series/]/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/:/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/        print(/docs/projects/capstone/Modeling/time_series/f' Critical value {adjust(key)} = {round(val, 3)}')
-        print(f' Critical value {adjust(key)} = {round(/docs/projects/capstone/Modeling/time_series/val, 3)}')
+    for key,val in r[4].items():
+        print(f' Critical value {adjust(key)} = {round(val, 3)}')
 
     if p_value <= signif:
-        print(/docs/projects/capstone/Modeling/time_series/f" => P-Value = {p_value}. Rejecting Null Hypothesis.")
-        print(/docs/projects/capstone/Modeling/time_series/f" => Series is Stationary.")
+        print(f" => P-Value = {p_value}. Rejecting Null Hypothesis.")
+        print(f" => Series is Stationary.")
     else:
-        print(/docs/projects/capstone/Modeling/time_series/f" => P-Value = {p_value}. Weak evidence to reject the Null Hypothesis.")
-        print(/docs/projects/capstone/Modeling/time_series/f" => Series is Non-Stationary.")    
+        print(f" => P-Value = {p_value}. Weak evidence to reject the Null Hypothesis.")
+        print(f" => Series is Non-Stationary.")    
 ```
 
 
 ```python
 # ADF Test on each column
-/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/,/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/c/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/:/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/    adfuller_test(/docs/projects/capstone/Modeling/time_series/column, name=column.name)
-    print(/docs/projects/capstone/Modeling/time_series/'\n')
+for name, column in df_train.iteritems():
+    adfuller_test(column, name=column.name)
+    print('\n')
 ```
 
         Augmented Dickey-Fuller Test on "av_swsfcdown" 
@@ -2745,25 +2071,25 @@ def adfuller_test(/docs/projects/capstone/Modeling/time_series/series, signif=0.
 
 
 ```python
-model = VAR(/docs/projects/capstone/Modeling/time_series/X_selected)
-forecasting_model = VAR(/docs/projects/capstone/Modeling/time_series/df_train)
+model = VAR(X_selected)
+forecasting_model = VAR(df_train)
 results_aic = []
-for p in range(/docs/projects/capstone/Modeling/time_series/1,3):
-  results = forecasting_model.fit(/docs/projects/capstone/Modeling/time_series/p)
-  results_aic.append(/docs/projects/capstone/Modeling/time_series/results.aic)
+for p in range(1,3):
+  results = forecasting_model.fit(p)
+  results_aic.append(results.aic)
 ```
 
 
 ```python
-x = model.select_order(/docs/projects/capstone/Modeling/time_series/maxlags=20)
-/docs/projects/capstone/Modeling/time_series/x/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/y/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
+x = model.select_order(maxlags=20)
+x.summary()
+```
 
 
 
 
 <table class="simpletable">
-<caption>VAR Order Selection (/docs/projects/capstone/Modeling/time_series/* highlights the minimums)</caption>
+<caption>VAR Order Selection (* highlights the minimums)</caption>
 <tr>
    <td></td>      <th>AIC</th>         <th>BIC</th>         <th>FPE</th>        <th>HQIC</th>    
 </tr>
@@ -2836,9 +2162,9 @@ x = model.select_order(/docs/projects/capstone/Modeling/time_series/maxlags=20)
 
 
 ```python
-model_fitted = model.fit(/docs/projects/capstone/Modeling/time_series/19)
-/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/m/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/y/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
+model_fitted = model.fit(19)
+model_fitted.summary()
+```
 
 
 
@@ -2853,7 +2179,7 @@ model_fitted = model.fit(/docs/projects/capstone/Modeling/time_series/19)
     No. of Equations:         7.00000    BIC:                    30.9524
     Nobs:                     7676.00    HQIC:                   30.3947
     Log likelihood:          -190842.    FPE:                1.18533e+13
-    AIC:                      30.1036    Det(/docs/projects/capstone/Modeling/time_series/Omega_mle):     1.05009e+13
+    AIC:                      30.1036    Det(Omega_mle):     1.05009e+13
     --------------------------------------------------------------------
     Results for equation av_swsfcdown
     =================================================================================================
@@ -3855,13 +3181,10 @@ model_fitted = model.fit(/docs/projects/capstone/Modeling/time_series/19)
 ```python
 from statsmodels.stats.stattools import durbin_watson
 
-out = durbin_watson(/docs/projects/capstone/Modeling/time_series/model_fitted.resid)
-def adjust(/docs/projects/capstone/Modeling/time_series/val, length= 6): return str(val).ljust(length)
-def adjust(/docs/projects/capstone/Modeling/time_series/val, length= 6): return str(/docs/projects/capstone/Modeling/time_series/val).ljust(length)
-def adjust(val, /docs/projects/capstone/Modeling/time_series/length= 6): return str(val).ljust(/docs/projects/capstone/Modeling/time_series/length)
-for col, val in zip(/docs/projects/capstone/Modeling/time_series/X_selected.columns, out):
-    print(/docs/projects/capstone/Modeling/time_series/adjust(col), ':', round(val, 2))
-    print(adjust(col), ':', round(/docs/projects/capstone/Modeling/time_series/val, 2))
+out = durbin_watson(model_fitted.resid)
+def adjust(val, length= 6): return str(val).ljust(length)
+for col, val in zip(X_selected.columns, out):
+    print(adjust(col), ':', round(val, 2))
 ```
 
     Count  : 2.11
@@ -3884,365 +3207,40 @@ there is no significant serial correlation.
 ```python
 nobs = 120
 df_train, df_test =  X_selected[0:-nobs],X_selected[-nobs:]
-print(/docs/projects/capstone/Modeling/time_series/df_train.shape)
-print(/docs/projects/capstone/Modeling/time_series/df_test.shape)
+print(df_train.shape)
+print(df_test.shape)
 ```
 
-    (/docs/projects/capstone/Modeling/time_series/7575, 7)
-    (/docs/projects/capstone/Modeling/time_series/120, 7)
+    (7575, 7)
+    (120, 7)
 
 
 
 ```python
-# Get the lag order (/docs/projects/capstone/Modeling/time_series/we already know this)
-lag_order = model_fitted.k_ar
-print(/docs/projects/capstone/Modeling/time_series/lag_order) 
+ig, axes = plt.subplots(nrows=int(len(X_selected.columns)/2), ncols=2, dpi=150, figsize=(10,10))
+for i, (col,ax) in enumerate(zip(X_selected.columns, axes.flatten())):
+    df_forecast[col].plot(legend=True, ax=ax).autoscale(axis='x',tight=True)
+    df_test[col][-nobs:].plot(legend=True, ax=ax);
+    ax.set_title(col + ": Forecast vs Actuals")
+    ax.xaxis.set_ticks_position('none')
+    ax.yaxis.set_ticks_position('none')
+    ax.spines["top"].set_alpha(0)
+    ax.tick_params(labelsize=6)
 
-# Input data for forecasting
-forecast_input = df_train.values[-lag_order:]
-forecast_input
-
-# Forecast
-fc = model_fitted.forecast(/docs/projects/capstone/Modeling/time_series/y=forecast_input, steps=nobs) # nobs defined at top of program
-df_forecast = pd.DataFrame(/docs/projects/capstone/Modeling/time_series/fc, index=X_selected.index[-nobs:], columns=X_selected.columns )
-df_forecast
+plt.tight_layout();
 ```
-
-    19
-
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>av_swsfcdown</th>
-      <th>av_swsfcdown_numhours_1D</th>
-      <th>av_swsfcdown_numhours_10D</th>
-      <th>av_swsfcdown_sum_10D</th>
-      <th>forcing_temp_numhours_180D</th>
-      <th>forcing_temp_sum_180D</th>
-      <th>grass_count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>7575</th>
-      <td>226.956079</td>
-      <td>13.767396</td>
-      <td>53.548465</td>
-      <td>19656.306734</td>
-      <td>0.889143</td>
-      <td>4.515080</td>
-      <td>64.269938</td>
-    </tr>
-    <tr>
-      <th>7576</th>
-      <td>93.226662</td>
-      <td>14.378339</td>
-      <td>50.899647</td>
-      <td>18151.454863</td>
-      <td>2.091688</td>
-      <td>11.235209</td>
-      <td>45.879837</td>
-    </tr>
-    <tr>
-      <th>7577</th>
-      <td>131.024275</td>
-      <td>14.766558</td>
-      <td>58.402320</td>
-      <td>20684.124371</td>
-      <td>3.099481</td>
-      <td>17.223798</td>
-      <td>-12.511248</td>
-    </tr>
-    <tr>
-      <th>7578</th>
-      <td>97.315053</td>
-      <td>14.722950</td>
-      <td>68.601553</td>
-      <td>21900.496678</td>
-      <td>3.670539</td>
-      <td>20.518390</td>
-      <td>-8.121121</td>
-    </tr>
-    <tr>
-      <th>7579</th>
-      <td>241.539024</td>
-      <td>13.820285</td>
-      <td>79.141845</td>
-      <td>26955.751451</td>
-      <td>4.603791</td>
-      <td>27.173799</td>
-      <td>1.153640</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>7690</th>
-      <td>282.642221</td>
-      <td>15.614363</td>
-      <td>150.383046</td>
-      <td>68026.795613</td>
-      <td>135.667491</td>
-      <td>539.899884</td>
-      <td>16.577869</td>
-    </tr>
-    <tr>
-      <th>7691</th>
-      <td>282.175396</td>
-      <td>15.601817</td>
-      <td>150.334638</td>
-      <td>67977.748398</td>
-      <td>137.469952</td>
-      <td>546.575929</td>
-      <td>16.417327</td>
-    </tr>
-    <tr>
-      <th>7692</th>
-      <td>281.683477</td>
-      <td>15.588924</td>
-      <td>150.281474</td>
-      <td>67921.935709</td>
-      <td>139.268810</td>
-      <td>553.246290</td>
-      <td>16.254382</td>
-    </tr>
-    <tr>
-      <th>7693</th>
-      <td>281.168129</td>
-      <td>15.575693</td>
-      <td>150.223643</td>
-      <td>67859.344820</td>
-      <td>141.063577</td>
-      <td>559.909082</td>
-      <td>16.089183</td>
-    </tr>
-    <tr>
-      <th>7694</th>
-      <td>280.630273</td>
-      <td>15.562132</td>
-      <td>150.161235</td>
-      <td>67790.111033</td>
-      <td>142.853743</td>
-      <td>566.562254</td>
-      <td>15.922166</td>
-    </tr>
-  </tbody>
-</table>
-<p>120 rows × 7 columns</p>
-</div>
-
-
-
-
-```python
-ig, axes = plt.subplots(/docs/projects/capstone/Modeling/time_series/nrows=int(len(X_selected.columns)/2), ncols=2, dpi=150, figsize=(10,10))
-ig, axes = plt.subplots(nrows=int(len(X_selected.columns)/2), ncols=2, dpi=150, figsize=(/docs/projects/capstone/Modeling/time_series/10,10))
-for i, (/docs/projects/capstone/Modeling/time_series/col,ax) in enumerate(zip(X_selected.columns, axes.flatten())):
-for i, (col,ax) in enumerate(/docs/projects/capstone/Modeling/time_series/zip(X_selected.columns, axes.flatten())):
-    df_forecast[col].plot(/docs/projects/capstone/Modeling/time_series/legend=True, ax=ax).autoscale(axis='x',tight=True)
-    df_forecast[col].plot(legend=True, ax=ax).autoscale(/docs/projects/capstone/Modeling/time_series/axis='x',tight=True)
-    df_test[col][-nobs:].plot(/docs/projects/capstone/Modeling/time_series/legend=True, ax=ax);
-    ax.set_title(/docs/projects/capstone/Modeling/time_series/col + ": Forecast vs Actuals")
-    ax.xaxis.set_ticks_position(/docs/projects/capstone/Modeling/time_series/'none')
-    ax.yaxis.set_ticks_position(/docs/projects/capstone/Modeling/time_series/'none')
-    ax.spines["top"].set_alpha(/docs/projects/capstone/Modeling/time_series/0)
-    ax.tick_params(/docs/projects/capstone/Modeling/time_series/labelsize=6)
-
-/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/i/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/y/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/;/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
 
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_68_0.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_65_0.png)
     
 
 
 
 ```python
-test_original = X_selected[-nobs:]
-# /docs/projects/capstone/Modeling/time_series/test_original.index = pd.to_datetime(/docs/projects/capstone/Modeling/time_series/test_original.index)
-test_original
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>av_swsfcdown</th>
-      <th>av_swsfcdown_numhours_1D</th>
-      <th>av_swsfcdown_numhours_10D</th>
-      <th>av_swsfcdown_sum_10D</th>
-      <th>forcing_temp_numhours_180D</th>
-      <th>forcing_temp_sum_180D</th>
-      <th>grass_count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>7575</th>
-      <td>237.758330</td>
-      <td>14.0</td>
-      <td>57.0</td>
-      <td>21019.652594</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>69.0</td>
-    </tr>
-    <tr>
-      <th>7576</th>
-      <td>114.223600</td>
-      <td>15.0</td>
-      <td>58.0</td>
-      <td>20827.112662</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>47.0</td>
-    </tr>
-    <tr>
-      <th>7577</th>
-      <td>151.055200</td>
-      <td>15.0</td>
-      <td>69.0</td>
-      <td>24477.129897</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>7578</th>
-      <td>111.615201</td>
-      <td>15.0</td>
-      <td>83.0</td>
-      <td>27114.429910</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>7579</th>
-      <td>257.357501</td>
-      <td>14.0</td>
-      <td>97.0</td>
-      <td>33291.009923</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>7690</th>
-      <td>130.549167</td>
-      <td>15.0</td>
-      <td>152.0</td>
-      <td>71764.820016</td>
-      <td>113.0</td>
-      <td>341.59007</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>7691</th>
-      <td>334.555417</td>
-      <td>15.0</td>
-      <td>152.0</td>
-      <td>72318.180003</td>
-      <td>113.0</td>
-      <td>341.59007</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>7692</th>
-      <td>132.476798</td>
-      <td>16.0</td>
-      <td>152.0</td>
-      <td>67785.839900</td>
-      <td>113.0</td>
-      <td>341.59007</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>7693</th>
-      <td>86.142084</td>
-      <td>15.0</td>
-      <td>152.0</td>
-      <td>63012.549925</td>
-      <td>113.0</td>
-      <td>341.59007</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>7694</th>
-      <td>275.843329</td>
-      <td>15.0</td>
-      <td>152.0</td>
-      <td>60367.329937</td>
-      <td>113.0</td>
-      <td>341.59007</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>120 rows × 7 columns</p>
-</div>
-
-
-
-
-```python
-test_original['grass_count'].plot(/docs/projects/capstone/Modeling/time_series/figsize=(12,5),legend=True)
-/docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/c/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/[/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/c/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/]/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/plt.legend(/docs/projects/capstone/Modeling/time_series/labels=['grass_count','forecast_grass_count'])
+test_original['grass_count'].plot(figsize=(12,5),legend=True)
+df_forecast['grass_count'].plot()
+plt.legend(labels=['grass_count','forecast_grass_count'])
 ```
 
 
@@ -4254,7 +3252,7 @@ test_original['grass_count'].plot(/docs/projects/capstone/Modeling/time_series/f
 
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_70_1.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_66_1.png)
     
 
 
@@ -4263,8 +3261,8 @@ test_original['grass_count'].plot(/docs/projects/capstone/Modeling/time_series/f
 from sklearn.metrics import mean_squared_error, mean_absolute_error, explained_variance_score, r2_score
 y_true = test_original['grass_count']
 y_pred = df_forecast['grass_count']
-rmse = np.sqrt(/docs/projects/capstone/Modeling/time_series/mean_squared_error(y_true, y_pred))
-print(/docs/projects/capstone/Modeling/time_series/'RMSE Error in forecasts = {}'.format(round(rmse, 2)))
+rmse = np.sqrt(mean_squared_error(y_true, y_pred))
+print('RMSE Error in forecasts = {}'.format(round(rmse, 2)))
 ```
 
     RMSE Error in forecasts = 61.8
@@ -4272,25 +3270,25 @@ print(/docs/projects/capstone/Modeling/time_series/'RMSE Error in forecasts = {}
 
 
 ```python
-# Visualize the forecasts (/docs/projects/capstone/Modeling/time_series/blue=train, green=forecasts)
-f, ax = plt.subplots(/docs/projects/capstone/Modeling/time_series/1)
-f.set_figheight(/docs/projects/capstone/Modeling/time_series/5)
-f.set_figwidth(/docs/projects/capstone/Modeling/time_series/18)
+# Visualize the forecasts (blue=train, green=forecasts)
+f, ax = plt.subplots(1)
+f.set_figheight(5)
+f.set_figwidth(18)
 
-# fig = model.plot(/docs/projects/capstone/Modeling/time_series/forecasts, ax=ax)
-# x = np.arange(/docs/projects/capstone/Modeling/time_series/len(df1))
+# fig = model.plot(forecasts, ax=ax)
+# x = np.arange(len(df1))
 x=df1.index
-plt.plot(/docs/projects/capstone/Modeling/time_series/ x[-126:],test['y'], color='r')
-plt.plot(/docs/projects/capstone/Modeling/time_series/x[:-126], train, c='blue')
-plt.plot(/docs/projects/capstone/Modeling/time_series/x[-120:], df_forecast['grass_count'], c='green')
-# test_original['grass_count'].plot(/docs/projects/capstone/Modeling/time_series/figsize=(12,5),legend=True)
-/docs/projects/capstone/Modeling/time_series/#/docs/projects/capstone/Modeling/time_series/ /docs/projects/capstone/Modeling/time_series/d/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/f/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/e/docs/projects/capstone/Modeling/time_series/c/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/[/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/g/docs/projects/capstone/Modeling/time_series/r/docs/projects/capstone/Modeling/time_series/a/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/_/docs/projects/capstone/Modeling/time_series/c/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/u/docs/projects/capstone/Modeling/time_series/n/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/'/docs/projects/capstone/Modeling/time_series/]/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/plt.legend(/docs/projects/capstone/Modeling/time_series/labels=['grass_count','forecast_grass_count'])
-/docs/projects/capstone/Modeling/time_series/p/docs/projects/capstone/Modeling/time_series/l/docs/projects/capstone/Modeling/time_series/t/docs/projects/capstone/Modeling/time_series/./docs/projects/capstone/Modeling/time_series/s/docs/projects/capstone/Modeling/time_series/h/docs/projects/capstone/Modeling/time_series/o/docs/projects/capstone/Modeling/time_series/w/docs/projects/capstone/Modeling/time_series/(/docs/projects/capstone/Modeling/time_series/)/docs/projects/capstone/Modeling/time_series/
-/docs/projects/capstone/Modeling/time_series/```
+plt.plot( x[-126:],test['y'], color='r')
+plt.plot(x[:-126], train, c='blue')
+plt.plot(x[-120:], df_forecast['grass_count'], c='green')
+# test_original['grass_count'].plot(figsize=(12,5),legend=True)
+# df_forecast['grass_count'].plot()
+plt.legend(labels=['grass_count','forecast_grass_count'])
+plt.show()
+```
 
 
     
-![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_72_0.png)
+![png](/docs/projects/capstone/Modeling/time_series/time%20series_files/time%20series_68_0.png)
     
 
