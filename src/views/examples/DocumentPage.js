@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import SolidNavbar from "components/Navbars/SolidNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
 import DocumentContext from "views/documents/DocumentContext";
-import DocumentPdfContext from "views/documents/DocuemntPdfContext";
+// import DocumentPdfContext from "views/documents/DocuemntPdfContext";
 import Box from '@mui/material/Box';
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from '@mui/material/Button';
@@ -155,7 +155,7 @@ function DocumentPage() {
               <Grid item xs={8} sx={{ p: 2, alignItems: 'flex-start', marginRight: '2%'}}>
                 <Box sx={{ height: 1000, flexGrow: 1, overflowY: 'auto' }}>
                   {curr.doc_type === 'md' ? <DocumentContext item={curr}/> : null}
-                  {curr.doc_type === 'pdf' ? <DocumentPdfContext item={curr}/> : null}
+                  {/* {curr.doc_type === 'pdf' ? <DocumentPdfContext item={curr}/> : null} */}
                 </Box>
               </Grid>
             </Grid>
