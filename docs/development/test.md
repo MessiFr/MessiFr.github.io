@@ -155,10 +155,10 @@ $$ C_l $$
 
 
 **Below me will be displayed as a block:**
-$$
+$$$$$$$$
 Block Math
-$$
-**Next to me will be displayed as inline ->** $Inline Math$
+$$$$$$$$
+**Next to me will be displayed as inline ->** $$$$Inline Math$$$$
 
 1. First item
 1. Second item
