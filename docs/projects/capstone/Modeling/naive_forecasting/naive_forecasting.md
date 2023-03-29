@@ -7,14 +7,12 @@ import matplotlib.pyplot as plt
 
 
 ```python
-data = pd.read_csv(/docs/projects/capstone/Modeling/naive_forecasting/'../preprocessing/melbourne_data.csv')
-data = data.loc[(/docs/projects/capstone/Modeling/naive_forecasting/data['month'] != 1) & (data['month'] != 9)]
-data = data.loc[(data['month'] != 1) & (/docs/projects/capstone/Modeling/naive_forecasting/data['month'] != 9)]
-data = data.groupby(/docs/projects/capstone/Modeling/naive_forecasting/by=["date_1"]).mean()
-/docs/projects/capstone/Modeling/naive_forecasting/d/docs/projects/capstone/Modeling/naive_forecasting/a/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/a/docs/projects/capstone/Modeling/naive_forecasting/ /docs/projects/capstone/Modeling/naive_forecasting/=/docs/projects/capstone/Modeling/naive_forecasting/ /docs/projects/capstone/Modeling/naive_forecasting/d/docs/projects/capstone/Modeling/naive_forecasting/a/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/a/docs/projects/capstone/Modeling/naive_forecasting/./docs/projects/capstone/Modeling/naive_forecasting/g/docs/projects/capstone/Modeling/naive_forecasting/r/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/u/docs/projects/capstone/Modeling/naive_forecasting/p/docs/projects/capstone/Modeling/naive_forecasting/b/docs/projects/capstone/Modeling/naive_forecasting/y/docs/projects/capstone/Modeling/naive_forecasting/(/docs/projects/capstone/Modeling/naive_forecasting/b/docs/projects/capstone/Modeling/naive_forecasting/y/docs/projects/capstone/Modeling/naive_forecasting/=/docs/projects/capstone/Modeling/naive_forecasting/[/docs/projects/capstone/Modeling/naive_forecasting/"/docs/projects/capstone/Modeling/naive_forecasting/d/docs/projects/capstone/Modeling/naive_forecasting/a/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/e/docs/projects/capstone/Modeling/naive_forecasting/_/docs/projects/capstone/Modeling/naive_forecasting/1/docs/projects/capstone/Modeling/naive_forecasting/"/docs/projects/capstone/Modeling/naive_forecasting/]/docs/projects/capstone/Modeling/naive_forecasting/)/docs/projects/capstone/Modeling/naive_forecasting/./docs/projects/capstone/Modeling/naive_forecasting/m/docs/projects/capstone/Modeling/naive_forecasting/e/docs/projects/capstone/Modeling/naive_forecasting/a/docs/projects/capstone/Modeling/naive_forecasting/n/docs/projects/capstone/Modeling/naive_forecasting/(/docs/projects/capstone/Modeling/naive_forecasting/)/docs/projects/capstone/Modeling/naive_forecasting/
-/docs/projects/capstone/Modeling/naive_forecasting/data = data[['Total']]
-/docs/projects/capstone/Modeling/naive_forecasting/d/docs/projects/capstone/Modeling/naive_forecasting/a/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/a/docs/projects/capstone/Modeling/naive_forecasting/./docs/projects/capstone/Modeling/naive_forecasting/h/docs/projects/capstone/Modeling/naive_forecasting/e/docs/projects/capstone/Modeling/naive_forecasting/a/docs/projects/capstone/Modeling/naive_forecasting/d/docs/projects/capstone/Modeling/naive_forecasting/(/docs/projects/capstone/Modeling/naive_forecasting/)/docs/projects/capstone/Modeling/naive_forecasting/
-/docs/projects/capstone/Modeling/naive_forecasting/```
+data = pd.read_csv('../preprocessing/melbourne_data.csv')
+data = data.loc[(data['month'] != 1) & (data['month'] != 9)]
+data = data.groupby(by=["date_1"]).mean()
+data = data[['Total']]
+data.head()
+```
 
 
 
@@ -73,11 +71,11 @@ data = data.groupby(/docs/projects/capstone/Modeling/naive_forecasting/by=["date
 
 
 ```python
-data.plot(/docs/projects/capstone/Modeling/naive_forecasting/figsize=(20, 4))
-/docs/projects/capstone/Modeling/naive_forecasting/p/docs/projects/capstone/Modeling/naive_forecasting/l/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/./docs/projects/capstone/Modeling/naive_forecasting/g/docs/projects/capstone/Modeling/naive_forecasting/r/docs/projects/capstone/Modeling/naive_forecasting/i/docs/projects/capstone/Modeling/naive_forecasting/d/docs/projects/capstone/Modeling/naive_forecasting/(/docs/projects/capstone/Modeling/naive_forecasting/)/docs/projects/capstone/Modeling/naive_forecasting/
-/docs/projects/capstone/Modeling/naive_forecasting/plt.legend(/docs/projects/capstone/Modeling/naive_forecasting/loc='best')
-plt.title(/docs/projects/capstone/Modeling/naive_forecasting/'Melbourne Grass Count')
-plt.show(/docs/projects/capstone/Modeling/naive_forecasting/block=False)
+data.plot(figsize=(20, 4))
+plt.grid()
+plt.legend(loc='best')
+plt.title('Melbourne Grass Count')
+plt.show(block=False)
 ```
 
 
@@ -89,8 +87,8 @@ plt.show(/docs/projects/capstone/Modeling/naive_forecasting/block=False)
 
 ```python
 import seaborn as sns
-fig = plt.subplots(/docs/projects/capstone/Modeling/naive_forecasting/figsize=(20, 5))
-ax = sns.boxplot(/docs/projects/capstone/Modeling/naive_forecasting/x=data['Total'],whis=1.5)
+fig = plt.subplots(figsize=(20, 5))
+ax = sns.boxplot(x=data['Total'],whis=1.5)
 ```
 
 
@@ -101,7 +99,7 @@ ax = sns.boxplot(/docs/projects/capstone/Modeling/naive_forecasting/x=data['Tota
 
 
 ```python
-fig = data.Total.hist(/docs/projects/capstone/Modeling/naive_forecasting/figsize = (20,5))
+fig = data.Total.hist(figsize = (20,5))
 ```
 
 
@@ -115,10 +113,10 @@ fig = data.Total.hist(/docs/projects/capstone/Modeling/naive_forecasting/figsize
 from pylab import rcParams
 import statsmodels.api as sm
 rcParams['figure.figsize'] = 20,24
-decomposition = sm.tsa.seasonal_decompose(/docs/projects/capstone/Modeling/naive_forecasting/data.Total, model='additive', period=30) # additive seasonal index
-/docs/projects/capstone/Modeling/naive_forecasting/f/docs/projects/capstone/Modeling/naive_forecasting/i/docs/projects/capstone/Modeling/naive_forecasting/g/docs/projects/capstone/Modeling/naive_forecasting/ /docs/projects/capstone/Modeling/naive_forecasting/=/docs/projects/capstone/Modeling/naive_forecasting/ /docs/projects/capstone/Modeling/naive_forecasting/d/docs/projects/capstone/Modeling/naive_forecasting/e/docs/projects/capstone/Modeling/naive_forecasting/c/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/m/docs/projects/capstone/Modeling/naive_forecasting/p/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/s/docs/projects/capstone/Modeling/naive_forecasting/i/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/i/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/n/docs/projects/capstone/Modeling/naive_forecasting/./docs/projects/capstone/Modeling/naive_forecasting/p/docs/projects/capstone/Modeling/naive_forecasting/l/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/(/docs/projects/capstone/Modeling/naive_forecasting/)/docs/projects/capstone/Modeling/naive_forecasting/
-/docs/projects/capstone/Modeling/naive_forecasting//docs/projects/capstone/Modeling/naive_forecasting/p/docs/projects/capstone/Modeling/naive_forecasting/l/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/./docs/projects/capstone/Modeling/naive_forecasting/s/docs/projects/capstone/Modeling/naive_forecasting/h/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/w/docs/projects/capstone/Modeling/naive_forecasting/(/docs/projects/capstone/Modeling/naive_forecasting/)/docs/projects/capstone/Modeling/naive_forecasting/
-/docs/projects/capstone/Modeling/naive_forecasting/```
+decomposition = sm.tsa.seasonal_decompose(data.Total, model='additive', period=30) # additive seasonal index
+fig = decomposition.plot()
+plt.show()
+```
 
 
     
@@ -128,10 +126,10 @@ decomposition = sm.tsa.seasonal_decompose(/docs/projects/capstone/Modeling/naive
 
 
 ```python
-decomposition = sm.tsa.seasonal_decompose(/docs/projects/capstone/Modeling/naive_forecasting/data.Total, model='multiplicative', period=30) # multiplicative seasonal index
-/docs/projects/capstone/Modeling/naive_forecasting/f/docs/projects/capstone/Modeling/naive_forecasting/i/docs/projects/capstone/Modeling/naive_forecasting/g/docs/projects/capstone/Modeling/naive_forecasting/ /docs/projects/capstone/Modeling/naive_forecasting/=/docs/projects/capstone/Modeling/naive_forecasting/ /docs/projects/capstone/Modeling/naive_forecasting/d/docs/projects/capstone/Modeling/naive_forecasting/e/docs/projects/capstone/Modeling/naive_forecasting/c/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/m/docs/projects/capstone/Modeling/naive_forecasting/p/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/s/docs/projects/capstone/Modeling/naive_forecasting/i/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/i/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/n/docs/projects/capstone/Modeling/naive_forecasting/./docs/projects/capstone/Modeling/naive_forecasting/p/docs/projects/capstone/Modeling/naive_forecasting/l/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/(/docs/projects/capstone/Modeling/naive_forecasting/)/docs/projects/capstone/Modeling/naive_forecasting/
-/docs/projects/capstone/Modeling/naive_forecasting//docs/projects/capstone/Modeling/naive_forecasting/p/docs/projects/capstone/Modeling/naive_forecasting/l/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/./docs/projects/capstone/Modeling/naive_forecasting/s/docs/projects/capstone/Modeling/naive_forecasting/h/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/w/docs/projects/capstone/Modeling/naive_forecasting/(/docs/projects/capstone/Modeling/naive_forecasting/)/docs/projects/capstone/Modeling/naive_forecasting/
-/docs/projects/capstone/Modeling/naive_forecasting/```
+decomposition = sm.tsa.seasonal_decompose(data.Total, model='multiplicative', period=30) # multiplicative seasonal index
+fig = decomposition.plot()
+plt.show()
+```
 
 
     
@@ -148,21 +146,21 @@ test = data[train_len:] # last 24 months as out-of-time test set
 
 
 ```python
-/docs/projects/capstone/Modeling/naive_forecasting/y/docs/projects/capstone/Modeling/naive_forecasting/_/docs/projects/capstone/Modeling/naive_forecasting/h/docs/projects/capstone/Modeling/naive_forecasting/a/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/_/docs/projects/capstone/Modeling/naive_forecasting/n/docs/projects/capstone/Modeling/naive_forecasting/a/docs/projects/capstone/Modeling/naive_forecasting/i/docs/projects/capstone/Modeling/naive_forecasting/v/docs/projects/capstone/Modeling/naive_forecasting/e/docs/projects/capstone/Modeling/naive_forecasting/ /docs/projects/capstone/Modeling/naive_forecasting/=/docs/projects/capstone/Modeling/naive_forecasting/ /docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/e/docs/projects/capstone/Modeling/naive_forecasting/s/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/./docs/projects/capstone/Modeling/naive_forecasting/c/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/p/docs/projects/capstone/Modeling/naive_forecasting/y/docs/projects/capstone/Modeling/naive_forecasting/(/docs/projects/capstone/Modeling/naive_forecasting/)/docs/projects/capstone/Modeling/naive_forecasting/
-/docs/projects/capstone/Modeling/naive_forecasting/y_hat_naive['naive_forecast'] = train['Total'][train_len-1]
+y_hat_naive = test.copy()
+y_hat_naive['naive_forecast'] = train['Total'][train_len-1]
 ```
 
 
 ```python
-plt.figure(/docs/projects/capstone/Modeling/naive_forecasting/figsize=(20,5))
-/docs/projects/capstone/Modeling/naive_forecasting/p/docs/projects/capstone/Modeling/naive_forecasting/l/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/./docs/projects/capstone/Modeling/naive_forecasting/g/docs/projects/capstone/Modeling/naive_forecasting/r/docs/projects/capstone/Modeling/naive_forecasting/i/docs/projects/capstone/Modeling/naive_forecasting/d/docs/projects/capstone/Modeling/naive_forecasting/(/docs/projects/capstone/Modeling/naive_forecasting/)/docs/projects/capstone/Modeling/naive_forecasting/
-/docs/projects/capstone/Modeling/naive_forecasting/plt.plot(/docs/projects/capstone/Modeling/naive_forecasting/train['Total'], label='Train')
-plt.plot(/docs/projects/capstone/Modeling/naive_forecasting/test['Total'], label='Test')
-plt.plot(/docs/projects/capstone/Modeling/naive_forecasting/y_hat_naive['naive_forecast'], label='Naive forecast')
-plt.legend(/docs/projects/capstone/Modeling/naive_forecasting/loc='best')
-plt.title(/docs/projects/capstone/Modeling/naive_forecasting/'Naive Method')
-/docs/projects/capstone/Modeling/naive_forecasting/p/docs/projects/capstone/Modeling/naive_forecasting/l/docs/projects/capstone/Modeling/naive_forecasting/t/docs/projects/capstone/Modeling/naive_forecasting/./docs/projects/capstone/Modeling/naive_forecasting/s/docs/projects/capstone/Modeling/naive_forecasting/h/docs/projects/capstone/Modeling/naive_forecasting/o/docs/projects/capstone/Modeling/naive_forecasting/w/docs/projects/capstone/Modeling/naive_forecasting/(/docs/projects/capstone/Modeling/naive_forecasting/)/docs/projects/capstone/Modeling/naive_forecasting/
-/docs/projects/capstone/Modeling/naive_forecasting/```
+plt.figure(figsize=(20,5))
+plt.grid()
+plt.plot(train['Total'], label='Train')
+plt.plot(test['Total'], label='Test')
+plt.plot(y_hat_naive['naive_forecast'], label='Naive forecast')
+plt.legend(loc='best')
+plt.title('Naive Method')
+plt.show()
+```
 
 
     
@@ -173,11 +171,10 @@ plt.title(/docs/projects/capstone/Modeling/naive_forecasting/'Naive Method')
 
 ```python
 from sklearn.metrics import mean_squared_error
-rmse = np.sqrt(/docs/projects/capstone/Modeling/naive_forecasting/mean_squared_error(test['Total'], y_hat_naive['naive_forecast'])).round(2)
-rmse = np.sqrt(mean_squared_error(test['Total'], y_hat_naive['naive_forecast'])).round(/docs/projects/capstone/Modeling/naive_forecasting/2)
-mape = np.round(/docs/projects/capstone/Modeling/naive_forecasting/np.mean(np.abs(test['Total']-y_hat_naive['naive_forecast'])/test['Total'])*100,2)
+rmse = np.sqrt(mean_squared_error(test['Total'], y_hat_naive['naive_forecast'])).round(2)
+mape = np.round(np.mean(np.abs(test['Total']-y_hat_naive['naive_forecast'])/test['Total'])*100,2)
 
-results = pd.DataFrame(/docs/projects/capstone/Modeling/naive_forecasting/{'Method':['Naive method'], 'MAPE': [mape], 'RMSE': [rmse]})
+results = pd.DataFrame({'Method':['Naive method'], 'MAPE': [mape], 'RMSE': [rmse]})
 results = results[['Method', 'RMSE', 'MAPE']]
 results
 ```
