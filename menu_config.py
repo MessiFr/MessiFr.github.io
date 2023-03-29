@@ -7,7 +7,7 @@ def get_files():
     files = []
     for dirpath, dirnames, filenames in os.walk('public'):
         for filename in filenames:
-            if filename.endswith('.md') or filename.endswith('.pdf'):
+            if filename.endswith('.md'):
                 if not filename.endswith('homepage.md'):
                     files.append(os.path.join(dirpath, filename))
 
@@ -142,8 +142,35 @@ new_data = sorted(new_data, key=lambda x:order.index(x['desc']))
 
 context = "const data = " + json.dumps(new_data, indent=2) + ";\nexport default data;"
 
-with open('src/views/documents/plugin/doc.js', 'w') as f:
+with open('src/views/documents/info/doc.js', 'w') as f:
     f.write(context)
+
+
+def count_md_files(path):
+    count = 0
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if file.endswith('.md'):
+                count += 1
+    return count
+
+
+# 计算文件个数
+doc_path = 'public/docs/'
+project_path = 'public/docs/projects/'
+doc_count = count_md_files(doc_path)
+
+
+info_counts = {
+    "documents" : doc_count,
+    "projects" : len(os.listdir(project_path))-1
+}
+
+context = "const doc_counts = " + json.dumps(info_counts, indent=2) + ";\nexport default doc_counts;"
+
+with open('src/views/documents/info/count.js', 'w') as f:
+    f.write(context)
+
 
 print("***")
 print("Done")

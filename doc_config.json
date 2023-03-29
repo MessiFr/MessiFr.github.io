@@ -30,12 +30,6 @@
     }
   },
   {
-    "Capstone-group16-melbourne-pollen": {
-      "name": "Capstone Project",
-      "title": "Capstone-group16-melbourne-pollen"
-    }
-  },
-  {
     "README.md": {
       "name": "README",
       "title": "README.md"
@@ -187,7 +181,7 @@
   },
   {
     "sml": {
-      "name": "SML",
+      "name": "Statisical ML",
       "title": "sml"
     }
   },
@@ -243,6 +237,54 @@
     "modeling": {
       "name": "modeling",
       "title": "modeling"
+    }
+  },
+  {
+    "capstone": {
+      "name": "Capstone Project",
+      "title": "capstone"
+    }
+  },
+  {
+    "nlp": {
+      "name": "NLP",
+      "title": "nlp"
+    }
+  },
+  {
+    "04-ngram.md": {
+      "name": "N-gram",
+      "title": "04-ngram.md"
+    }
+  },
+  {
+    "03-classification.md": {
+      "name": "Classification",
+      "title": "03-classification.md"
+    }
+  },
+  {
+    "07-deep-learning.md": {
+      "name": "Deep Learning",
+      "title": "07-deep-learning.md"
+    }
+  },
+  {
+    "06-hmm.md": {
+      "name": "HMM",
+      "title": "06-hmm.md"
+    }
+  },
+  {
+    "02-bpe-solution.md": {
+      "name": "BPE",
+      "title": "02-bpe-solution.md"
+    }
+  },
+  {
+    "05-pos-tagging.md": {
+      "name": "Pos Tagging",
+      "title": "05-pos-tagging.md"
     }
   }
 ]

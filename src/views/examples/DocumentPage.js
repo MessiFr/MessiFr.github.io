@@ -10,9 +10,10 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from '@mui/material/Button';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { styled } from '@mui/material/styles';
 import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
-import data from "views/documents/plugin/doc";
+import data from "views/documents/info/doc";
 
 import { Grid } from '@mui/material';
 import { Typography } from '@mui/material';
@@ -101,7 +102,11 @@ function DocumentPage() {
     );
   };
 
-  // console.log(expanded);
+  const StyledGrid = styled(Grid)({
+    borderRight: '2px solid rgba(0, 0, 0, 0.1)',
+    position: 'relative',
+  });
+
   return (
     <>
       <SolidNavbar label="Documents"/>
@@ -109,40 +114,52 @@ function DocumentPage() {
         <div className="section">
 
           <Toolbar id="back-to-top-anchor" />
-          <Grid container spacing={2} >
-            <Grid item xs={2.8} sx={{ p: 2, alignItems: 'flex-start', marginLeft: '2%'}}>
+          <div style={{ marginTop: '-5%' }}> 
+            <Grid container spacing={2} >
+              <StyledGrid item xs={2.8} sx={{ p: 2, alignItems: 'flex-start', marginLeft: '2%'}}>
 
-              {/* 目录 */}
-              <Box sx={{ height: 600, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}>
-                <h3 className="title" style={{ textAlign: 'left' }} onClick={(event) => handleClickHomePage(event)}>Documents</h3>
-                <Box sx={{ mb: 1 }}>
-                  <Button onClick={handleExpandClick} size='small'>
-                    {expanded.length === 0 ? 'Expand all' : 'Collapse all'}
-                  </Button>
+                {/* 目录 */}
+                <Box 
+                  sx={{ 
+                    height: 1000, 
+                    flexGrow: 1, 
+                    maxWidth: 400, 
+                    overflowY: 'auto'
+                  }}
+                  >
+                    
+                  <h3 className="title" style={{ textAlign: 'left' }} onClick={(event) => handleClickHomePage(event)}>Documents</h3>
+
+                  <Box sx={{ mb: 1 }}>
+                    <Button variant='outlined' onClick={handleExpandClick} size='small'>
+                      {expanded.length === 0 ? 'Expand all' : 'Collapse all'}
+                    </Button>
+                  </Box>
+
+                  <TreeView
+                    aria-label="controlled"
+                    defaultCollapseIcon={<ExpandMoreIcon />}
+                    defaultExpandIcon={<ChevronRightIcon />}
+                    expanded={expanded}
+                    selected={selected}
+                    onNodeToggle={handleToggle}
+                    onNodeSelect={handleSelect}
+                    multiSelect
+                  >
+                    {renderTree(data)}
+                  </TreeView>
                 </Box>
-
-                <TreeView
-                  aria-label="controlled"
-                  defaultCollapseIcon={<ExpandMoreIcon />}
-                  defaultExpandIcon={<ChevronRightIcon />}
-                  expanded={expanded}
-                  selected={selected}
-                  onNodeToggle={handleToggle}
-                  onNodeSelect={handleSelect}
-                  multiSelect
-                >
-                  {renderTree(data)}
-                </TreeView>
-              </Box>
+                
+              </StyledGrid>
               
+              <Grid item xs={8} sx={{ p: 2, alignItems: 'flex-start', marginRight: '2%'}}>
+                <Box sx={{ height: 1000, flexGrow: 1, overflowY: 'auto' }}>
+                  {curr.doc_type === 'md' ? <DocumentContext item={curr}/> : null}
+                  {curr.doc_type === 'pdf' ? <DocumentPdfContext item={curr}/> : null}
+                </Box>
+              </Grid>
             </Grid>
-            <Grid item xs={8} sx={{ p: 2, alignItems: 'flex-start', marginRight: '2%'}}>
-              {/* 文章内容 */}
-              {curr.doc_type === 'md' ? <DocumentContext item={curr}/> : null}
-              {curr.doc_type === 'pdf' ? <DocumentPdfContext item={curr}/> : null}
-            </Grid>
-          </Grid>
-              
+          </div>
         </div>
         <div style={{ marginBottom: '0px' }}>
         <DefaultFooter />

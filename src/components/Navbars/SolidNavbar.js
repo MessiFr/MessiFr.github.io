@@ -63,7 +63,7 @@ function SolidNavbar(props) {
       ) : null}
       <Navbar className={"fixed-top"} expand="lg" style={{ backgroundColor: "black" }} >
         <Container style={{ marginLeft: 0, marginRight:0 }}>
-          <div className="navbar-translate" style={{ marginLeft: "0%" }}>
+          <div className="navbar-translate" style={{position: "absolute", left: "2%"}}>
           <UncontrolledDropdown className="button-dropdown">
             <DropdownToggle
               caret
@@ -108,7 +108,7 @@ function SolidNavbar(props) {
             navbar
             style={{ marginRight: "-20%" }}
           >
-            <Nav navbar>
+            <Nav navbar style={{position: "absolute", right: "10%"}}>
               <NavItem>
                 <NavLink
                   href="https://github.com/MessiFr"

@@ -3,6 +3,8 @@ import React from "react";
 // reactstrap components
 import { Container } from "reactstrap";
 
+import doc_counts from "views/documents/info/count";
+
 // core components
 
 function ProfilePageHeader() {
@@ -42,12 +44,17 @@ function ProfilePageHeader() {
           <p className="category">Data Scientist / Algorithm Engineer</p>
           <div className="content">
             <div className="social-description">
-              <h2>0</h2>
-              <p>Document</p>
+              <a href="/documents" style={{ color:'white' }}>
+                <h2>{ doc_counts['documents'] }</h2>
+              </a>
+              <p>Documents</p>
             </div>
             <div className="social-description">
-              <h2>0</h2>
-              <p>Program</p>
+
+              <a href="/documents" style={{ color:'white' }}>
+                <h2>{ doc_counts['projects'] }</h2>
+              </a>
+              <p>Projects</p>
             </div>
             <div className="social-description">
               <h2>0</h2>

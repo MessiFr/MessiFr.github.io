@@ -203,44 +203,6 @@ The parameters added as class attributes are now associated with your module, ac
 torch.nn.Module?
 ```
 
-    [0;31mInit signature:[0m [0mtorch[0m[0;34m.[0m[0mnn[0m[0;34m.[0m[0mModule[0m[0;34m([0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
-    [0;31mDocstring:[0m     
-    Base class for all neural network modules.
-    
-    Your models should also subclass this class.
-    
-    Modules can also contain other Modules, allowing to nest them in
-    a tree structure. You can assign the submodules as regular attributes::
-    
-        import torch.nn as nn
-        import torch.nn.functional as F
-    
-        class Model(nn.Module):
-            def __init__(self):
-                super().__init__()
-                self.conv1 = nn.Conv2d(1, 20, 5)
-                self.conv2 = nn.Conv2d(20, 20, 5)
-    
-            def forward(self, x):
-                x = F.relu(self.conv1(x))
-                return F.relu(self.conv2(x))
-    
-    Submodules assigned in this way will be registered, and will have their
-    parameters converted too when you call :meth:`to`, etc.
-    
-    .. note::
-        As per the example above, an ``__init__()`` call to the parent class
-        must be made before assignment on the child.
-    
-    :ivar training: Boolean represents whether this module is in training or
-                    evaluation mode.
-    :vartype training: bool
-    [0;31mInit docstring:[0m Initializes internal Module state, shared by both nn.Module and ScriptModule.
-    [0;31mFile:[0m           /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/torch/nn/modules/module.py
-    [0;31mType:[0m           type
-    [0;31mSubclasses:[0m     Identity, Linear, Bilinear, _ConvNd, Threshold, ReLU, RReLU, Hardtanh, Sigmoid, Hardsigmoid, ...
-
-
 
 ```python
 n_features, n_classes = 28*28*1, 10  # Here we flatten the 3D image into a 1D vector
@@ -338,29 +300,6 @@ Load the model parameters into our selected optimizer and we're good to go. We'l
 optimizer = torch.optim.SGD(logistic_regression_model.parameters(), lr=1e-2, momentum=0.9)
 lr_loss, lr_acc = train(logistic_regression_model, train_loader, test_loader, optimizer)
 ```
-
-    =========================
-    -----yhat-----
-    torch.Size([64, 10])
-    ----b----
-    torch.Size([10])
-    =========================
-    [TRAIN] Epoch 0 [0/937]| Mean loss 2.3751 | Train accuracy 0.14062 | Time 0.02 s
-    =========================
-    -----yhat-----
-    torch.Size([64, 10])
-    ----b----
-    torch.Size([10])
-    =========================
-    ...
-    =========================
-    -----yhat-----
-    torch.Size([64, 10])
-    ----b----
-    torch.Size([10])
-    =========================
-    [TEST] Mean loss 0.3361 | Accuracy 0.9104
-
 
 You should be getting $$>90/\%$$ train accuracy with similar test accuracy within a minute on CPU _(note to tutors - check on your machine?)_, not bad for a _linear method_! 😎 Finally, let's plot the loss and accuracy curves. You may want to fiddle with the learning rate when your loss starts to plateau.
 

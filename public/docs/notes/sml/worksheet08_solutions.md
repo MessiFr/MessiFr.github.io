@@ -616,7 +616,186 @@ train_autoencoder(encoder, decoder, train_loader, test_loader, optimizer, cuda=u
     [TRAIN] Epoch 1 [250/391]| Mean loss 40.4253 | Time 34.09 s
     Epoch complete! Mean training loss: 37.0801
     [TEST] Mean loss 45.2664
-    ...
+    [TRAIN] Epoch 2 [0/391]| Mean loss 27.4138 | Time 43.86 s
+    [TRAIN] Epoch 2 [250/391]| Mean loss 26.7709 | Time 55.10 s
+    Epoch complete! Mean training loss: 25.9491
+    [TEST] Mean loss 37.1040
+    [TRAIN] Epoch 3 [0/391]| Mean loss 24.0313 | Time 63.60 s
+    [TRAIN] Epoch 3 [250/391]| Mean loss 22.7646 | Time 75.18 s
+    Epoch complete! Mean training loss: 22.2536
+    [TEST] Mean loss 32.7586
+    [TRAIN] Epoch 4 [0/391]| Mean loss 19.8443 | Time 85.67 s
+    [TRAIN] Epoch 4 [250/391]| Mean loss 20.3198 | Time 98.60 s
+    Epoch complete! Mean training loss: 19.9769
+    [TEST] Mean loss 29.9883
+    [TRAIN] Epoch 5 [0/391]| Mean loss 19.2427 | Time 108.80 s
+    [TRAIN] Epoch 5 [250/391]| Mean loss 18.8016 | Time 122.53 s
+    Epoch complete! Mean training loss: 18.5441
+    [TEST] Mean loss 28.2635
+    [TRAIN] Epoch 6 [0/391]| Mean loss 18.3570 | Time 130.77 s
+    [TRAIN] Epoch 6 [250/391]| Mean loss 17.8450 | Time 142.64 s
+    Epoch complete! Mean training loss: 17.6936
+    [TEST] Mean loss 27.1193
+    [TRAIN] Epoch 7 [0/391]| Mean loss 18.0666 | Time 150.74 s
+    [TRAIN] Epoch 7 [250/391]| Mean loss 17.0982 | Time 161.62 s
+    Epoch complete! Mean training loss: 16.9661
+    [TEST] Mean loss 26.1699
+    [TRAIN] Epoch 8 [0/391]| Mean loss 17.3159 | Time 169.72 s
+    [TRAIN] Epoch 8 [250/391]| Mean loss 16.3378 | Time 181.67 s
+    Epoch complete! Mean training loss: 16.2300
+    [TEST] Mean loss 24.8617
+    [TRAIN] Epoch 9 [0/391]| Mean loss 15.2612 | Time 190.08 s
+    [TRAIN] Epoch 9 [250/391]| Mean loss 15.4977 | Time 203.64 s
+    Epoch complete! Mean training loss: 15.3763
+    [TEST] Mean loss 23.3931
+    [TRAIN] Epoch 10 [0/391]| Mean loss 14.5567 | Time 213.25 s
+    [TRAIN] Epoch 10 [250/391]| Mean loss 14.7226 | Time 225.36 s
+    Epoch complete! Mean training loss: 14.6158
+    [TEST] Mean loss 22.5085
+    [TRAIN] Epoch 11 [0/391]| Mean loss 13.8157 | Time 233.84 s
+    [TRAIN] Epoch 11 [250/391]| Mean loss 14.2130 | Time 244.73 s
+    Epoch complete! Mean training loss: 14.1055
+    [TEST] Mean loss 22.2759
+    [TRAIN] Epoch 12 [0/391]| Mean loss 14.7946 | Time 252.87 s
+    [TRAIN] Epoch 12 [250/391]| Mean loss 13.8031 | Time 263.83 s
+    Epoch complete! Mean training loss: 13.6709
+    [TEST] Mean loss 21.0270
+    [TRAIN] Epoch 13 [0/391]| Mean loss 15.2164 | Time 273.73 s
+    [TRAIN] Epoch 13 [250/391]| Mean loss 13.2989 | Time 284.90 s
+    Epoch complete! Mean training loss: 13.1886
+    [TEST] Mean loss 20.1871
+    [TRAIN] Epoch 14 [0/391]| Mean loss 12.5808 | Time 293.68 s
+    [TRAIN] Epoch 14 [250/391]| Mean loss 12.6492 | Time 306.65 s
+    Epoch complete! Mean training loss: 12.5898
+    [TEST] Mean loss 19.2112
+    [TRAIN] Epoch 15 [0/391]| Mean loss 11.9092 | Time 315.21 s
+    [TRAIN] Epoch 15 [250/391]| Mean loss 12.0940 | Time 326.46 s
+    Epoch complete! Mean training loss: 11.9206
+    [TEST] Mean loss 18.1343
+    [TRAIN] Epoch 16 [0/391]| Mean loss 10.6183 | Time 335.91 s
+    [TRAIN] Epoch 16 [250/391]| Mean loss 11.4574 | Time 348.02 s
+    Epoch complete! Mean training loss: 11.3807
+    [TEST] Mean loss 18.1311
+    [TRAIN] Epoch 17 [0/391]| Mean loss 11.0397 | Time 357.17 s
+    [TRAIN] Epoch 17 [250/391]| Mean loss 11.1012 | Time 369.37 s
+    Epoch complete! Mean training loss: 11.0298
+    [TEST] Mean loss 17.7110
+    [TRAIN] Epoch 18 [0/391]| Mean loss 10.7478 | Time 379.34 s
+    [TRAIN] Epoch 18 [250/391]| Mean loss 10.8051 | Time 392.83 s
+    Epoch complete! Mean training loss: 10.7741
+    [TEST] Mean loss 16.6655
+    [TRAIN] Epoch 19 [0/391]| Mean loss 10.8944 | Time 402.90 s
+    [TRAIN] Epoch 19 [250/391]| Mean loss 10.5352 | Time 417.13 s
+    Epoch complete! Mean training loss: 10.5058
+    [TEST] Mean loss 16.4519
+    [TRAIN] Epoch 20 [0/391]| Mean loss 9.7003 | Time 427.47 s
+    [TRAIN] Epoch 20 [250/391]| Mean loss 10.3680 | Time 441.69 s
+    Epoch complete! Mean training loss: 10.3173
+    [TEST] Mean loss 16.3692
+    [TRAIN] Epoch 21 [0/391]| Mean loss 10.6555 | Time 452.25 s
+    [TRAIN] Epoch 21 [250/391]| Mean loss 10.1660 | Time 464.30 s
+    Epoch complete! Mean training loss: 10.1611
+    [TEST] Mean loss 16.0705
+    [TRAIN] Epoch 22 [0/391]| Mean loss 10.5038 | Time 473.62 s
+    [TRAIN] Epoch 22 [250/391]| Mean loss 10.0791 | Time 486.34 s
+    Epoch complete! Mean training loss: 10.0416
+    [TEST] Mean loss 15.5117
+    [TRAIN] Epoch 23 [0/391]| Mean loss 10.0509 | Time 495.49 s
+    [TRAIN] Epoch 23 [250/391]| Mean loss 9.9140 | Time 507.45 s
+    Epoch complete! Mean training loss: 9.8896
+    [TEST] Mean loss 15.6631
+    [TRAIN] Epoch 24 [0/391]| Mean loss 10.3269 | Time 516.24 s
+    [TRAIN] Epoch 24 [250/391]| Mean loss 9.7931 | Time 528.66 s
+    Epoch complete! Mean training loss: 9.7858
+    [TEST] Mean loss 15.0958
+    [TRAIN] Epoch 25 [0/391]| Mean loss 9.3127 | Time 537.67 s
+    [TRAIN] Epoch 25 [250/391]| Mean loss 9.6828 | Time 549.23 s
+    Epoch complete! Mean training loss: 9.6455
+    [TEST] Mean loss 14.9579
+    [TRAIN] Epoch 26 [0/391]| Mean loss 9.2963 | Time 558.06 s
+    [TRAIN] Epoch 26 [250/391]| Mean loss 9.5321 | Time 569.42 s
+    Epoch complete! Mean training loss: 9.5516
+    [TEST] Mean loss 14.9632
+    [TRAIN] Epoch 27 [0/391]| Mean loss 9.4864 | Time 577.93 s
+    [TRAIN] Epoch 27 [250/391]| Mean loss 9.4016 | Time 592.16 s
+    Epoch complete! Mean training loss: 9.4133
+    [TEST] Mean loss 14.5871
+    [TRAIN] Epoch 28 [0/391]| Mean loss 9.3130 | Time 602.63 s
+    [TRAIN] Epoch 28 [250/391]| Mean loss 9.2483 | Time 614.75 s
+    Epoch complete! Mean training loss: 9.2133
+    [TEST] Mean loss 14.2763
+    [TRAIN] Epoch 29 [0/391]| Mean loss 9.0446 | Time 623.37 s
+    [TRAIN] Epoch 29 [250/391]| Mean loss 9.0621 | Time 635.94 s
+    Epoch complete! Mean training loss: 9.0406
+    [TEST] Mean loss 13.9915
+    [TRAIN] Epoch 30 [0/391]| Mean loss 8.6813 | Time 646.40 s
+    [TRAIN] Epoch 30 [250/391]| Mean loss 8.9101 | Time 660.48 s
+    Epoch complete! Mean training loss: 8.8462
+    [TEST] Mean loss 13.6720
+    [TRAIN] Epoch 31 [0/391]| Mean loss 8.6117 | Time 670.09 s
+    [TRAIN] Epoch 31 [250/391]| Mean loss 8.7267 | Time 682.99 s
+    Epoch complete! Mean training loss: 8.7118
+    [TEST] Mean loss 13.4889
+    [TRAIN] Epoch 32 [0/391]| Mean loss 8.6301 | Time 692.35 s
+    [TRAIN] Epoch 32 [250/391]| Mean loss 8.5925 | Time 705.23 s
+    Epoch complete! Mean training loss: 8.5281
+    [TEST] Mean loss 13.1926
+    [TRAIN] Epoch 33 [0/391]| Mean loss 8.4958 | Time 716.01 s
+    [TRAIN] Epoch 33 [250/391]| Mean loss 8.4249 | Time 731.18 s
+    Epoch complete! Mean training loss: 8.3947
+    [TEST] Mean loss 13.0265
+    [TRAIN] Epoch 34 [0/391]| Mean loss 8.0744 | Time 742.60 s
+    [TRAIN] Epoch 34 [250/391]| Mean loss 8.3237 | Time 756.70 s
+    Epoch complete! Mean training loss: 8.2801
+    [TEST] Mean loss 13.1524
+    [TRAIN] Epoch 35 [0/391]| Mean loss 8.3317 | Time 767.56 s
+    [TRAIN] Epoch 35 [250/391]| Mean loss 8.1546 | Time 780.35 s
+    Epoch complete! Mean training loss: 8.1490
+    [TEST] Mean loss 12.6697
+    [TRAIN] Epoch 36 [0/391]| Mean loss 7.4025 | Time 790.75 s
+    [TRAIN] Epoch 36 [250/391]| Mean loss 8.0515 | Time 804.47 s
+    Epoch complete! Mean training loss: 8.0544
+    [TEST] Mean loss 12.5254
+    [TRAIN] Epoch 37 [0/391]| Mean loss 7.8947 | Time 815.28 s
+    [TRAIN] Epoch 37 [250/391]| Mean loss 7.9385 | Time 828.18 s
+    Epoch complete! Mean training loss: 7.9803
+    [TEST] Mean loss 12.3448
+    [TRAIN] Epoch 38 [0/391]| Mean loss 7.3315 | Time 837.72 s
+    [TRAIN] Epoch 38 [250/391]| Mean loss 7.8698 | Time 855.99 s
+    Epoch complete! Mean training loss: 7.8548
+    [TEST] Mean loss 12.1854
+    [TRAIN] Epoch 39 [0/391]| Mean loss 7.8473 | Time 865.39 s
+    [TRAIN] Epoch 39 [250/391]| Mean loss 7.7839 | Time 877.51 s
+    Epoch complete! Mean training loss: 7.7564
+    [TEST] Mean loss 12.1228
+    [TRAIN] Epoch 40 [0/391]| Mean loss 7.5617 | Time 885.87 s
+    [TRAIN] Epoch 40 [250/391]| Mean loss 7.7080 | Time 898.66 s
+    Epoch complete! Mean training loss: 7.6857
+    [TEST] Mean loss 11.9632
+    [TRAIN] Epoch 41 [0/391]| Mean loss 7.7279 | Time 913.00 s
+    [TRAIN] Epoch 41 [250/391]| Mean loss 7.6127 | Time 935.12 s
+    Epoch complete! Mean training loss: 7.5839
+    [TEST] Mean loss 12.5520
+    [TRAIN] Epoch 42 [0/391]| Mean loss 7.5665 | Time 944.33 s
+    [TRAIN] Epoch 42 [250/391]| Mean loss 7.5212 | Time 955.53 s
+    Epoch complete! Mean training loss: 7.4981
+    [TEST] Mean loss 11.5966
+    [TRAIN] Epoch 43 [0/391]| Mean loss 7.5877 | Time 964.02 s
+    [TRAIN] Epoch 43 [250/391]| Mean loss 7.4320 | Time 975.21 s
+    Epoch complete! Mean training loss: 7.4018
+    [TEST] Mean loss 11.6008
+    [TRAIN] Epoch 44 [0/391]| Mean loss 7.3054 | Time 984.13 s
+    [TRAIN] Epoch 44 [250/391]| Mean loss 7.2841 | Time 995.91 s
+    Epoch complete! Mean training loss: 7.2731
+    [TEST] Mean loss 11.5502
+    [TRAIN] Epoch 45 [0/391]| Mean loss 7.3638 | Time 1005.49 s
+    [TRAIN] Epoch 45 [250/391]| Mean loss 7.1471 | Time 1018.46 s
+    Epoch complete! Mean training loss: 7.1578
+    [TEST] Mean loss 11.2064
+    [TRAIN] Epoch 46 [0/391]| Mean loss 7.2483 | Time 1028.04 s
+    [TRAIN] Epoch 46 [250/391]| Mean loss 7.0616 | Time 1040.56 s
+    Epoch complete! Mean training loss: 7.0292
+    [TEST] Mean loss 10.8063
     [TRAIN] Epoch 47 [0/391]| Mean loss 7.4787 | Time 1050.26 s
     [TRAIN] Epoch 47 [250/391]| Mean loss 6.9371 | Time 1062.53 s
     Epoch complete! Mean training loss: 6.9239
