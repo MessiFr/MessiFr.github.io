@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 
+import Zoom from "@material-ui/core/Zoom";
+import PropTypes from "prop-types";
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import { makeStyles } from "@material-ui/core/styles";
 
 // import rehypeKatex from 'rehype-katex'
 import rehypeRaw from "rehype-raw";
@@ -8,15 +12,52 @@ import ReactMarkdown from 'react-markdown';
 import remarkHtml from 'remark-html';
 import remarkGfm from 'remark-gfm';
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
+import Fab from "@material-ui/core/Fab";
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 import { MathJaxContext, MathJax } from 'better-react-mathjax';
-
-// import { BlockMath, InlineMath } from "react-katex";
-// import CodeBlock from "./plugin/CodeBlock";
-// import './CodeBlock.css';
-
-// import fileInfo from "./plugin/doc";
 import { Container } from "reactstrap";
+
+
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    position: "fixed",
+    bottom: theme.spacing(2),
+    right: theme.spacing(2)
+  }
+}));
+
+function ScrollTop(props) {
+  const { children } = props;
+  const classes = useStyles();
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 100
+  });
+
+  const handleClick = event => {
+    const anchor = (event.target.ownerDocument || document).querySelector(
+      "#back-to-top-anchor"
+    );
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  return (
+    <Zoom in={trigger}>
+      <div onClick={handleClick} role="presentation" className={classes.root}>
+        {children}
+      </div>
+    </Zoom>
+  );
+}
+
+ScrollTop.propTypes = {
+  children: PropTypes.element.isRequired
+};
 
 export default function DocumentContext(props)  {
   const [content, setContent] = useState("");
@@ -74,6 +115,11 @@ export default function DocumentContext(props)  {
             </MathJax>
         </MathJaxContext>
     </div>
+    <ScrollTop>
+      <Fab color="primary" size="medium" aria-label="scroll back to top">
+        <KeyboardArrowUpIcon />
+      </Fab>
+    </ScrollTop>
     </Container>
     
   );

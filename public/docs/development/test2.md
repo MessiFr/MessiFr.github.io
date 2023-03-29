@@ -6,7 +6,7 @@ Blockquote > blockquote
 Ordered List
 
 ## Math
-$$
+$$$$$$$$
 \nabla_{/docs/development/\mathbf{w}} \hat{R}(/docs/development/\mathbf{w}) = \nabla_{/docs/development/\mathbf{w}} (/docs/development//docs/development/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} /docs/development/\mathbf{w}) - \nabla_{/docs/development/\mathbf{w}} ( /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{/docs/development/\mathbf{w}} (\mathbf{y}^\top \mathbf{X} /docs/development/\mathbf{w}) = 2 /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
 \nabla_{/docs/development/\mathbf{w}} \hat{R}(/docs/development/\mathbf{w}) = \nabla_{/docs/development/\mathbf{w}} (/docs/development//docs/development/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} /docs/development/\mathbf{w}) - \nabla_{/docs/development/\mathbf{w}} (/docs/development/ /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{/docs/development/\mathbf{w}} (\mathbf{y}^\top \mathbf{X} /docs/development/\mathbf{w}) = 2 /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
 \nabla_{/docs/development/\mathbf{w}} \hat{R}(/docs/development/\mathbf{w}) = \nabla_{/docs/development/\mathbf{w}} (/docs/development//docs/development/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} /docs/development/\mathbf{w}) - \nabla_{/docs/development/\mathbf{w}} (/docs/development/ /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{/docs/development/\mathbf{w}} (/docs/development/\mathbf{y}^\top \mathbf{X} /docs/development/\mathbf{w}) = 2 /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
@@ -22,9 +22,9 @@ $$
 \nabla_{/docs/development/\mathbf{w}} \hat{R}(/docs/development/\mathbf{w}) = \nabla_{/docs/development/\mathbf{w}} (/docs/development//docs/development/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} /docs/development/\mathbf{w}) - \nabla_{/docs/development/\mathbf{w}} (/docs/development/ /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{/docs/development/\mathbf{w}} (/docs/development/\mathbf{y}^\top \mathbf{X} /docs/development/\mathbf{w}) = 2 /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
 \nabla_{/docs/development/\mathbf{w}} \hat{R}(/docs/development/\mathbf{w}) = \nabla_{/docs/development/\mathbf{w}} (/docs/development/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} /docs/development/\mathbf{w}) - \nabla_{/docs/development/\mathbf{w}} (/docs/development/ /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{/docs/development/\mathbf{w}} (/docs/development/\mathbf{y}^\top \mathbf{X} /docs/development/\mathbf{w}) = 2 /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
 \nabla_{/docs/development/\mathbf{w}} \hat{R}(/docs/development/\mathbf{w}) = \nabla_{/docs/development/\mathbf{w}} (/docs/development//docs/development/\mathbf{w}^T \mathbf{X}^\top \mathbf{X} /docs/development/\mathbf{w}) - \nabla_{/docs/development/\mathbf{w}} (/docs/development/ /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{y}) - \nabla_{/docs/development/\mathbf{w}} (/docs/development/\mathbf{y}^\top \mathbf{X} /docs/development/\mathbf{w}) = 2 /docs/development/\mathbf{w}^\top \mathbf{X}^\top \mathbf{X} - 2 \mathbf{y}^\top \mathbf{X}
-$$
+$$$$$$$$
 
-$$ C_l $$
+$$$$$$$$ C_l $$$$$$$$
 
 ## Code Block
 ```python
@@ -155,10 +155,10 @@ $$ C_l $$
 
 
 **Below me will be displayed as a block:**
-$$
+$$$$$$$$
 Block Math
-$$
-**Next to me will be displayed as inline ->** $Inline Math$
+$$$$$$$$
+**Next to me will be displayed as inline ->** $$$$Inline Math$$$$
 
 1. First item
 1. Second item

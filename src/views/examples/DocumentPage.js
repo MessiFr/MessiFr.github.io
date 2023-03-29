@@ -1,21 +1,17 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import SolidNavbar from "components/Navbars/SolidNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
 import DocumentContext from "views/documents/DocumentContext";
+import DocumentPdfContext from "views/documents/DocuemntPdfContext";
 import Box from '@mui/material/Box';
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from '@mui/material/Button';
-import { makeStyles } from "@material-ui/core/styles";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
-import Zoom from "@material-ui/core/Zoom";
-import PropTypes from "prop-types";
-import Fab from "@material-ui/core/Fab";
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import data from "views/documents/plugin/doc";
 
 import { Grid } from '@mui/material';
@@ -28,53 +24,15 @@ function IndexFont(props) {
   );
 }
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    position: "fixed",
-    bottom: theme.spacing(2),
-    right: theme.spacing(2)
-  }
-}));
-
-
-function ScrollTop(props) {
-  const { children } = props;
-  const classes = useStyles();
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 100
-  });
-
-  const handleClick = event => {
-    const anchor = (event.target.ownerDocument || document).querySelector(
-      "#back-to-top-anchor"
-    );
-
-    if (anchor) {
-      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  };
-
-  return (
-    <Zoom in={trigger}>
-      <div onClick={handleClick} role="presentation" className={classes.root}>
-        {children}
-      </div>
-    </Zoom>
-  );
-}
-
-ScrollTop.propTypes = {
-  children: PropTypes.element.isRequired
-};
-
-
 
 function DocumentPage() {
-  const [expanded, setExpanded] = React.useState([]);
-  const [selected, setSelected] = React.useState([]);
-  // const [id, setId] = React.useState(0);
-  const [curr, setCurr] = React.useState({id: '0', path: 'docs/homepage.md'})
+  const homepageConfig = {id: '0', path: 'docs/homepage.md', doc_type: 'md'};
+
+  const [expanded, setExpanded] = useState([]);
+  const [selected, setSelected] = useState([]);
+  
+  const [expandId, setExpandId] = useState([]);
+  const [curr, setCurr] = useState(homepageConfig);
 
   // const { label, nodeId } = props;
   const history = useHistory();
@@ -91,22 +49,9 @@ function DocumentPage() {
   const handleClickHomePage = (event) => {
     
     history.push(`/documents/`);
-    setCurr({id: '0', path: 'docs/homepage.md'});
+    setCurr(homepageConfig);
   };
 
-  // function renderTree(data) {
-    
-  //   return data.map((item) => (
-  //     <TreeItem 
-  //       key={item.id} 
-  //       nodeId={item.id.toString()} 
-  //       label={<IndexFont label={item.name} />} 
-  //       onClick={(event) => handleClickId(event, item)}
-  //       >
-  //       {item.children && renderTree(item.children)}
-  //     </TreeItem>
-  //   ));
-  // }
 
   function renderTree(data, parentIndex = '') {
     return data.map((item, index) => {
@@ -133,13 +78,30 @@ function DocumentPage() {
     setSelected(nodeIds);
   };
 
+  useEffect(() => {
+    const getAllIds = (data) => {
+      let ids = [];
+      for (let i = 0; i < data.length; i++) {
+        ids.push(data[i].id.toString());
+        if (data[i].children) {
+          ids = [...ids, ...getAllIds(data[i].children)];
+        }
+      }
+      return ids;
+    };
+    
+    setExpandId(getAllIds(data));
+    
+  }, []);
+  
   const handleExpandClick = () => {
+    console.log(expandId);
     setExpanded((oldExpanded) =>
-      oldExpanded.length === 0 ? ["1", "4", "27", "5", "28", "30"] : [],
+      oldExpanded.length === 0 ? expandId : [],
     );
   };
 
-  console.log(expanded);
+  // console.log(expanded);
   return (
     <>
       <SolidNavbar label="Documents"/>
@@ -176,12 +138,8 @@ function DocumentPage() {
             </Grid>
             <Grid item xs={8} sx={{ p: 2, alignItems: 'flex-start', marginRight: '2%'}}>
               {/* 文章内容 */}
-              <DocumentContext item={curr}/>
-              <ScrollTop>
-                <Fab color="primary" size="medium" aria-label="scroll back to top">
-                  <KeyboardArrowUpIcon />
-                </Fab>
-              </ScrollTop>
+              {curr.doc_type === 'md' ? <DocumentContext item={curr}/> : null}
+              {curr.doc_type === 'pdf' ? <DocumentPdfContext item={curr}/> : null}
             </Grid>
           </Grid>
               

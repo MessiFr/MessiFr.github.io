@@ -1,6 +1,7 @@
 import os
 import re
 import json
+from tqdm import tqdm
 
 def get_files():
     files = []
@@ -20,7 +21,7 @@ def modify_md_file(md_file_path):
         content = f.read()
 
     # 使用正则表达式提取图片路径
-    pattern = r'!\[.*?\]\((.*?)\)'
+    pattern = r'\!\[.*?\]\((.*?)\)'
     matches = re.findall(pattern, content)
 
     # 遍历所有匹配的图片路径
@@ -30,14 +31,24 @@ def modify_md_file(md_file_path):
             # 获取文件名和文件夹名
             filename = os.path.basename(match)
             dirname = os.path.dirname(match)
-            print(dirname)
+            # print(dirname)
 
             # 构造新的路径
-            starts = '/' + '/'.join(md_file_path.split('/')[1:]) + '/'
+            starts = '/' + '/'.join(md_file_path.split('/')[1:-1]) + '/'
+
             new_path = starts + os.path.join(dirname, filename)
 
             # 替换旧路径为新路径
             content = content.replace(match, new_path)
+    
+
+    dollar_pattern = r'(?<!\$)\$(?!\$)'
+    # dollar_matches = re.findall(dollar_pattern, content)
+
+    # for i in tqdm(range(len(dollar_matches))):
+    #     match = dollar_matches[i]
+    #     content = content.replace(match, '$$')
+    content = re.sub(dollar_pattern, '$$', content)
 
     # 写入修改后的文件内容
     with open(md_file_path, 'w') as f:
@@ -45,6 +56,7 @@ def modify_md_file(md_file_path):
 
 for path in md_files:
     if '.md' in path:
+        print(path)
         modify_md_file(path)
 
 
@@ -103,11 +115,13 @@ for md_file in md_files:
     # add the new item to the data structure
     filename = md_file_parts[-1]
     name, title = get_info(filename)
+    doc_type = filename.split('.')[-1]
     new_item = {'name': name,
                 'id': id,
                 'desc': filename,
                 'path': md_file_path,
-                'title': title}
+                'title': title,
+                'doc_type': doc_type}
     id += 1
     current_level.append(new_item)
 
