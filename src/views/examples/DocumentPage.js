@@ -135,7 +135,7 @@ function DocumentPage() {
 
   const handleExpandClick = () => {
     setExpanded((oldExpanded) =>
-      oldExpanded.length === 0 ? ["1", "4", "5"] : [],
+      oldExpanded.length === 0 ? ["1", "4", "27", "5", "28", "30"] : [],
     );
   };
 

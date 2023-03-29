@@ -199,44 +199,50 @@
   },
   {
     "worksheet05b_solutions.md": {
-      "name": "worksheet05b_solutions.md",
+      "name": "SVM",
       "title": "worksheet05b_solutions.md"
     }
   },
   {
     "worksheet04_solutions.md": {
-      "name": "worksheet04_solutions.md",
+      "name": "Gradient Based Training",
       "title": "worksheet04_solutions.md"
     }
   },
   {
     "worksheet03_solutions.md": {
-      "name": "worksheet03_solutions.md",
+      "name": "Linear Regression",
       "title": "worksheet03_solutions.md"
     }
   },
   {
     "worksheet08_solutions.md": {
-      "name": "worksheet08_solutions.md",
+      "name": "CNN",
       "title": "worksheet08_solutions.md"
     }
   },
   {
     "worksheet09.md": {
-      "name": "worksheet09.md",
+      "name": "RNN",
       "title": "worksheet09.md"
     }
   },
   {
     "worksheet06_solutions.md": {
-      "name": "worksheet06_solutions.md",
+      "name": "The Perceptron and PyTorch",
       "title": "worksheet06_solutions.md"
     }
   },
   {
     "worksheet07_solutions.md": {
-      "name": "worksheet07_solutions.md",
+      "name": "Pytorch",
       "title": "worksheet07_solutions.md"
+    }
+  },
+  {
+    "modeling": {
+      "name": "modeling",
+      "title": "modeling"
     }
   }
 ]
