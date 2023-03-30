@@ -44,16 +44,16 @@ function ProfilePageHeader() {
           <p className="category">Data Scientist / Algorithm Engineer</p>
           <div className="content">
             <div className="social-description">
-              <a href="/documents" style={{ color:'white' }}>
+              {/* <a href="/documents" style={{ color:'white' }}> */}
                 <h2>{ doc_counts['documents'] }</h2>
-              </a>
+              {/* </a> */}
               <p>Documents</p>
             </div>
             <div className="social-description">
 
-              <a href="/documents" style={{ color:'white' }}>
+              {/* <a href="/documents" style={{ color:'white' }}> */}
                 <h2>{ doc_counts['projects'] }</h2>
-              </a>
+              {/* </a> */}
               <p>Projects</p>
             </div>
             <div className="social-description">

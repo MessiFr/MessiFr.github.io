@@ -102,7 +102,7 @@ function ProfilePage() {
             <h5 className="category">Uni Email: yuhengf@student.unimelb.edu.au</h5>
             <h5 className="category">Personal Email: 15757470420@163.com</h5>
             <h5 className="category">Phone Number(+86): 15757470420</h5>
-            <h5 className="category">Phone Number(+61): 0478598250</h5>
+            <h5 className="category">Phone Number(+61): 04-78598250</h5>
             
           </Container>
         </div>
