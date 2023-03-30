@@ -149,6 +149,15 @@ function IndexNavbar(props) {
                   </NavItem>
                   <NavItem>
                     <NavLink
+                      href={`${rootUrl}/Gallery`}
+                      target="_blank"
+                      id="gallery-tooltip"
+                    >                 
+                      <p className="d-lg-none d-xl-none">Gallery</p>
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
                       href={`${rootUrl}/profile-page`}
                       target="_blank"
                       id="profile-tooltip"
