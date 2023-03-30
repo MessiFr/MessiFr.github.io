@@ -47,6 +47,8 @@ function SolidNavbar(props) {
     history.push('/documents');
   };
 
+  const rootUrl = window.location.origin;
+
   return (
     <>
       <style>
@@ -135,7 +137,7 @@ function SolidNavbar(props) {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href="/documents"
+                      href={`${rootUrl}/documents`}
                       target="_blank"
                       id="doc-tooltip"
                     >                 
@@ -144,7 +146,7 @@ function SolidNavbar(props) {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href="/profile-page"
+                      href={`${rootUrl}/profile-page`}
                       target="_blank"
                       id="profile-tooltip"
                     >                 

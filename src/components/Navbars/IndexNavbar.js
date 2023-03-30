@@ -60,6 +60,8 @@ function IndexNavbar(props) {
     history.push('/documents');
   };
 
+  const rootUrl = window.location.origin;
+
   return (
     <>
       {collapseOpen ? (
@@ -146,7 +148,7 @@ function IndexNavbar(props) {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href="/documents"
+                      href={`${rootUrl}/documents`}
                       target="_blank"
                       id="doc-tooltip"
                     >                 
@@ -155,7 +157,7 @@ function IndexNavbar(props) {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href="/profile-page"
+                      href={`${rootUrl}/profile-page`}
                       target="_blank"
                       id="profile-tooltip"
                     >                 
