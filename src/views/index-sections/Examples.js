@@ -19,6 +19,7 @@ function Examples() {
                   className="img-raised"
                   src={require("assets/img/doc-page.jpeg")}
                   to='/documents'
+                  width="600px" height="200px"
                 ></img>
               
               <Button
@@ -38,6 +39,7 @@ function Examples() {
                   className="img-raised"
                   src={require("assets/img/prof-page.jpeg")}
                   to='/profile-page'
+                  width="600px" height="200px"
                 ></img>
                 
               <Button
@@ -57,6 +59,7 @@ function Examples() {
                   className="img-raised"
                   src={require("assets/img/gallery-page.jpeg")}
                   to='/gallery'
+                  width="600px" height="200px"
                 ></img>
                 
               <Button
