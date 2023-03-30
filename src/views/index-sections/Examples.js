@@ -50,6 +50,25 @@ function Examples() {
                 View Profile
               </Button>
             </div>
+            <div className="col">
+              
+                <img
+                  alt="..."
+                  className="img-raised"
+                  src={require("assets/img/gallery-page.jpeg")}
+                  to='/gallery'
+                ></img>
+                
+              <Button
+                className="btn-round"
+                color="default"
+                to="/gallery"
+                outline
+                tag={Link}
+              >
+                View Profile
+              </Button>
+            </div>
           </Row>
         </Container>
       </div>

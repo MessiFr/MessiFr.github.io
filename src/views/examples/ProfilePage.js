@@ -19,6 +19,7 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
+// import InstagramQRCode from "components/QR_code/InstagramQRCode";
 
 function ProfilePage() {
   // const [pills, setPills] = React.useState("2");
@@ -103,6 +104,8 @@ function ProfilePage() {
             <h5 className="category">Personal Email: 15757470420@163.com</h5>
             <h5 className="category">Phone Number(+86): 15757470420</h5>
             <h5 className="category">Phone Number(+61): 04-78598250</h5>
+
+            {/* <InstagramQRCode logoURL={require("assets/img/avatarnew.png")}/> */}
             
           </Container>
         </div>

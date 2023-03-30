@@ -29,6 +29,7 @@
     "nouislider": "15.1.0",
     "pdfjs-dist": "^3.4.120",
     "pspdfkit": "^2023.1.4",
+    "qrcode.react": "^3.1.0",
     "react": ">=16.8.0",
     "react-bootstrap-switch": "15.5.3",
     "react-datetime": "3.1.1",
