@@ -1,12 +1,30 @@
 {
   "files": {
     "main.css": "./static/css/main.86b3ac10.css",
-    "main.js": "./static/js/main.059654f0.js",
+    "main.js": "./static/js/main.1cb43cb5.js",
+    "static/media/firewatchmodday.jpg": "./static/media/firewatchmodday.0c3395b37e5e3c26b1d3.jpg",
+    "static/media/firewatchmodnight.jpg": "./static/media/firewatchmodnight.01abe5c140c0307f8497.jpg",
+    "static/media/fwmv2.jpg": "./static/media/fwmv2.881b6da04b9dfae5089a.jpg",
+    "static/media/imaging.jpg": "./static/media/imaging.98d0fc33a36490716b61.jpg",
+    "static/media/新璃月空港昼.jpg": "./static/media/新璃月空港昼.fd6aaab849eb9f9b52c9.jpg",
+    "static/media/page_bg.jpg": "./static/media/page_bg.59a7c3c9b4baf04afef6.jpg",
+    "static/media/sakura.jpg": "./static/media/sakura.b8679cf9e2de94974af7.jpg",
     "static/media/background1.jpeg": "./static/media/background1.c9261eacdc612a46184f.jpeg",
+    "static/media/leagueoflegends.jpg": "./static/media/leagueoflegends.bd07e9d5ecd72623fcb9.jpg",
     "static/media/prof-page.jpeg": "./static/media/prof-page.dbc90a05eaf9ebfc49c7.jpeg",
+    "static/media/reddeaddeption.jpg": "./static/media/reddeaddeption.28cfeb923f51873a558b.jpg",
+    "static/media/ayanamirei.png": "./static/media/ayanamirei.b5a227b92efc9f74deb0.png",
+    "static/media/room.jpg": "./static/media/room.658999c042301b214aa3.jpg",
+    "static/media/asuka.png": "./static/media/asuka.7d4626585246dd389527.png",
+    "static/media/island.jpg": "./static/media/island.b64476e6459f36ce9705.jpg",
+    "static/media/asuka2.png": "./static/media/asuka2.ea850cacb50b8e61501e.png",
+    "static/media/ayanamirei2.png": "./static/media/ayanamirei2.de75a57ff6f803b29f35.png",
+    "static/media/asuka3.png": "./static/media/asuka3.4245641b9c0dfe6e8fe7.png",
     "static/media/profile_background.jpeg": "./static/media/profile_background.9b8fd63341a4c4e677e2.jpeg",
+    "static/media/planet.jpg": "./static/media/planet.ce6d86200a5ff81493a9.jpg",
     "static/media/avatarnew.png": "./static/media/avatarnew.350eb18ece8b313985c1.png",
     "static/media/doc-page.jpeg": "./static/media/doc-page.532681573f7c80f9f59c.jpeg",
+    "static/media/Damonalbarn.png": "./static/media/Damonalbarn.d2efc8459081ffbf1a6a.png",
     "static/media/avatar.png": "./static/media/avatar.d9298456066a7aa2db86.png",
     "static/media/qrcode.jpeg": "./static/media/qrcode.cef6b1279cf7a04ebc3a.jpeg",
     "static/media/nucleo-outline.eot": "./static/media/nucleo-outline.56814a6b7240045e1494.eot",
@@ -15,10 +33,10 @@
     "static/media/nucleo-outline.woff2": "./static/media/nucleo-outline.802141dd0dcc63b21cbb.woff2",
     "index.html": "./index.html",
     "main.86b3ac10.css.map": "./static/css/main.86b3ac10.css.map",
-    "main.059654f0.js.map": "./static/js/main.059654f0.js.map"
+    "main.1cb43cb5.js.map": "./static/js/main.1cb43cb5.js.map"
   },
   "entrypoints": [
     "static/css/main.86b3ac10.css",
-    "static/js/main.059654f0.js"
+    "static/js/main.1cb43cb5.js"
   ]
 }
