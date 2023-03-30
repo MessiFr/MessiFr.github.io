@@ -3,7 +3,7 @@ import React from "react";
 
 // reactstrap components
 import { Container } from "reactstrap";
-import Keyboard_arrow_down from "components/icons/Keyboard_arrow_down";
+import KeyboardArrowDown from "components/icons/Keyboard_arrow_down";
 
 
 
@@ -45,7 +45,8 @@ function IndexHeader() {
             
             <h1 className="h1-seo">Welcome to YUHENG FAN blog</h1>
             <h3>This is my personal blog to share my study notes, interests, music, movies, games, etc </h3>
-            <Keyboard_arrow_down />
+          
+            <KeyboardArrowDown />
             
           </div>          
         </Container>

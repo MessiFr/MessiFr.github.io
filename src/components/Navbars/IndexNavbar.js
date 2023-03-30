@@ -18,7 +18,6 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function IndexNavbar(props) {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
@@ -131,21 +130,42 @@ function IndexNavbar(props) {
             className="justify-content-end"
             isOpen={collapseOpen}
             navbar
+            style={{ width: "42%" }}
           >
             <Nav navbar style={{position: "absolute", right: "10%"}}>
-            
-              <NavItem>
-                <NavLink
-                  href="/document"
-                  target="_blank"
-                  id="doc-tooltip"
-                >
-                  <FontAwesomeIcon icon="fa-solid fa-file" />                  
-                  <p className="d-lg-none d-xl-none">Documents</p>
-                </NavLink>
-              </NavItem>
-              
-              <NavItem>
+              {collapseOpen ? (
+                <>
+                  <NavItem>
+                    <NavLink
+                      href="/index"
+                      target="_blank"
+                      id="home-tooltip"
+                    >                 
+                      <p className="d-lg-none d-xl-none">Home Page</p>
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="/documents"
+                      target="_blank"
+                      id="doc-tooltip"
+                    >                 
+                      <p className="d-lg-none d-xl-none">Documents</p>
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="/profile-page"
+                      target="_blank"
+                      id="profile-tooltip"
+                    >                 
+                      <p className="d-lg-none d-xl-none">About Me</p>
+                    </NavLink>
+                  </NavItem>
+                </>
+              ):(
+                <>
+                <NavItem>
                 <NavLink
                   href="https://github.com/MessiFr"
                   target="_blank"
@@ -197,6 +217,10 @@ function IndexNavbar(props) {
                   <img src={require("assets/img/qrcode.jpeg")} alt="QR code" style={{ width: '200px', height: '200px' }} />
                 </UncontrolledTooltip>
               </NavItem>
+                </>
+              )}
+              
+              
             </Nav>
           </Collapse>
         </Container>
