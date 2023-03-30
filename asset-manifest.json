@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e8fe9316.css",
-    "main.js": "/static/js/main.62282ba3.js",
+    "main.js": "/static/js/main.6a99b170.js",
     "static/media/firewatchmodday.jpg": "/static/media/firewatchmodday.0c3395b37e5e3c26b1d3.jpg",
     "static/media/firewatchmodnight.jpg": "/static/media/firewatchmodnight.01abe5c140c0307f8497.jpg",
     "static/media/fwmv2.jpg": "/static/media/fwmv2.881b6da04b9dfae5089a.jpg",
@@ -13,6 +13,7 @@
     "static/media/leagueoflegends.jpg": "/static/media/leagueoflegends.bd07e9d5ecd72623fcb9.jpg",
     "static/media/prof-page.jpeg": "/static/media/prof-page.dbc90a05eaf9ebfc49c7.jpeg",
     "static/media/reddeaddeption.jpg": "/static/media/reddeaddeption.28cfeb923f51873a558b.jpg",
+    "static/media/gallery-page.jpeg": "/static/media/gallery-page.02deeaa6dd3c0294f259.jpeg",
     "static/media/ayanamirei.png": "/static/media/ayanamirei.b5a227b92efc9f74deb0.png",
     "static/media/room.jpg": "/static/media/room.658999c042301b214aa3.jpg",
     "static/media/asuka.png": "/static/media/asuka.7d4626585246dd389527.png",
@@ -33,10 +34,10 @@
     "static/media/nucleo-outline.woff2": "/static/media/nucleo-outline.802141dd0dcc63b21cbb.woff2",
     "index.html": "/index.html",
     "main.e8fe9316.css.map": "/static/css/main.e8fe9316.css.map",
-    "main.62282ba3.js.map": "/static/js/main.62282ba3.js.map"
+    "main.6a99b170.js.map": "/static/js/main.6a99b170.js.map"
   },
   "entrypoints": [
     "static/css/main.e8fe9316.css",
-    "static/js/main.62282ba3.js"
+    "static/js/main.6a99b170.js"
   ]
 }
