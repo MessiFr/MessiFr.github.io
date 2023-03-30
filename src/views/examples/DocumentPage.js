@@ -107,6 +107,9 @@ function DocumentPage() {
     position: 'relative',
   });
 
+
+  const innerHeight = window.innerHeight * 0.73;
+
   return (
     <>
       <SolidNavbar label="Documents"/>
@@ -121,7 +124,7 @@ function DocumentPage() {
                 {/* 目录 */}
                 <Box 
                   sx={{ 
-                    height: 1000, 
+                    height: innerHeight, 
                     flexGrow: 1, 
                     maxWidth: 400, 
                     overflowY: 'auto'
@@ -153,7 +156,7 @@ function DocumentPage() {
               </StyledGrid>
               
               <Grid item xs={8} sx={{ p: 2, alignItems: 'flex-start', marginRight: '2%'}}>
-                <Box sx={{ height: 1000, flexGrow: 1, overflowY: 'auto' }}>
+                <Box sx={{ height: innerHeight, flexGrow: 1, overflowY: 'auto' }}>
                   {curr.doc_type === 'md' ? <DocumentContext item={curr}/> : null}
                   {/* {curr.doc_type === 'pdf' ? <DocumentPdfContext item={curr}/> : null} */}
                 </Box>

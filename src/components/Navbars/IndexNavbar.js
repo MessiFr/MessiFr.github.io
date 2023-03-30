@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 // import qrcode from 'qrcode';
 // reactstrap components
 import {
@@ -42,23 +42,12 @@ function IndexNavbar(props) {
     };
   });
 
-  const history = useHistory();
+  // const history = useHistory();
 
-  const handleProfileClick = (e) => {
-    e.preventDefault();
-    history.push('/profile-page');
-  };
-
-  const handleHomePageClick = (e) => {
-    e.preventDefault();
-    history.push('/index');
-  };
-
-
-  const handleDocumentPageClick = (e) => {
-    e.preventDefault();
-    history.push('/documents');
-  };
+  // const handleClick = (e, pathName) => {
+  //   e.preventDefault();
+  //   history.push(`${pathName}`);
+  // };
 
   const rootUrl = window.location.origin;
 
@@ -73,7 +62,7 @@ function IndexNavbar(props) {
           }}
         />
       ) : null}
-      <Navbar className={"fixed-top " + navbarColor} expand="lg" >
+      <Navbar className={"fixed-top " + navbarColor} expand="lg" color='info'>
         <Container>
           <div className="navbar-translate" style={{position: "absolute", left: "10%"}}>
           
@@ -94,21 +83,24 @@ function IndexNavbar(props) {
                 {/* <DropdownItem header tag="a">
                   Dropdown header
                 </DropdownItem> */}
-                <DropdownItem href="/" onClick={handleHomePageClick}>
+                <DropdownItem href="/" >
                   HomePage
                 </DropdownItem>
-                <DropdownItem href="/documents" onClick={handleDocumentPageClick}>
+                <DropdownItem href="/documents" >
                   Documents
                 </DropdownItem>
-                <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
+                <DropdownItem href="#pablo" >
                   Resume
                 </DropdownItem>
+                <DropdownItem href="/gallery" >
+                  Gallery
+                </DropdownItem>
                 <DropdownItem divider></DropdownItem>
-                <DropdownItem href="/profile-page" onClick={handleProfileClick}>
+                <DropdownItem href="/profile-page" >
                   About me
                 </DropdownItem>
                 <DropdownItem divider></DropdownItem>
-                <DropdownItem href="/profile-page" onClick={handleProfileClick}>
+                <DropdownItem href="/profile-page" >
                   Contacts
                 </DropdownItem>
               </DropdownMenu>
@@ -191,6 +183,19 @@ function IndexNavbar(props) {
                 </NavLink>
                 <UncontrolledTooltip target="#LinkedIn-tooltip">
                   Like me on LinkedIn
+                </UncontrolledTooltip>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  href="https://www.facebook.com/yuheng.fan.39/friends/"
+                  target="_blank"
+                  id="Facebook-tooltip"
+                >
+                  <i className="fab fa-facebook"></i>
+                  <p className="d-lg-none d-xl-none">LinkedIn</p>
+                </NavLink>
+                <UncontrolledTooltip target="#Facebook-tooltip">
+                  Like me on Facebook
                 </UncontrolledTooltip>
               </NavItem>
               <NavItem>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 // import Typography from '@mui/material/Typography';
 // import { withStyles } from "@material-ui/core/styles";
 // import qrcode from 'qrcode';
@@ -22,30 +22,6 @@ import {
 
 function SolidNavbar(props) {
   const [collapseOpen, setCollapseOpen] = React.useState(false);
-  
-  // const WhiteTextTypography = withStyles({
-  //   root: {
-  //     color: "#FFFFFF"
-  //   }
-  // })(Typography);
-
-  const history = useHistory();
-
-  const handleProfileClick = (e) => {
-    e.preventDefault();
-    history.push('/profile-page');
-  };
-
-  const handleHomePageClick = (e) => {
-    e.preventDefault();
-    history.push('/index');
-  };
-
-
-  const handleDocumentPageClick = (e) => {
-    e.preventDefault();
-    history.push('/documents');
-  };
 
   const rootUrl = window.location.origin;
 
@@ -83,24 +59,27 @@ function SolidNavbar(props) {
               {/* <DropdownItem header tag="a">
                 Dropdown header
               </DropdownItem> */}
-              <DropdownItem href="/" onClick={handleHomePageClick}>
-                HomePage
-              </DropdownItem>
-              <DropdownItem href="/documents" onClick={handleDocumentPageClick}>
-                Documents
-              </DropdownItem>
-              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-                Resume
-              </DropdownItem>
-              <DropdownItem divider></DropdownItem>
-              <DropdownItem href="/profile-page" onClick={handleProfileClick}>
-                About me
-              </DropdownItem>
-              <DropdownItem divider></DropdownItem>
-              <DropdownItem href="/profile-page" onClick={handleProfileClick}>
-                Contacts
-              </DropdownItem>
-            </DropdownMenu>
+                <DropdownItem href="/" >
+                  HomePage
+                </DropdownItem>
+                <DropdownItem href="/documents" >
+                  Documents
+                </DropdownItem>
+                <DropdownItem href="#pablo" >
+                  Resume
+                </DropdownItem>
+                <DropdownItem href="/gallery" >
+                  Gallery
+                </DropdownItem>
+                <DropdownItem divider></DropdownItem>
+                <DropdownItem href="/profile-page" >
+                  About me
+                </DropdownItem>
+                <DropdownItem divider></DropdownItem>
+                <DropdownItem href="/profile-page" >
+                  Contacts
+                </DropdownItem>
+              </DropdownMenu>
           </UncontrolledDropdown>   
           <button
             className="navbar-toggler navbar-toggler"
@@ -180,6 +159,19 @@ function SolidNavbar(props) {
                     </NavLink>
                     <UncontrolledTooltip target="#LinkedIn-tooltip">
                       Like me on LinkedIn
+                    </UncontrolledTooltip>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="https://www.facebook.com/yuheng.fan.39/friends/"
+                      target="_blank"
+                      id="Facebook-tooltip"
+                    >
+                      <i className="fab fa-facebook"></i>
+                      <p className="d-lg-none d-xl-none">LinkedIn</p>
+                    </NavLink>
+                    <UncontrolledTooltip target="#Facebook-tooltip">
+                      Like me on Facebook
                     </UncontrolledTooltip>
                   </NavItem>
                   <NavItem>
