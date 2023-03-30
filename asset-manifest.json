@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e8fe9316.css",
-    "main.js": "/static/js/main.9ba0e6c9.js",
+    "main.js": "/static/js/main.62282ba3.js",
     "static/media/firewatchmodday.jpg": "/static/media/firewatchmodday.0c3395b37e5e3c26b1d3.jpg",
     "static/media/firewatchmodnight.jpg": "/static/media/firewatchmodnight.01abe5c140c0307f8497.jpg",
     "static/media/fwmv2.jpg": "/static/media/fwmv2.881b6da04b9dfae5089a.jpg",
@@ -33,10 +33,10 @@
     "static/media/nucleo-outline.woff2": "/static/media/nucleo-outline.802141dd0dcc63b21cbb.woff2",
     "index.html": "/index.html",
     "main.e8fe9316.css.map": "/static/css/main.e8fe9316.css.map",
-    "main.9ba0e6c9.js.map": "/static/js/main.9ba0e6c9.js.map"
+    "main.62282ba3.js.map": "/static/js/main.62282ba3.js.map"
   },
   "entrypoints": [
     "static/css/main.e8fe9316.css",
-    "static/js/main.9ba0e6c9.js"
+    "static/js/main.62282ba3.js"
   ]
 }
