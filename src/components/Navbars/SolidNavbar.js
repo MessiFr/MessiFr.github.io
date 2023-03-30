@@ -1,9 +1,6 @@
 import React from "react";
-// import { useHistory } from "react-router-dom";
-// import Typography from '@mui/material/Typography';
-// import { withStyles } from "@material-ui/core/styles";
-// import qrcode from 'qrcode';
-// reactstrap components
+import { useHistory } from "react-router-dom";
+
 import {
   // Button,
   Collapse,
@@ -23,7 +20,15 @@ import {
 function SolidNavbar(props) {
   const [collapseOpen, setCollapseOpen] = React.useState(false);
 
-  const rootUrl = process.env.PUBLIC_URL;
+  // const rootUrl = process.env.PUBLIC_URL;
+  
+  const history = useHistory();
+
+  const handleClick = (pathName) => (e) => {
+    e.preventDefault();
+    history.push(`${pathName}`);
+  };
+  
 
   return (
     <>
@@ -62,21 +67,21 @@ function SolidNavbar(props) {
                 <DropdownItem href="/" >
                   HomePage
                 </DropdownItem>
-                <DropdownItem href={`${process.env.PUBLIC_URL}/documents`} >
+                <DropdownItem onClick={ handleClick('/documents') } >
                   Documents
                 </DropdownItem>
                 <DropdownItem href="#pablo" >
                   Resume
                 </DropdownItem>
-                <DropdownItem href={`${process.env.PUBLIC_URL}/gallery`} >
+                <DropdownItem onClick={ handleClick('/gallery') } >
                   Gallery
                 </DropdownItem>
                 <DropdownItem divider></DropdownItem>
-                <DropdownItem href={`${process.env.PUBLIC_URL}/profile-page`} >
+                <DropdownItem onClick={ handleClick('/profile-page') } >
                   About me
                 </DropdownItem>
                 <DropdownItem divider></DropdownItem>
-                <DropdownItem href={`${process.env.PUBLIC_URL}/profile-page`} >
+                <DropdownItem onClick={ handleClick('/profile-page') } >
                   Contacts
                 </DropdownItem>
               </DropdownMenu>
@@ -115,8 +120,8 @@ function SolidNavbar(props) {
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink
-                      href={`${rootUrl}/documents`}
+                    <NavLink  
+                      onClick={ handleClick('/documents') } 
                       target="_blank"
                       id="doc-tooltip"
                     >                 
@@ -125,7 +130,7 @@ function SolidNavbar(props) {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href={`${rootUrl}/gallery`}
+                      onClick={ handleClick('/gallery') } 
                       target="_blank"
                       id="gallery-tooltip"
                     >                 
@@ -134,7 +139,7 @@ function SolidNavbar(props) {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href={`${rootUrl}/profile-page`}
+                      onClick={ handleClick('/profile-page') } 
                       target="_blank"
                       id="profile-tooltip"
                     >                 

@@ -59,6 +59,7 @@ for path in md_files:
         print(path)
         modify_md_file(path)
 
+print("================== Rewrite .md Files Finished")
 
 with open('doc_config.json') as f:
     info = json.load(f)
@@ -132,6 +133,9 @@ for md_file in md_files:
 with open('doc_config.json', 'w') as f:
     json.dump(info, f, indent=2)
 
+print("================== doc_config.json Finished")
+
+
 
 new_data = data[0]['children']
 
@@ -144,6 +148,8 @@ context = "const data = " + json.dumps(new_data, indent=2) + ";\nexport default 
 
 with open('src/views/documents/info/doc.js', 'w') as f:
     f.write(context)
+
+print("================== doc.js Finished")
 
 
 def count_md_files(path):
@@ -158,20 +164,22 @@ def count_md_files(path):
 # 计算文件个数
 doc_path = 'public/docs/'
 project_path = 'public/docs/projects/'
+digit_art = 'src/assets/img/digit_arts/'
 doc_count = count_md_files(doc_path)
 
 
 info_counts = {
     "documents" : doc_count,
-    "projects" : len(os.listdir(project_path))-1
+    "projects" : len(os.listdir(project_path))-1,
+    "digit_arts": len(os.listdir(digit_art))-1
 }
 
 context = "const doc_counts = " + json.dumps(info_counts, indent=2) + ";\nexport default doc_counts;"
 
 with open('src/views/documents/info/count.js', 'w') as f:
     f.write(context)
+print("================== count.js Finished")
 
-
-print("***")
-print("Done")
-print("***")
+print("==================")
+print("Successful")
+print("==================")

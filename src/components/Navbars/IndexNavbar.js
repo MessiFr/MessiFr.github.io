@@ -1,5 +1,5 @@
 import React from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // import qrcode from 'qrcode';
 // reactstrap components
 import {
@@ -42,14 +42,15 @@ function IndexNavbar(props) {
     };
   });
 
-  // const history = useHistory();
+  const history = useHistory();
 
-  // const handleClick = (e, pathName) => {
-  //   e.preventDefault();
-  //   history.push(`${pathName}`);
-  // };
+  const handleClick = (pathName) => (e) => {
+    e.preventDefault();
+    history.push(`${pathName}`);
+  };
+  
 
-  const rootUrl = process.env.PUBLIC_URL;
+  // const rootUrl = process.env.PUBLIC_URL;
 
   return (
     <>
@@ -86,21 +87,21 @@ function IndexNavbar(props) {
                 <DropdownItem href="/" >
                   HomePage
                 </DropdownItem>
-                <DropdownItem href={`${rootUrl}/documents`} >
+                <DropdownItem onClick={handleClick('/documents')} >
                   Documents
                 </DropdownItem>
                 <DropdownItem href="#pablo" >
                   Resume
                 </DropdownItem>
-                <DropdownItem href={`${rootUrl}/gallery`} >
+                <DropdownItem onClick={handleClick('/gallery')} >
                   Gallery
                 </DropdownItem>
                 <DropdownItem divider></DropdownItem>
-                <DropdownItem href={`${rootUrl}/profile-page`} >
+                <DropdownItem onClick={handleClick('/profile-page')} >
                   About me
                 </DropdownItem>
                 <DropdownItem divider></DropdownItem>
-                <DropdownItem href={`${rootUrl}/profile-page`} >
+                <DropdownItem onClick={handleClick('/profile-page')} >
                   Contacts
                 </DropdownItem>
               </DropdownMenu>
@@ -140,16 +141,16 @@ function IndexNavbar(props) {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href={`${rootUrl}/documents`}
                       target="_blank"
                       id="doc-tooltip"
+                      onClick={handleClick('/documents')}
                     >                 
                       <p className="d-lg-none d-xl-none">Documents</p>
                     </NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href={`${rootUrl}/gallery`}
+                      onClick={handleClick('/gallery')}
                       target="_blank"
                       id="gallery-tooltip"
                     >                 
@@ -158,7 +159,7 @@ function IndexNavbar(props) {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href={`${rootUrl}/profile-page`}
+                      onClick={handleClick('/profile-page')}
                       target="_blank"
                       id="profile-tooltip"
                     >                 

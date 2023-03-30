@@ -2,6 +2,8 @@ import React from "react";
 
 // reactstrap components
 import { Container } from "reactstrap";
+import { useHistory } from "react-router-dom";
+
 
 import doc_counts from "views/documents/info/count";
 
@@ -23,6 +25,14 @@ function ProfilePageHeader() {
       };
     }
   });
+
+  const history = useHistory();
+
+  const handleClick = (pathName) => (e) => {
+    e.preventDefault();
+    history.push(`${pathName}`);
+  };
+  
   return (
     <>
       <div
@@ -45,20 +55,20 @@ function ProfilePageHeader() {
           <div className="content">
             <div className="social-description">
               {/* <a href="/documents" style={{ color:'white' }}> */}
-                <h2>{ doc_counts['documents'] }</h2>
+                <h2 onClick={handleClick('/documents')}>{ doc_counts['documents'] }</h2>
               {/* </a> */}
               <p>Documents</p>
             </div>
             <div className="social-description">
 
               {/* <a href="/documents" style={{ color:'white' }}> */}
-                <h2>{ doc_counts['projects'] }</h2>
+                <h2 onClick={handleClick('/documents')}>{ doc_counts['projects'] }</h2>
               {/* </a> */}
               <p>Projects</p>
             </div>
             <div className="social-description">
-              <h2>0</h2>
-              <p>Bookmarks</p>
+              <h2 onClick={ handleClick('/gallery') }>{ doc_counts['digit_arts'] }</h2>
+              <p>Gallary</p>
             </div>
           </div>
         </Container>
