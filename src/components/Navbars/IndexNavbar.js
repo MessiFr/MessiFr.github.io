@@ -49,7 +49,7 @@ function IndexNavbar(props) {
   //   history.push(`${pathName}`);
   // };
 
-  const rootUrl = window.location.origin;
+  const rootUrl = process.env.PUBLIC_URL;
 
   return (
     <>
@@ -86,21 +86,21 @@ function IndexNavbar(props) {
                 <DropdownItem href="/" >
                   HomePage
                 </DropdownItem>
-                <DropdownItem href="/documents" >
+                <DropdownItem href={`${rootUrl}/documents`} >
                   Documents
                 </DropdownItem>
                 <DropdownItem href="#pablo" >
                   Resume
                 </DropdownItem>
-                <DropdownItem href="/gallery" >
+                <DropdownItem href={`${rootUrl}/gallery`} >
                   Gallery
                 </DropdownItem>
                 <DropdownItem divider></DropdownItem>
-                <DropdownItem href="/profile-page" >
+                <DropdownItem href={`${rootUrl}/profile-page`} >
                   About me
                 </DropdownItem>
                 <DropdownItem divider></DropdownItem>
-                <DropdownItem href="/profile-page" >
+                <DropdownItem href={`${rootUrl}/profile-page`} >
                   Contacts
                 </DropdownItem>
               </DropdownMenu>
@@ -149,7 +149,7 @@ function IndexNavbar(props) {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href={`${rootUrl}/Gallery`}
+                      href={`${rootUrl}/gallery`}
                       target="_blank"
                       id="gallery-tooltip"
                     >                 

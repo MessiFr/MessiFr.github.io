@@ -23,7 +23,7 @@ import {
 function SolidNavbar(props) {
   const [collapseOpen, setCollapseOpen] = React.useState(false);
 
-  const rootUrl = window.location.origin;
+  const rootUrl = process.env.PUBLIC_URL;
 
   return (
     <>
@@ -62,21 +62,21 @@ function SolidNavbar(props) {
                 <DropdownItem href="/" >
                   HomePage
                 </DropdownItem>
-                <DropdownItem href="/documents" >
+                <DropdownItem href={`${process.env.PUBLIC_URL}/documents`} >
                   Documents
                 </DropdownItem>
                 <DropdownItem href="#pablo" >
                   Resume
                 </DropdownItem>
-                <DropdownItem href="/gallery" >
+                <DropdownItem href={`${process.env.PUBLIC_URL}/gallery`} >
                   Gallery
                 </DropdownItem>
                 <DropdownItem divider></DropdownItem>
-                <DropdownItem href="/profile-page" >
+                <DropdownItem href={`${process.env.PUBLIC_URL}/profile-page`} >
                   About me
                 </DropdownItem>
                 <DropdownItem divider></DropdownItem>
-                <DropdownItem href="/profile-page" >
+                <DropdownItem href={`${process.env.PUBLIC_URL}/profile-page`} >
                   Contacts
                 </DropdownItem>
               </DropdownMenu>
@@ -125,7 +125,7 @@ function SolidNavbar(props) {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href={`${rootUrl}/Gallery`}
+                      href={`${rootUrl}/gallery`}
                       target="_blank"
                       id="gallery-tooltip"
                     >                 
