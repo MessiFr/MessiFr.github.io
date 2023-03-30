@@ -1,45 +1,63 @@
-import React from "react";
+// import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// reactstrap components
-import { Button, Container, Row } from "reactstrap";
+import "./example.css"
+import { useState, useEffect } from "react";
 
-// core components
+// reactstrap components
+import { Button, Container } from "reactstrap";
+import { Grid } from "@mui/material";
+
 
 function Examples() {
+
+  const [width, setWidth] = useState(600);
+  const [largeScreen, setLargeScreen] = useState(true);
+
+  useEffect(() => {
+    if (window.innerWidth < 1000) {
+      setWidth(600);
+      setLargeScreen(false);
+    }
+  }, [])
+
   return (
     <>
+    
       <div className="section section-images" data-background-color="black" >
         {/* <div className="space-50"></div> */}
-        <Container className="text-center">
-          <Row>
-            <div className="col">
+        <Container className="text-center" style={{marginBottom:"100vh"}}>
+          <Grid container spacing={2} justify="center" alignItems="center">
+            {largeScreen ? (
+              <Grid item xs={12} md={4}>
               
-                <img
-                  alt="..."
-                  className="img-raised"
-                  src={require("assets/img/doc-page.jpeg")}
-                  to='/documents'
-                  width="600px" height="200px"
-                ></img>
-              
-              <Button
-                className="btn-round"
-                color="default"
-                to="/documents"
-                outline
-                tag={Link}
-              >
-                View Documents
-              </Button>
-            </div>
-            <div className="col">
+              <img
+                alt="..."
+                className="img-raised"
+                src={require("assets/img/doc-page.jpeg")}
+                to='/documents'
+                width={`${width}px`} height={`${width /3}px`}
+              ></img>
+            
+            <Button
+              className="btn-round"
+              color="default"
+              to="/documents"
+              outline
+              tag={Link}
+            >
+              View Documents
+            </Button>
+          </Grid>
+            ) : null}
+            
+            <Grid item xs={12} md={4}>
               
                 <img
                   alt="..."
                   className="img-raised"
                   src={require("assets/img/prof-page.jpeg")}
                   to='/profile-page'
-                  width="600px" height="200px"
+                  width={`${width}px`} height={`${width/3}px`}
                 ></img>
                 
               <Button
@@ -51,15 +69,16 @@ function Examples() {
               >
                 View Profile
               </Button>
-            </div>
-            <div className="col">
+            </Grid>
+            {largeScreen ? (
+            <Grid item xs={12} md={4}>
               
                 <img
                   alt="..."
                   className="img-raised"
                   src={require("assets/img/gallery-page.jpeg")}
                   to='/gallery'
-                  width="600px" height="200px"
+                  width={`${width}px`} height={`${width /3}px`}
                 ></img>
                 
               <Button
@@ -69,10 +88,11 @@ function Examples() {
                 outline
                 tag={Link}
               >
-                View Profile
+                View Gallery
               </Button>
-            </div>
-          </Row>
+            </Grid>
+             ) : null}
+          </Grid>
         </Container>
       </div>
     </>

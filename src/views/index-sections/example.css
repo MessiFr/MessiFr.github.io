@@ -1,0 +1,10 @@
+.col {
+  flex-basis: 10%;
+  padding: 10px;
+}
+
+@media (min-width: 2000px) {
+  .col {
+    flex-basis: calc(100% / 3);
+  }
+}
