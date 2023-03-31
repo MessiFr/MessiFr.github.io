@@ -1,0 +1,6 @@
+.image-hover:hover {
+    opacity: 0.8;  /* 设置透明度 */
+    transform: scale(1.05);  /* 放大1.05倍 */
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;  /* 添加过渡效果 */
+  }
+  

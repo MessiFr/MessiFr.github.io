@@ -5,6 +5,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import DigitalArts from "views/documents/info/digital_arts";
 import GalleryBg from "views/documents/info/gallery_bg";
+import "./Gallery/ImageHover.css";
 
 // reactstrap components
 import {
@@ -32,15 +33,16 @@ function ImageListGallery({ itemData }) {
     return (
       <ImageList>
         {itemData.map((item) => (
-          <ImageListItem key={item.img}>
+          <ImageListItem key={item.img} >
             {item.type === "da" ? (
                 <>
                 <img
+                    className="image-hover"
                     src={`${item.img}?w=248&fit=crop&auto=format`}
                     srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                     alt={item.title}
                     // style={{ width: '450px', height: '450px' }}
-                    style={{ objectFit: "scale-down", width: "100%", height: "450px" }}
+                    style={{ objectFit: "scale-down", width: "100%", height: "400px" }}
                     loading="lazy"
                     />
                   </> 
