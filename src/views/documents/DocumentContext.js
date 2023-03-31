@@ -84,15 +84,14 @@ export default function DocumentContext(props)  {
           </code>
         );
       },
-    // math: (opts) => <BlockMath math={opts.value} />,
-    // inlineMath: (opts) => <InlineMath math={opts.value} />,
     
   };
 
   useEffect(() => {
-    // console.log(props)
-    const path = `/${props.item.path}`; // "./docs/notes/nlp/assignment_1"
-    console.log(path)
+    
+    const path = `/${props.item.path}`; 
+    console.log("DocumentContext");
+    console.log(path);
 
     fetch(path)
       .then((res) => res.text())
