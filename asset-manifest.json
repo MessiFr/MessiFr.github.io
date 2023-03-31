@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.869cc1a6.css",
-    "main.js": "/static/js/main.ed1f0793.js",
+    "main.css": "/static/css/main.c176cb49.css",
+    "main.js": "/static/js/main.0a33b1d1.js",
     "static/media/Fire Watch Mod Day.jpg": "/static/media/Fire Watch Mod Day.0c3395b37e5e3c26b1d3.jpg",
     "static/media/Pyramid.jpg": "/static/media/Pyramid.a5e66cd20831b741e68a.jpg",
     "static/media/Fire Watch Mod Night.jpg": "/static/media/Fire Watch Mod Night.01abe5c140c0307f8497.jpg",
@@ -42,11 +42,11 @@
     "static/media/nucleo-outline.woff": "/static/media/nucleo-outline.1a1036e643f97457ec5f.woff",
     "static/media/nucleo-outline.woff2": "/static/media/nucleo-outline.802141dd0dcc63b21cbb.woff2",
     "index.html": "/index.html",
-    "main.869cc1a6.css.map": "/static/css/main.869cc1a6.css.map",
-    "main.ed1f0793.js.map": "/static/js/main.ed1f0793.js.map"
+    "main.c176cb49.css.map": "/static/css/main.c176cb49.css.map",
+    "main.0a33b1d1.js.map": "/static/js/main.0a33b1d1.js.map"
   },
   "entrypoints": [
-    "static/css/main.869cc1a6.css",
-    "static/js/main.ed1f0793.js"
+    "static/css/main.c176cb49.css",
+    "static/js/main.0a33b1d1.js"
   ]
 }
