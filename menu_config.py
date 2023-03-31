@@ -180,6 +180,121 @@ with open('src/views/documents/info/count.js', 'w') as f:
     f.write(context)
 print("================== count.js Finished")
 
+
+# 定义图片文件夹路径
+img_path = "src/assets/img"
+
+# 定义正则表达式匹配文件名中的信息
+pattern = re.compile(r"(.+)_@(.+)\.")
+
+# 遍历digital_arts文件夹中的所有图片
+digital_arts = []
+digital_arts_path = os.path.join(img_path, "digit_arts")
+for filename in os.listdir(digital_arts_path):
+    if filename == ".DS_Store":
+        continue
+    # print(filename)
+    # 匹配文件名中的信息
+    match = pattern.match(filename)
+    # print(match)
+    if match:
+        img_path = os.path.join("assets", "img", "digit_arts", filename)
+        title = match.group(1)
+        author = "@" + match.group(2)
+        digital_arts.append({
+            "img": f'require("{img_path}")',
+            # "img": img_path,
+            "title": title,
+            "author": author,
+            "type": "da"
+        })
+    else:
+        img_path = os.path.join("assets", "img", "digit_arts", filename)
+        title = filename.split('.')[0]
+        digital_arts.append({
+            "img": f'require("{img_path}")',
+            # "img": img_path,
+            "title": title,
+            "type": "da"
+        })
+
+# 将digital_arts保存到digital.js文件中
+content = "const DigitalArts = " + json.dumps(digital_arts, indent=2) + ";\nexport default DigitalArts;"
+with open("src/views/documents/info/digital_arts.js", "w") as f:
+    f.write(content)
+    
+
+# 遍历bg_collection文件夹中的所有图片
+
+img_path = "src/assets/img"
+gallery_bg = []
+gallery_bg_path = os.path.join(img_path, "bg_collection")
+for filename in os.listdir(gallery_bg_path):
+    if filename == ".DS_Store":
+        continue
+    # 匹配文件名中的信息
+    match = pattern.match(filename)
+    if match:
+        img_path = os.path.join("assets", "img", "bg_collection", filename)
+        title = match.group(1)
+        author = "@" + match.group(2) if match.group(2) else ""
+        gallery_bg.append({
+            "img": f'require("{img_path}")',
+            # "img": img_path,
+            "title": title,
+            "author": author,
+            "type": "bg"
+        })
+    else:
+        img_path = os.path.join("assets", "img", "bg_collection", filename)
+        title = filename.split('.')[0]
+        gallery_bg.append({
+            "img": f'require("{img_path}")',
+            # "img": img_path,
+            "title": title,
+            "type": "bg"
+        })
+
+# 将gallery_bg保存到gallery_bg.js文件中
+content = "const GalleryBg = " + json.dumps(gallery_bg, indent=2) + ";\nexport default GalleryBg;"
+with open("src/views/documents/info/gallery_bg.js", "w") as f:
+    f.write(content)
+# print(gallery_bg)
+
+
+src_pattern = r'\\\"(.*)\\\"'
+
+# 读取文件并替换每一行中匹配到的字符串
+with open('src/views/documents/info/digital_arts.js', 'r') as f:
+    lines = f.readlines()
+
+with open('src/views/documents/info/digital_arts.js', 'w') as f:
+    for line in lines:
+        src = re.findall(src_pattern, line)
+        if src:
+            f.write(f"    \"img\": require(\"{src[0]}\"),\n")
+        else:
+            f.write(line)
+
+print("================== Gallery Digital Arts config Finished")
+
+
+# 读取文件并替换每一行中匹配到的字符串
+with open('src/views/documents/info/gallery_bg.js', 'r') as f:
+    lines = f.readlines()
+
+with open('src/views/documents/info/gallery_bg.js', 'w') as f:
+    for line in lines:
+        src = re.findall(src_pattern, line)
+        if src:
+            f.write(f"    \"img\": require(\"{src[0]}\"),\n")
+        else:
+            f.write(line)
+
+print("================== Gallery Background config Finished")
+
+
+
 print("==================")
 print("Successful")
 print("==================")
