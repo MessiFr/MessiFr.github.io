@@ -5,7 +5,7 @@ const GalleryBg = [
     "type": "bg"
   },
   {
-    "img": require("assets/img/bg_collection/Planet.jpg"),
+    "img": require("assets/img/bg_collection/planet.jpg"),
     "title": "Planet",
     "type": "bg"
   },
@@ -14,18 +14,18 @@ const GalleryBg = [
     "title": "idk",
     "type": "bg"
   },
-  {
-    "img": require("assets/img/bg_collection/Island.jpg"),
-    "title": "Island",
-    "type": "bg"
-  },
+  // {
+  //   "img": require("assets/img/bg_collection/Island.jpg"),
+  //   "title": "Island",
+  //   "type": "bg"
+  // },
   {
     "img": require("assets/img/bg_collection/Kiki.jpg"),
     "title": "Kiki",
     "type": "bg"
   },
   {
-    "img": require("assets/img/bg_collection/Room.jpg"),
+    "img": require("assets/img/bg_collection/room.jpg"),
     "title": "Room",
     "type": "bg"
   },
@@ -61,7 +61,7 @@ const GalleryBg = [
     "type": "bg"
   },
   {
-    "img": require("assets/img/bg_collection/Sakura.jpg"),
+    "img": require("assets/img/bg_collection/sakura.jpg"),
     "title": "Sakura",
     "type": "bg"
   },

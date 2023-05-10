@@ -27,6 +27,7 @@
     "moment": "2.29.4",
     "mui-markdown": "^0.5.6",
     "nouislider": "15.1.0",
+    "openai": "^3.2.1",
     "pdfjs-dist": "^3.4.120",
     "pspdfkit": "^2023.1.4",
     "qrcode.react": "^3.1.0",
