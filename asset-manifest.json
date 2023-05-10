@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.c176cb49.css",
-    "main.js": "/static/js/main.0a33b1d1.js",
+    "main.js": "/static/js/main.093ed83b.js",
     "static/media/Fire Watch Mod Day.jpg": "/static/media/Fire Watch Mod Day.0c3395b37e5e3c26b1d3.jpg",
     "static/media/Pyramid.jpg": "/static/media/Pyramid.a5e66cd20831b741e68a.jpg",
     "static/media/Fire Watch Mod Night.jpg": "/static/media/Fire Watch Mod Night.01abe5c140c0307f8497.jpg",
@@ -9,7 +9,7 @@
     "static/media/idk.jpg": "/static/media/idk.98d0fc33a36490716b61.jpg",
     "static/media/新璃月空港昼_@吃咖喱的poi.jpg": "/static/media/新璃月空港昼_@吃咖喱的poi.fd6aaab849eb9f9b52c9.jpg",
     "static/media/page_bg.jpg": "/static/media/page_bg.59a7c3c9b4baf04afef6.jpg",
-    "static/media/Sakura.jpg": "/static/media/Sakura.b8679cf9e2de94974af7.jpg",
+    "static/media/sakura.jpg": "/static/media/sakura.b8679cf9e2de94974af7.jpg",
     "static/media/Need For Speed.jpg": "/static/media/Need For Speed.d1faab3a06f40fb75f39.jpg",
     "static/media/Aftermath - The man of iron.jpg": "/static/media/Aftermath - The man of iron.196085591d6e6cc00146.jpg",
     "static/media/Valley.jpg": "/static/media/Valley.08f09bb18f25e9b97d9c.jpg",
@@ -23,14 +23,13 @@
     "static/media/Circle Bridge.jpg": "/static/media/Circle Bridge.955ac495529f1a8caab7.jpg",
     "static/media/gallery-page.jpeg": "/static/media/gallery-page.02deeaa6dd3c0294f259.jpeg",
     "static/media/Rei Ayanami_@MessiFr.png": "/static/media/Rei Ayanami_@MessiFr.b5a227b92efc9f74deb0.png",
-    "static/media/Room.jpg": "/static/media/Room.658999c042301b214aa3.jpg",
+    "static/media/room.jpg": "/static/media/room.658999c042301b214aa3.jpg",
     "static/media/Asuka_@MessiFr.png": "/static/media/Asuka_@MessiFr.7d4626585246dd389527.png",
-    "static/media/Island.jpg": "/static/media/Island.b64476e6459f36ce9705.jpg",
     "static/media/Asuka2_@MessiFr.png": "/static/media/Asuka2_@MessiFr.ea850cacb50b8e61501e.png",
     "static/media/Rei Ayanami2_@MessiFr.png": "/static/media/Rei Ayanami2_@MessiFr.de75a57ff6f803b29f35.png",
     "static/media/Asuka3_@MessiFr.png": "/static/media/Asuka3_@MessiFr.4245641b9c0dfe6e8fe7.png",
     "static/media/profile_background.jpeg": "/static/media/profile_background.9b8fd63341a4c4e677e2.jpeg",
-    "static/media/Planet.jpg": "/static/media/Planet.ce6d86200a5ff81493a9.jpg",
+    "static/media/planet.jpg": "/static/media/planet.ce6d86200a5ff81493a9.jpg",
     "static/media/Kiki.jpg": "/static/media/Kiki.e6d910eba90e29192399.jpg",
     "static/media/avatarnew.png": "/static/media/avatarnew.350eb18ece8b313985c1.png",
     "static/media/doc-page.jpeg": "/static/media/doc-page.532681573f7c80f9f59c.jpeg",
@@ -43,10 +42,10 @@
     "static/media/nucleo-outline.woff2": "/static/media/nucleo-outline.802141dd0dcc63b21cbb.woff2",
     "index.html": "/index.html",
     "main.c176cb49.css.map": "/static/css/main.c176cb49.css.map",
-    "main.0a33b1d1.js.map": "/static/js/main.0a33b1d1.js.map"
+    "main.093ed83b.js.map": "/static/js/main.093ed83b.js.map"
   },
   "entrypoints": [
     "static/css/main.c176cb49.css",
-    "static/js/main.0a33b1d1.js"
+    "static/js/main.093ed83b.js"
   ]
 }
