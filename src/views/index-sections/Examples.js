@@ -92,6 +92,27 @@ function Examples() {
               </Button>
             </Grid>
              ) : null}
+             
+             <Grid item xs={12} md={4}>
+              
+                <img
+                  alt="..."
+                  className="img-raised"
+                  src={require("assets/img/trades-page.jpeg")}  // 这是一个假设的图片路径
+                  to='/trades'
+                  width={`${width}px`} height={`${width /3}px`}
+                ></img>
+                
+              <Button
+                className="btn-round"
+                color="default"
+                to="/trades"
+                outline
+                tag={Link}
+              >
+                View Trades
+              </Button>
+            </Grid>
           </Grid>
         </Container>
       </div>

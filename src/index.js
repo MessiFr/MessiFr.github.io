@@ -17,6 +17,7 @@ import ProfilePage from "views/examples/ProfilePage.js";
 import Demo from "views/test";
 import Gallery from "views/examples/Gallery";
 import Chatbot from "views/examples/Chatbot";
+import TradePage from "views/examples/TradePage";
 
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -40,6 +41,10 @@ ReactDOM.render(
         <Route
           path="/gallery"
           render={(props) => <Gallery {...props} />}
+        />
+        <Route
+          path="/trades"
+          render={(props) => <TradePage {...props} />}
         />
         <Route
           path="/chat"

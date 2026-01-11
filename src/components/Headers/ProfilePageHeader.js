@@ -16,8 +16,10 @@ function ProfilePageHeader() {
     if (window.innerWidth > 991) {
       const updateScroll = () => {
         let windowScrollTop = window.pageYOffset / 3;
-        pageHeader.current.style.transform =
-          "translate3d(0," + windowScrollTop + "px,0)";
+        if (pageHeader.current) { // 检查元素是否存在
+          pageHeader.current.style.transform =
+            "translate3d(0," + windowScrollTop + "px,0)";
+        }
       };
       window.addEventListener("scroll", updateScroll);
       return function cleanup() {

@@ -20,25 +20,32 @@ import {
 function ExamplesNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
+  
   React.useEffect(() => {
+    let timeoutId = null;
+    
     const updateNavbarColor = () => {
-      if (
-        document.documentElement.scrollTop > 399 ||
-        document.body.scrollTop > 399
-      ) {
-        setNavbarColor("");
-      } else if (
-        document.documentElement.scrollTop < 400 ||
-        document.body.scrollTop < 400
-      ) {
-        setNavbarColor("navbar-transparent");
+      // 防止在组件卸载后仍然执行
+      if (typeof document !== 'undefined') {
+        const scrolled = (document.documentElement && document.documentElement.scrollTop) || 
+                         (document.body && document.body.scrollTop);
+        
+        if (scrolled > 399) {
+          setNavbarColor("");
+        } else if (scrolled <= 400) {
+          setNavbarColor("navbar-transparent");
+        }
       }
     };
+    
     window.addEventListener("scroll", updateNavbarColor);
+    
     return function cleanup() {
       window.removeEventListener("scroll", updateNavbarColor);
+      if (timeoutId) clearTimeout(timeoutId);
     };
-  });
+  }, []);
+  
   const history = useHistory();
 
   const handleProfileClick = (e) => {
@@ -49,6 +56,11 @@ function ExamplesNavbar() {
   const handleHomePageClick = (e) => {
     e.preventDefault();
     history.push('/index');
+  };
+
+  const handleTradesPageClick = (e) => {
+    e.preventDefault();
+    history.push('/trades');
   };
 
   return (
@@ -83,6 +95,9 @@ function ExamplesNavbar() {
               </DropdownItem> */}
               <DropdownItem href="#pablo" onClick={handleHomePageClick}>
                 HomePage
+              </DropdownItem>
+              <DropdownItem href="#pablo" onClick={handleTradesPageClick}>
+                Trades
               </DropdownItem>
               <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
                 Documents
@@ -124,6 +139,11 @@ function ExamplesNavbar() {
               <NavItem>
                 <NavLink to="/index" tag={Link}>
                   Back to Kit
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="/trades" tag={Link}>
+                  Trades
                 </NavLink>
               </NavItem>
               <NavItem>
