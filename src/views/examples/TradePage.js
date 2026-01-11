@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardBody, CardTitle, Container, Row, Col, Table, Input, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Card, CardContent, CardHeader, Container, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, MenuItem, Select, FormControl, InputLabel, Paper, Box, Typography, Chip, TablePagination, TableFooter } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -17,6 +17,14 @@ import {
 import SolidNavbar from "components/Navbars/SolidNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
 
+// Import Material UI Icons
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+
 // Register Chart.js components
 ChartJS.register(
   CategoryScale,
@@ -29,6 +37,7 @@ ChartJS.register(
   Filler
 );
 
+// 定义数据类型
 const TradePage = () => {
   const [chartData, setChartData] = useState(null);
   const [tableData, setTableData] = useState([]);
@@ -37,7 +46,10 @@ const TradePage = () => {
   const [filteredConceptStageData, setFilteredConceptStageData] = useState([]);
   const [dcNameFilter, setDcNameFilter] = useState('');
   const [stageFilter, setStageFilter] = useState('all');
-  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
+  
+  // Pagination state for concept stage table
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   // Chart options
   const options = {
@@ -146,6 +158,7 @@ const TradePage = () => {
 
           // Prepare table data (most recent entries)
           const tableRows = data.slice(0, 10).map(item => ({
+            key: item.id || `${item.date}_${item.total_assets}`, // Adding key for Ant Design table
             date: item.date,
             portfolioValue: '¥ ' + Number(item.portfolio_value).toLocaleString('zh-CN', { maximumFractionDigits: 0 }),
             totalAssets: '¥ ' + Number(item.total_assets).toLocaleString('zh-CN', { maximumFractionDigits: 0 }),
@@ -166,8 +179,20 @@ const TradePage = () => {
         const conceptResult = await conceptResponse.json();
 
         if (conceptResult.success) {
-          setConceptStageData(conceptResult.data);
-          setFilteredConceptStageData(conceptResult.data);
+          // Map the API response to include keys for the table
+          const conceptData = conceptResult.data.map(item => ({
+            key: item.dc_name, // Using dc_name as key for the table
+            dc_name: item.dc_name,
+            uplift: item.uplift,
+            uplift_pct: item.uplift_pct,
+            turnover_ratio: item.turnover_ratio,
+            heat_score: item.heat_score,
+            current_stage: item.current_stage,
+            stage_desc: item.stage_desc
+          }));
+          
+          setConceptStageData(conceptData);
+          setFilteredConceptStageData(conceptData);
         } else {
           console.error('Concept stage API request failed:', conceptResult.message);
         }
@@ -179,7 +204,7 @@ const TradePage = () => {
     fetchData();
   }, []);
 
-  // Apply filters and sorting when filters change
+  // Apply filters when filters change
   useEffect(() => {
     let result = [...conceptStageData];
     
@@ -195,44 +220,34 @@ const TradePage = () => {
       result = result.filter(item => item.current_stage === stageFilter);
     }
     
-    // Apply sorting
-    if (sortConfig.key) {
-      result.sort((a, b) => {
-        let valA = a[sortConfig.key];
-        let valB = b[sortConfig.key];
-        
-        // 如果是数字字符串，尝试转换为数字
-        if(!isNaN(parseFloat(valA)) && !isNaN(parseFloat(valB))) {
-          valA = parseFloat(valA);
-          valB = parseFloat(valB);
-        }
-        
-        if (valA < valB) {
-          return sortConfig.direction === 'asc' ? -1 : 1;
-        }
-        if (valA > valB) {
-          return sortConfig.direction === 'asc' ? 1 : -1;
-        }
-        return 0;
-      });
-    }
-    
     setFilteredConceptStageData(result);
-  }, [dcNameFilter, stageFilter, sortConfig, conceptStageData]);
-
-  // Handle sorting
-  const requestSort = (key) => {
-    let direction = 'asc';
-    if (sortConfig.key === key && sortConfig.direction === 'asc') {
-      direction = 'desc';
-    }
-    setSortConfig({ key, direction });
-  };
+    // Reset to first page when filters change
+    setPage(0);
+  }, [dcNameFilter, stageFilter, conceptStageData]);
 
   // Get unique stages for dropdown
   const getUniqueStages = () => {
     const stages = [...new Set(conceptStageData.map(item => item.current_stage))];
     return stages;
+  };
+
+  // Determine chip color based on stage
+  const getStageChipColor = (stage) => {
+    if (stage.includes('启动') || stage.includes('初期')) return 'primary';
+    else if (stage.includes('主升') || stage.includes('成长')) return 'success';
+    else if (stage.includes('过热') || stage.includes('高位')) return 'warning';
+    else if (stage.includes('退潮') || stage.includes('回落')) return 'error';
+    return 'default';
+  };
+
+  // Handle pagination change
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
   };
 
   // Helper function to safely format numbers
@@ -260,22 +275,6 @@ const TradePage = () => {
     }
   };
 
-  // Sortable header component
-  const SortableHeader = ({ columnKey, columnName }) => {
-    const isSorted = sortConfig.key === columnKey;
-    const sortIndicator = isSorted 
-      ? (sortConfig.direction === 'asc' ? ' ↑' : ' ↓') 
-      : '';
-    
-    return (
-      <th 
-        onClick={() => requestSort(columnKey)}
-        style={{ cursor: 'pointer' }}
-      >
-        {columnName}{sortIndicator}
-      </th>
-    );
-  };
 
   return (
     <>
@@ -296,169 +295,228 @@ const TradePage = () => {
           </div>
         </div>
         <section className="section section-components pb-0">
-          <Container>
-            <Row className="justify-content-center">
-              <Col lg="12">
-                <h2 className="mb-4 text-center">交易日记</h2>
-                
-                {/* Summary Statistics in a single row */}
-                {summaryStats && (
-                  <Row className="mb-3">
-                    <Col lg="12">
-                      <div className="bg-light p-4 rounded text-dark">
-                        <Row className="text-center">
-                          <Col md="2" className="border-right">
-                            <h5 className="text-uppercase text-dark ls-1 mb-1">初始本金</h5>
-                            <span className="h4 font-weight-bold text-dark">{summaryStats.initialCapital}</span>
-                          </Col>
-                          <Col md="2" className="border-right">
-                            <h5 className="text-uppercase text-dark ls-1 mb-1">最终总资产</h5>
-                            <span className="h4 font-weight-bold text-dark">{summaryStats.finalAssets}</span>
-                          </Col>
-                          <Col md="2" className="border-right">
-                            <h5 className="text-uppercase text-dark ls-1 mb-1">总收益率</h5>
-                            <span className="h4 font-weight-bold text-dark">{summaryStats.totalReturn}</span>
-                          </Col>
-                          <Col md="3" className="border-right">
-                            <h5 className="text-uppercase text-dark ls-1 mb-1">上证指数收益率</h5>
-                            <span className="h4 font-weight-bold text-dark">{summaryStats.benchmarkReturn}</span>
-                          </Col>
-                          <Col md="3">
-                            <h5 className="text-uppercase text-dark ls-1 mb-1">超额收益</h5>
-                            <span className="h4 font-weight-bold text-dark">{summaryStats.excessReturn}</span>
-                          </Col>
-                        </Row>
-                      </div>
-                    </Col>
-                  </Row>
-                )}
+          <Container maxWidth="xl" sx={{ py: 4 }}>
+            <Grid container spacing={3} justifyContent="center">
+              <Grid item xs={12}>
+                <Box display="flex" alignItems="center" mb={4}>
+                  <AssessmentIcon sx={{ fontSize: 32, mr: 1, color: '#1052cc' }} />
+                  <Typography variant="h3" component="h2">交易日记</Typography>
+                </Box>
+              </Grid>
+            
+            {/* Summary Statistics in a single row */}
+            {summaryStats && (
+              <Grid item xs={12}>
+                <Paper elevation={3} sx={{ p: 3, mb: 4, backgroundColor: '#f0f2f5' }}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} md={2.4}>
+                      <Box textAlign="center">
+                        <Box display="flex" alignItems="center" justifyContent="center" mb={1}>
+                          <AccountBalanceIcon sx={{ fontSize: 20, mr: 1, color: '#666' }} />
+                          <Typography variant="subtitle2" color="textSecondary">初始本金</Typography>
+                        </Box>
+                        <Typography variant="h6" fontWeight="bold" color="#333">{summaryStats.initialCapital}</Typography>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} md={2.4}>
+                      <Box textAlign="center">
+                        <Box display="flex" alignItems="center" justifyContent="center" mb={1}>
+                          <TrendingUpIcon sx={{ fontSize: 20, mr: 1, color: '#666' }} />
+                          <Typography variant="subtitle2" color="textSecondary">最终总资产</Typography>
+                        </Box>
+                        <Typography variant="h6" fontWeight="bold" color="#333">{summaryStats.finalAssets}</Typography>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} md={2.4}>
+                      <Box textAlign="center">
+                        <Box display="flex" alignItems="center" justifyContent="center" mb={1}>
+                          <ShowChartIcon sx={{ fontSize: 20, mr: 1, color: '#666' }} />
+                          <Typography variant="subtitle2" color="textSecondary">总收益率</Typography>
+                        </Box>
+                        <Typography variant="h6" fontWeight="bold" color="#333">{summaryStats.totalReturn}</Typography>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} md={2.4}>
+                      <Box textAlign="center">
+                        <Box display="flex" alignItems="center" justifyContent="center" mb={1}>
+                          <EqualizerIcon sx={{ fontSize: 20, mr: 1, color: '#666' }} />
+                          <Typography variant="subtitle2" color="textSecondary">上证指数收益率</Typography>
+                        </Box>
+                        <Typography variant="h6" fontWeight="bold" color="#333">{summaryStats.benchmarkReturn}</Typography>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} md={2.4}>
+                      <Box textAlign="center">
+                        <Box display="flex" alignItems="center" justifyContent="center" mb={1}>
+                          <EmojiEventsIcon sx={{ fontSize: 20, mr: 1, color: '#666' }} />
+                          <Typography variant="subtitle2" color="textSecondary">超额收益</Typography>
+                        </Box>
+                        <Typography variant="h6" fontWeight="bold" color="#333">{summaryStats.excessReturn}</Typography>
+                      </Box>
+                    </Grid>
+                  </Grid>
+                </Paper>
+              </Grid>
+            )}
 
-                {/* Chart Section */}
-                <Card className="shadow mb-5">
-                  <CardBody>
-                    <CardTitle tag="h3" className="mb-4 text-center">策略收益 vs 上证指数</CardTitle>
+            {/* Chart Section */}
+            <Grid item xs={12}>
+                <Card elevation={3} sx={{ mb: 4 }}>
+                  <CardHeader 
+                    title={
+                      <Box textAlign="center" pt={1}>
+                        <Typography variant="h5" component="div">策略收益 vs 上证指数</Typography>
+                      </Box>
+                    } 
+                  />
+                  <CardContent sx={{ height: '800px' }}>
                     {chartData ? (
-                      <div style={{ height: '550px' }}>
+                      <Box sx={{ height: '100%', width: '100%' }}>
                         <Line data={chartData} options={options} />
-                      </div>
+                      </Box>
                     ) : (
-                      <p>Loading chart data...</p>
+                      <Typography variant="body1">Loading chart data...</Typography>
                     )}
-                  </CardBody>
+                  </CardContent>
                 </Card>
+              </Grid>
 
-                {/* Trading History Table */}
-                <Card className="shadow">
-                  <CardBody>
-                    <CardTitle tag="h3" className="mb-4 text-center">近期收益</CardTitle>
-                    <Table responsive>
-                      <thead>
-                        <tr>
-                          <th>Date</th>
-                          <th>Total Assets</th>
-                          <th>Position</th>
-                          <th>Daily Return</th>
-                          <th>Daily Return (%)</th>
-                          <th>Cumulative Return</th>
-                          <th>Holdings Count</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {tableData.map((row, index) => (
-                          <tr key={index}>
-                            <td>{row.date}</td>
-                            <td>{row.totalAssets}</td>
-                            <td>{row.portfolioValue}</td>
-                            <td>{row.dailyReturn}</td>
-                            <td>{row.dailyReturn1}</td>
-                            <td>{row.cumReturn}</td>
-                            <td>{row.holdings}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </Table>
-                  </CardBody>
+            {/* Trading History Table */}
+            <Grid item xs={12}>
+                <Card elevation={3} sx={{ mb: 4 }}>
+                  <CardHeader title={
+                    <Typography variant="h5" component="div">近期收益</Typography>
+                  } />
+                  <CardContent>
+                    <TableContainer>
+                      <Table>
+                        <TableHead>
+                          <TableRow>
+                            <TableCell>日期</TableCell>
+                            <TableCell>总资产</TableCell>
+                            <TableCell>仓位</TableCell>
+                            <TableCell>日收益</TableCell>
+                            <TableCell>日收益率</TableCell>
+                            <TableCell>累计收益率</TableCell>
+                            <TableCell>持仓数</TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {tableData.map((row) => (
+                            <TableRow key={row.key}>
+                              <TableCell>{row.date}</TableCell>
+                              <TableCell>{row.totalAssets}</TableCell>
+                              <TableCell>{row.portfolioValue}</TableCell>
+                              <TableCell>{row.dailyReturn}</TableCell>
+                              <TableCell>{row.dailyReturn1}</TableCell>
+                              <TableCell>{row.cumReturn}</TableCell>
+                              <TableCell>{row.holdings}</TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  </CardContent>
                 </Card>
+              </Grid>
 
-                {/* Concept Stage Table with Filters */}
-                <Card className="shadow mt-5">
-                  <CardBody>
-                    <CardTitle tag="h3" className="mb-4 text-center">概念板块分析</CardTitle>
-                    
+            {/* Concept Stage Table with Filters */}
+            <Grid item xs={12}>
+                <Card elevation={3}>
+                  <CardHeader 
+                    title={
+                      <Typography variant="h5" component="div">概念板块分析</Typography>
+                    } 
+                  />
+                  <CardContent>
                     {/* Filter Controls */}
-                    <Row className="mb-3">
-                      <Col md="6">
-                        <label>概念板块名称:</label>
-                        <Input
-                          type="text"
-                          placeholder="输入概念板块名称进行筛选..."
-                          value={dcNameFilter}
-                          onChange={(e) => setDcNameFilter(e.target.value)}
-                        />
-                      </Col>
-                      <Col md="6">
-                        <label>当前阶段:</label>
-                        <UncontrolledDropdown block>
-                          <DropdownToggle tag="div" className="btn-block text-left" caret>
-                            {stageFilter === 'all' ? '全部阶段' : stageFilter}
-                          </DropdownToggle>
-                          <DropdownMenu container="body" className="w-100">
-                            <DropdownItem 
-                              onClick={() => setStageFilter('all')}
-                              active={stageFilter === 'all'}
-                            >
-                              全部阶段
-                            </DropdownItem>
-                            {getUniqueStages().map((stage, index) => (
-                              <DropdownItem 
-                                key={index}
-                                onClick={() => setStageFilter(stage)}
-                                active={stageFilter === stage}
-                              >
-                                {stage}
-                              </DropdownItem>
-                            ))}
-                          </DropdownMenu>
-                        </UncontrolledDropdown>
-                      </Col>
-                    </Row>
+                    <Box mb={3} display="flex" gap={2} flexWrap="wrap">
+                      <TextField
+                        label="概念板块名称"
+                        variant="outlined"
+                        fullWidth={false}
+                        value={dcNameFilter}
+                        onChange={(e) => setDcNameFilter(e.target.value)}
+                        sx={{ minWidth: 250 }}
+                      />
+                      <FormControl sx={{ minWidth: 200 }}>
+                        <InputLabel>当前阶段</InputLabel>
+                        <Select
+                          value={stageFilter}
+                          onChange={(e) => setStageFilter(e.target.value)}
+                          label="当前阶段"
+                        >
+                          <MenuItem value="all">全部阶段</MenuItem>
+                          {getUniqueStages().map((stage, index) => (
+                            <MenuItem key={index} value={stage}>{stage}</MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </Box>
                     
-                    <Table responsive>
-                      <thead>
-                        <tr>
-                          <SortableHeader columnKey="dc_name" columnName="概念板块" />
-                          <SortableHeader columnKey="uplift" columnName="提振" />
-                          <SortableHeader columnKey="uplift_pct" columnName="提振百分比" />
-                          <SortableHeader columnKey="turnover_ratio" columnName="换手率" />
-                          <SortableHeader columnKey="heat_score" columnName="热度评分" />
-                          <SortableHeader columnKey="current_stage" columnName="当前阶段" />
-                          <th>阶段描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {filteredConceptStageData.length > 0 ? (
-                          filteredConceptStageData.map((item, index) => (
-                            <tr key={index}>
-                              <td>{item.dc_name}</td>
-                              <td>{item.uplift || 'N/A'}</td>
-                              <td>{safeFormatNumber(item.uplift_pct, 2, true)}</td>
-                              <td>{safeFormatNumber(item.turnover_ratio, 2, true)}</td>
-                              <td>{safeFormatNumber(item.heat_score, 2)}</td>
-                              <td>{item.current_stage}</td>
-                              <td>{item.stage_desc}</td>
-                            </tr>
-                          ))
-                        ) : (
-                          <tr>
-                            <td colSpan="7" className="text-center">没有找到匹配的数据</td>
-                          </tr>
-                        )}
-                      </tbody>
-                    </Table>
-                  </CardBody>
+                    <TableContainer component={Paper}>
+                      <Table>
+                        <TableHead>
+                          <TableRow>
+                            <TableCell>概念板块</TableCell>
+                            <TableCell>提振</TableCell>
+                            <TableCell>提振百分比</TableCell>
+                            <TableCell>换手率</TableCell>
+                            <TableCell>热度评分</TableCell>
+                            <TableCell>当前阶段</TableCell>
+                            <TableCell>阶段描述</TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {filteredConceptStageData.length > 0 ? (
+                            filteredConceptStageData
+                              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                              .map((item) => (
+                                <TableRow key={item.key}>
+                                  <TableCell><Typography component="a" href="#" color="primary">{item.dc_name}</Typography></TableCell>
+                                  <TableCell>{item.uplift || 'N/A'}</TableCell>
+                                  <TableCell>{safeFormatNumber(item.uplift_pct, 2, true)}</TableCell>
+                                  <TableCell>{safeFormatNumber(item.turnover_ratio, 2, true)}</TableCell>
+                                  <TableCell>{safeFormatNumber(item.heat_score, 2)}</TableCell>
+                                  <TableCell>
+                                    <Chip 
+                                      label={item.current_stage} 
+                                      color={getStageChipColor(item.current_stage)} 
+                                      size="small" 
+                                    />
+                                  </TableCell>
+                                  <TableCell>{item.stage_desc}</TableCell>
+                                </TableRow>
+                              ))
+                          ) : (
+                            <TableRow>
+                              <TableCell colSpan={7} align="center">没有找到匹配的数据</TableCell>
+                            </TableRow>
+                          )}
+                        </TableBody>
+                        <TableFooter>
+                          <TableRow>
+                            <TablePagination
+                              rowsPerPageOptions={[5, 10, 25]}
+                              colSpan={7}
+                              count={filteredConceptStageData.length}
+                              rowsPerPage={rowsPerPage}
+                              page={page}
+                              onPageChange={handleChangePage}
+                              onRowsPerPageChange={handleChangeRowsPerPage}
+                              labelRowsPerPage="每页行数"
+                              labelDisplayedRows={({ from, to, count }) => {
+                                return `${from}-${to} 共 ${count} 条记录`;
+                              }}
+                            />
+                          </TableRow>
+                        </TableFooter>
+                      </Table>
+                    </TableContainer>
+                  </CardContent>
                 </Card>
-              </Col>
-            </Row>
+              </Grid>
+          </Grid>
           </Container>
         </section>
         <DefaultFooter />

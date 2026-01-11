@@ -18,6 +18,7 @@
     "@react-pdf-viewer/core": "^3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "@react-pdf/renderer": "^3.1.9",
+    "antd": "^4.24.16",
     "better-react-mathjax": "^2.0.2",
     "chart.js": "^3.9.1",
     "font-awesome": "^4.7.0",
