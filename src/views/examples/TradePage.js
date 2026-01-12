@@ -474,9 +474,9 @@ const TradePage = () => {
                               .map((item) => (
                                 <TableRow key={item.key}>
                                   <TableCell><Typography component="a" href="#" color="primary">{item.dc_name}</Typography></TableCell>
-                                  <TableCell>{item.uplift || 'N/A'}</TableCell>
-                                  <TableCell>{safeFormatNumber(item.uplift_pct, 2, true)}</TableCell>
-                                  <TableCell>{safeFormatNumber(item.turnover_ratio, 2, true)}</TableCell>
+                                  <TableCell>{safeFormatNumber(item.uplift, 2) || 'N/A'}</TableCell>
+                                  <TableCell>{safeFormatNumber(item.uplift_pct / 100, 1, true)}</TableCell>
+                                  <TableCell>{safeFormatNumber(item.turnover_ratio / 100, 1, true)}</TableCell>
                                   <TableCell>{safeFormatNumber(item.heat_score, 2)}</TableCell>
                                   <TableCell>
                                     <Chip 

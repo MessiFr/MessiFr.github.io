@@ -90,6 +90,9 @@ function IndexNavbar(props) {
                 <DropdownItem onClick={handleClick('/documents')} >
                   Documents
                 </DropdownItem>
+                <DropdownItem onClick={handleClick('/trades')} >
+                  Trades
+                </DropdownItem>
                 <DropdownItem href="#pablo" >
                   Resume
                 </DropdownItem>
