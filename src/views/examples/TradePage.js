@@ -860,11 +860,11 @@ const TradePage = () => {
                       </FormControl>
                       
                       <FormControl sx={{ minWidth: 150 }}>
-                        <InputLabel>长期确认</InputLabel>
+                        <InputLabel>上涨趋势确认</InputLabel>
                         <Select
                           value={buySignalFilter.long_confirm}
                           onChange={(e) => setBuySignalFilter({...buySignalFilter, long_confirm: e.target.value})}
-                          label="长期确认"
+                          label="上涨趋势确认"
                         >
                           <MenuItem value="all">全部</MenuItem>
                           <MenuItem value="true">是</MenuItem>
@@ -906,7 +906,7 @@ const TradePage = () => {
                             <TableCell>做多条件确认</TableCell>
                             <TableCell>StochRSI买信号</TableCell>
                             <TableCell>费舍尔买信号</TableCell>
-                            <TableCell>长期确认</TableCell>
+                            <TableCell>上涨趋势确认</TableCell>
                             <TableCell>超EMA5</TableCell>
                             <TableCell>超级趋势变化</TableCell>
                             <TableCell>概念板块</TableCell>
