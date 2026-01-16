@@ -93,5 +93,5 @@
     "@iconify/react": "^4.1.0",
     "gh-pages": "^5.0.0"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:3001"
 }
